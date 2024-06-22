@@ -1,0 +1,97 @@
+; Source for menu build - heading and item order.
+; heading=heading=English Heading
+; manual=heading=filename
+
+heading=getting-started=Getting Started
+developer=getting-started=developer-required-software.md
+developer=getting-started=xampp.md
+developer=getting-started=apache-php-handler.md
+developer=getting-started=developer-file-structure.md
+developer=getting-started=visual-studio-code-primer.md
+developer=getting-started=developer-eclipse-pdt.md
+
+heading=developer-information=Developer Information
+developer=developer-information=setting-up-your-local-environment.md
+developer=developer-information=working-with-git-and-github.md
+developer=developer-information=setting-up-eclipse-pdt-2020-and-git-for-pulls.md
+developer=developer-information=manifest-files.md
+developer=developer-information=package.md
+developer=developer-information=namespace-conventions-in-joomla.md
+developer=developer-information=web-assets.md
+developer=developer-information=dependency-injection-in-joomla-4.md
+developer=developer-information=joomla-core-apis.md
+developer=developer-information=api-guides.md
+developer=developer-information=deploying-an-update-server.md
+developer=developer-information=adding-changelog.md
+developer=developer-information=joomla-codesniffer.md
+
+heading=plugin-development=Plugin Development
+developer=plugin-development=creating-a-plugin-for-joomla.md
+developer=plugin-development=creating-an-authentication-plugin-for-joomla.md
+developer=plugin-development=creating-a-smart-search-plug-in.md
+developer=plugin-development=triggering-content-plugins-in-your-extension.md
+developer=plugin-development=cloud-file-systems-for-media-manager.md
+developer=plugin-development=j4-plugin-example-table-of-contents.md
+
+heading=module-development=Module Development
+developer=module-development=creating-a-simple-module.md
+developer=module-development=j4-module-example-mydownmsg.md
+
+heading=developing-an-mvc-component=Developing an MVC Component
+developer=developing-an-mvc-component=developing-an-mvc-component.md
+developer=developing-an-mvc-component=developing-an-mvc-component-introduction.md
+developer=developing-an-mvc-component=developing-an-mvc-component-developing-a-basic-component.md
+developer=developing-an-mvc-component=developing-an-mvc-component-adding-a-view-to-the-site-part.md
+developer=developing-an-mvc-component=developing-an-mvc-component-adding-a-menu-type-to-the-site-part.md
+developer=developing-an-mvc-component=developing-an-mvc-component-language-management.md
+developer=developing-an-mvc-component=developing-an-mvc-component-adding-a-model-to-the-site-part.md
+developer=developing-an-mvc-component=developing-an-mvc-component-adding-a-request-variable-in-the-menu-link.md
+developer=developing-an-mvc-component=developing-an-mvc-component-setting-up-the-database.md
+developer=developing-an-mvc-component=adding-an-api-to-a-joomla-component.md
+
+heading=mvc-anatomy=MVC Anatomy
+developer=mvc-anatomy=mvc-anatomy-getting-started.md
+developer=mvc-anatomy=mvc-anatomy-file-structure.md
+developer=mvc-anatomy=mvc-anatomy-manifest-file.md
+developer=mvc-anatomy=mvc-anatomy-site-files.md
+developer=mvc-anatomy=mvc-anatomy-administrator-startup-files.md
+developer=mvc-anatomy=mvc-anatomy-administrator-edit-files.md
+
+heading=mvc-examples=MVC Examples
+developer=mvc-examples=j4-component-example-mywalks.md
+developer=mvc-examples=my-walks-part-1-the-site-code.md
+developer=mvc-examples=my-walks-part-2-the-administrator-code.md
+developer=mvc-examples=j4-developer-resources.md
+
+heading=cli-development=CLI Development
+developer=cli-development=writing-a-cli-application.md
+developer=cli-development=cli-database-exporter-importer.md
+developer=cli-development=cli-update.md
+developer=cli-development=cli-example-onoffbydate.md
+
+heading=database=Database
+developer=database=moving-joomla-to-prepared-statements.md
+developer=database=selecting-data-using-jdatabase.md
+developer=database=inserting-updating-and-removing-data-using-jdatabase.md
+
+heading=coding-examples=Coding Examples
+developer=coding-examples=form-validation.md
+developer=coding-examples=tips-and-tricks-for-joomla-4-developers.md
+developer=coding-examples=using-bootstrap-components-in-joomla-4.md
+developer=coding-examples=how-to-use-the-date-class.md
+
+heading=advanced-developer=Advanced Developer
+developer=advanced-developer=automated-system-testing.md
+developer=advanced-developer=scss-and-sass.md
+
+heading=advanced-administrator=Advanced Administrator
+developer=advanced-administrator=http-header-management.md
+developer=advanced-administrator=improved-override-management.md
+developer=advanced-administrator=language-pack-updates.md
+
+heading=unclassified=Unclassified
+developer=unclassified=joomla-entities.md
+developer=unclassified=changed-parameters-for-template-providers.md
+developer=unclassified=clientsideevents.md
+developer=unclassified=page-builder.md
+developer=unclassified=response-formats.md
