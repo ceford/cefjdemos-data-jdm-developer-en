@@ -223,48 +223,51 @@ purposes. Two common files at this level:
 The following code contains an exmple build.xml file to go in the root
 of your HelloUniverse project.
 
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hellouniverse" basedir="." default="main">
+    <property file=".project" />
 
-        
+    <!-- Source and Destinations -->
 
-        
+    <property name="package"  value="${phing.project.name}" override="true" />
+    <property name="srcdir" value="${project.basedir}/com_hellouniverse" override="true" />
+    <property name="sitedir" value="/Users/username/Sites/j4tutorials"  override="true" />
+    <property name="zipsdir" value="/Users/username/zips"  override="true" />
 
-        
-        
-        
-        
+    <!-- Filesets -->
 
-        
+    <fileset dir="${srcdir}/admin" id="adminfiles">
+        <include name="**" />
+    </fileset>
+    <fileset dir="${srcdir}/media" id="mediafiles">
+        <include name="**" />
+    </fileset>
+	<fileset dir="${srcdir}/site" id="sitefiles">
+        <include name="**" />
+    </fileset>
+    <fileset dir="${srcdir}" id="allfiles">
+        <include name="**" />
+    </fileset>
 
-        
-            
-        
-        
-            
-        
-        
-            
-        
-        
-            
-        
+    <!-- Targets -->
 
-        
-
-        
-            
-                
-            
-            
-                
-            
-            
-                
-            
-            
-                
-            
-        
-
+    <target name="main" description="main target">
+        <copy todir="${sitedir}/administrator/components/com_hellouniverse">
+            <fileset refid="adminfiles" />
+        </copy>
+        <copy todir="${sitedir}/media/com_hellouniverse">
+            <fileset refid="mediafiles" />
+        </copy>
+        <copy todir="${sitedir}/components/com_hellouniverse">
+            <fileset refid="sitefiles" />
+        </copy>
+        <zip destfile="${zipsdir}/com_hellouniverse.zip">
+            <fileset refid="allfiles" />
+        </zip>
+    </target>
+</project>
+```
 Some explanations:
 
 - **srcdir** is the file system location of your source code, where

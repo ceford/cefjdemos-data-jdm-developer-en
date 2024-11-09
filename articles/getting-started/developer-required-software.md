@@ -1,4 +1,4 @@
-<!-- Filename: J4.x:Developer:_Required_Software / Display title: Developer: Required Software -->
+<!-- Filename: J4.x:Developer:_Required_Software / Display title: Required Software -->
 
 ## Introduction
 
@@ -22,7 +22,7 @@ mean the following:
 - **P: PHP** scripting language. A widely used scripting language. There
   is no alternative as Joomla is coded in PHP.
 
-In addition to thee items you will also need:
+In addition to these items you will also need:
 
 - **phpMyAdmin** a tool used for managing MySQL and MariaDB databases.
 - **xDebug** an extension to PHP used for debugging.
