@@ -1,4 +1,4 @@
-<!-- Filename: J4.x:Developer:_Eclipse_PDT / Display title: Developer: Eclipse PDT -->
+<!-- Filename: J4.x:Developer:_Eclipse_PDT / Display title: Eclipse PDT -->
 
 ## Introduction
 

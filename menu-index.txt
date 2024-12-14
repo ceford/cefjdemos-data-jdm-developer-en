@@ -3,27 +3,37 @@
 ; manual=heading=filename
 
 heading=getting-started=Getting Started
+developer=getting-started=preface.md
 developer=getting-started=developer-required-software.md
-developer=getting-started=xampp.md
-developer=getting-started=apache-php-handler.md
+developer=getting-started=databases.md
+developer=getting-started=install-joomla.md
 developer=getting-started=developer-file-structure.md
+
+heading-1=ides=IDEs
+developer=getting-started=ides.md
 developer=getting-started=visual-studio-code-primer.md
 developer=getting-started=developer-eclipse-pdt.md
 
-heading=developer-information=Developer Information
-developer=developer-information=setting-up-your-local-environment.md
+heading-1=core-contributions=Core Contributions
 developer=developer-information=working-with-git-and-github.md
+developer=developer-information=setting-up-your-local-environment.md
 developer=developer-information=setting-up-eclipse-pdt-2020-and-git-for-pulls.md
+
+heading=developer-information=General Concepts
+developer=developer-information=namespaces.md
 developer=developer-information=manifest-files.md
+developer=developer-information=dependency-injection.md
+
 developer=developer-information=package.md
-developer=developer-information=namespace-conventions-in-joomla.md
 developer=developer-information=web-assets.md
-developer=developer-information=dependency-injection-in-joomla-4.md
 developer=developer-information=joomla-core-apis.md
 developer=developer-information=api-guides.md
 developer=developer-information=deploying-an-update-server.md
 developer=developer-information=adding-changelog.md
 developer=developer-information=joomla-codesniffer.md
+
+heading=tips=Tips
+developer=getting-started=apache-php-handler.md
 
 heading=plugin-development=Plugin Development
 developer=plugin-development=creating-a-plugin-for-joomla.md

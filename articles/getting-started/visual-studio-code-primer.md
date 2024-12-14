@@ -1,4 +1,4 @@
-<!-- Filename: Visual_Studio_Code_Primer / Display title: Visual Studio Code Primer -->
+<!-- Filename: Visual_Studio_Code_Primer / Display title: Visual Studio Code -->
 
 ## VS Code - A Popular Free IDE
 
@@ -220,13 +220,13 @@ Response:
 
 ```bash
     Buildfile: /Users/ceford/git/j4xdemos-mod-debugme/build.xml
-     
+
     mod_debugme > main:
           ... Any copied files will be mentioned here
           [zip] Building zip: /Users/ceford/zips/mod_debugme.zip
-     
+
     BUILD FINISHED
-     
+
     Total time: 0.0863 seconds
 ```
 
@@ -266,7 +266,7 @@ result of the command should appear in the Terminal Panel beneath the
 Edit area.
 
 ```bash
-      *  Executing task: php ~/bin/phing-latest.phar 
+      *  Executing task: php ~/bin/phing-latest.phar
 
     Buildfile: /Users/ceford/git/gitdemo/j4xdemos-mod-debugme/build.xml
 

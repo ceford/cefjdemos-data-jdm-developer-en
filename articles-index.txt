@@ -21,13 +21,13 @@ database=selecting-data-using-jdatabase.md=https://docs.joomla.org/J4.x:Selectin
 
 developer-information=adding-changelog.md=https://docs.joomla.org/Adding_changelog_to_your_manifest_file
 developer-information=api-guides.md=https://docs.joomla.org/API_Guides
-developer-information=dependency-injection-in-joomla-4.md=https://docs.joomla.org/J4.x:Dependency_Injection_in_Joomla_4
+developer-information=dependency-injection.md=https://docs.joomla.org/J4.x:Dependency_Injection_in_Joomla_4
 developer-information=deploying-an-update-server.md=https://docs.joomla.org/Deploying_an_Update_Server
 developer-information=joomla-codesniffer.md=https://docs.joomla.org/Joomla_CodeSniffer
 developer-information=joomla-core-apis.md=https://docs.joomla.org/J4.x:Joomla_Core_APIs
 developer-information=manifest-files.md=https://docs.joomla.org/Manifest_files
 developer-information=package.md=https://docs.joomla.org/Package
-developer-information=namespace-conventions-in-joomla.md=https://docs.joomla.org/J4.x:Namespace_Conventions_In_Joomla
+developer-information=namespaces.md=https://docs.joomla.org/J4.x:Namespace_Conventions_In_Joomla
 developer-information=setting-up-eclipse-pdt-2020-and-git-for-pulls.md=https://docs.joomla.org/Setting_up_Eclipse_PDT_2020_and_Git_for_Pulls
 developer-information=setting-up-your-local-environment.md=https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment
 developer-information=web-assets.md=https://docs.joomla.org/J4.x:Web_Assets
@@ -44,12 +44,17 @@ developing-an-mvc-component=developing-an-mvc-component-language-management.md=h
 developing-an-mvc-component=developing-an-mvc-component-setting-up-the-database.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Setting_up_the_Database
 developing-an-mvc-component=developing-an-mvc-component.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component
 
-getting-started=apache-php-handler.md=https://docs.joomla.org/J4.x:Apache_PHP_Handler
-getting-started=developer-eclipse-pdt.md=https://docs.joomla.org/J4.x:Developer:_Eclipse_PDT
-getting-started=developer-file-structure.md=https://docs.joomla.org/J4.x:Developer:_File_Structure
+getting-started=preface.md=https://jdocmanual.org/jdocmanual?article=developer/gettting-started/preface
 getting-started=developer-required-software.md=https://docs.joomla.org/J4.x:Developer:_Required_Software
+getting-started=databases.md=https://jdocmanual.org/jdocmanual?article=developer/gettting-started/databases
+getting-started=install-joomla.md=https://jdocmanual.org/jdocmanual?article=developer/gettting-started/install-joomla
+getting-started=developer-file-structure.md=https://docs.joomla.org/J4.x:Developer:_File_Structure
+
+getting-started=ides.md=https://jdocmanual.org/jdocmanual?article=developer/gettting-started/ides
 getting-started=visual-studio-code-primer.md=https://docs.joomla.org/Visual_Studio_Code_Primer
-getting-started=xampp.md=https://docs.joomla.org/XAMPP
+getting-started=developer-eclipse-pdt.md=https://docs.joomla.org/J4.x:Developer:_Eclipse_PDT
+
+getting-started=apache-php-handler.md=https://docs.joomla.org/J4.x:Apache_PHP_Handler
 
 module-development=creating-a-simple-module.md=https://docs.joomla.org/J4.x:Creating_a_Simple_Module
 module-development=j4-module-example-mydownmsg.md=https://docs.joomla.org/J4.x:J4_Module_example_-_Mydownmsg

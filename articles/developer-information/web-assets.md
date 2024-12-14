@@ -102,11 +102,13 @@ next section).
 Joomla! will look for asset definitions automatically at runtime
 (in the following order):
 
+```
     media/vendor/joomla.asset.json (on first access to WebAssetRegistry)
     media/system/joomla.asset.json
     media/legacy/joomla.asset.json
     media/{com_active_component}/joomla.asset.json (on dispatch the application)
     templates/{active_template}/joomla.asset.json
+```
 
 And load them into the registry of known assets.
 
@@ -329,6 +331,7 @@ you will get an unsatisfied dependency exception.
 
 Example above will produce:
 
+```
     ...
     content of inline3
 
@@ -338,8 +341,9 @@ Example above will produce:
     content of inline1
     content of inline4
     ...
+```
 
-If an inline asset has multiple dependencies, the last one will be used 
+If an inline asset has multiple dependencies, the last one will be used
 for positioning. Example:
 
 ```php
@@ -349,11 +353,13 @@ for positioning. Example:
 
 Will produce:
 
+```
     ...
     content of inline1
 
     content of inline2
     ...
+```
 
 **Note:** Named inline assets may be dependent on other inline
 assets. However it is not recommended to use an inline asset as a
@@ -398,7 +404,7 @@ Example json definition of ES6 module script, with fallback to legacy:
         "type": "module"
       },
       "dependencies": [
-        "core", 
+        "core",
         "foobar-legacy"
       ]
     }
@@ -465,6 +471,7 @@ you will get an unsatisfied dependency exception.
 
 Example above will produce:
 
+```
     ...
     content of inline3
 
@@ -475,6 +482,7 @@ Example above will produce:
     content of inline4
     content of inline5
     ...
+```
 
 If an inline asset has multiple dependencies, the last one will be used
 for positioning. Example:
@@ -486,12 +494,14 @@ for positioning. Example:
 
 Will produce:
 
+```
     ...
 
     content of inline1
 
     content of inline2
     ...
+```
 
 **Note:** A named inline asset may be a dependency for another inline
 asset. However, it is not recommended to use an inline asset as a dependency
