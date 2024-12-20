@@ -4,6 +4,8 @@
 
 The use of **PHP Namespaces** is a way to group related classes, interfaces, functions, and constants to avoid name conflicts in larger projects. They allow developers to organize code more effectively, especially when working with third-party libraries or large codebases that might have duplicate class names.
 
+There is more information in the [Namespace](jdocmanual?article=docus/namespaces/index) section of the Joomla! Programmers Documentation.
+
 ### Key Features of PHP Namespaces
 
 1. **Avoid Naming Conflicts**:
@@ -87,8 +89,4 @@ $result = $magic->dosomething('wonderful');
 
 This file is located in the administrator/cache folder of the Joomla site. It contains a complete map of the namespaces extracted from manifest files. It is generated on installation and regenerated whenever an extension is installed or reinstalled. You can delete this file and it will be regenerated on the next page load. It is sometime necessary to do this if extension installation has been attempted by an unusual method. The file contains 275 or more paths to namespaced class locations.
 
-There is more information in the [Namespace](jdocmanual?article=docus/namespaces/index) section of the Joomla! Programmers Documentation.
-
 **PSR** is an acronym for [**PHP Standards Recommendation**](https://www.php-fig.org/psr/) and [**PSR-4: Autoloader**](https://www.php-fig.org/psr/psr-4/) is an accepted standard for loading PHP classes.
-
-

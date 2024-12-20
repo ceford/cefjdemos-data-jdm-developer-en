@@ -1,27 +1,24 @@
-<!-- Filename: Packgea / Display title: Package -->
+<!-- Filename: https://docs.joomla.org/Package / Display title: Packages -->
 
-## Note on the Component Dependent Modules
+## Introduction to Packages
 
-Sometimes modules (or plugins and so on) use a component's models and helpers and such. On these occasions it would be nice to be able to package your module in a way that it gets uninstalled when the component itself gets uninstalled. This is called dependency management that has been desired in Joomla but hasn't been done yet.
-It is suggested that you follow the standards and use a package as described below.
+Sometimes a module (or plugin or other extension) uses a component's models or helpers. On these occasions it is best to be able to install or uninstall a dependent module when the component itself is installed or uninstalled. In Joomla, this functionality is achieved with a package, although the use of packages is not foolproof.
 
-## What is a Package?
+A package is an extension that is used to install multiple extensions at one time. Combining them in a package allows the user to install and uninstall two or more extensions in a single operation.
 
-A package is a extension that is used to install multiple extensions at one time. Use a package if you have, for example, a component and a module that are dependent upon each other. Combining them in a package will allow the user to install and uninstall both extensions in a single operation. 
+## Package Creation
 
-## How Do I Create a Package?
-
-A package extension is created by zipping all ''.zip'' files of the extensions together with a ''.xml'' manifest file. For example, if you have a package composed of:
+A package is created by zipping all of the individual extension `.zip` files together with an `.xml` manifest file. For example, for a package composed of:
 
 * **component** helloworld
 * **module** helloworld
-* **library** helloworld 
-* **system plugin** helloworld 
+* **library** helloworld
+* **system plugin** helloworld
 * **template** helloworld
 
-The package should have the following tree in your zipfile:
+The package would have the following tree in the zipfile:
 
-```bash
+```sh
   -- pkg_helloworld.xml
   -- packages <dir>
       |-- com_helloworld.zip
@@ -32,35 +29,36 @@ The package should have the following tree in your zipfile:
   -- pkg_script.php
 ```
 
-The ''pkg_helloworld.xml'' could have the following contents:
+The `pkg_helloworld.xml` could have the following contents:
 
 ```xml
- <?xml version="1.0" encoding="UTF-8" ?>
- <extension type="package" version="1.6" method="upgrade">
- <name>Hello World Package</name>
- <author>Hello World Package Team</author>
- <creationDate>May 2012</creationDate>
- <packagename>helloworld</packagename>
- <version>1.0.0</version>
- <url>http://www.yoururl.com/</url>
- <packager>Hello World Package Team</packager>
- <packagerurl>http://www.yoururl.com/</packagerurl>
- <description>Example package to combine multiple extensions</description>
- <update>http://www.updateurl.com/update</update>
- <scriptfile>pkg_script.php</scriptfile>
- <files folder="packages">
-   <file type="component" id="com_helloworld" >com_helloworld.zip</file>
-   <file type="module" id="helloworld" client="site">mod_helloworld.zip</file>
-   <file type="library" id="helloworld">lib_helloworld.zip</file>
-   <file type="plugin" id="helloworld" group="system">plg_sys_helloworld.zip</file>
-   <file type="template" id="helloworld" client="site">tpl_helloworld.zip</file>
- </files>
- </extension>
+<?xml version="1.0" encoding="UTF-8" ?>
+<extension type="package" method="upgrade">
+<name>Hello World Package</name>
+<author>Hello World Package Team</author>
+<creationDate>May 2022</creationDate>
+<packagename>helloworld</packagename>
+<version>1.0.0</version>
+<url>http://www.yoururl.com/</url>
+<packager>Hello World Package Team</packager>
+<packagerurl>http://www.yoururl.com/</packagerurl>
+<description>Example package to combine multiple extensions</description>
+<update>http://www.updateurl.com/update</update>
+<scriptfile>pkg_script.php</scriptfile>
+<blockChildUninstall>true</blockChildUninstall>
+<files folder="packages">
+    <file type="component" id="com_helloworld">com_helloworld.zip</file>
+    <file type="module" id="helloworld" client="site">mod_helloworld.zip</file>
+    <file type="library" id="helloworld">lib_helloworld.zip</file>
+    <file type="plugin" id="helloworld" group="system">plg_sys_helloworld.zip</file>
+    <file type="template" id="helloworld" client="site">tpl_helloworld.zip</file>
+</files>
+</extension>
 ```
 
-When you zip this and install it, you will see that all extensions will be installed. The package will be visible in the extension list so that a user might uninstall all extensions contained in the package. 
+When zipped and installed, the package will be visible in the extension list so that a user might uninstall all extensions contained in the package.
 
-Remember to use the package uninstaller instead of individual subpackage uninstallers to avoid orphan extension entries in the extension manager.
+Remember to use the package uninstaller instead of individual subpackage uninstallers to avoid orphan extension entries in the extension manager. This is the part that is not foolproof!
 
 ### File id
 
@@ -68,21 +66,14 @@ The id element in the `<file ..>` tag is **not** arbitrary! The `id=` should be 
 
 ### Manifest Filename and Packagename
 
-The naming of the manifest file and the ability to uninstall the package file itself are closely related.
-The manifest file must have a **pkg_** prefix. The remainder of the manifest name (without the **.xml** extension) is to be used as `<packagename>`. Or, the other way around, a package you want to identify as **blurpblurp_J3** gets that as its `<packagename>` and should be in a manifest file named **pkg_blurpblurp_J3.xml**. Failure to do so will make it impossible to uninstall the package itself.
+The naming of the manifest file and the ability to uninstall the package file itself are closely related. The manifest file must have a **pkg_** prefix. The remainder of the manifest name (without the **.xml** extension) is to be used as `<packagename>`. Or, the other way around, a package you want to identify as **blurpblurp_J3** gets that as its `<packagename>` and should be in a manifest file named **pkg_blurpblurp_J3.xml**. Failure to do so will make it impossible to uninstall the package itself.
 
 An optional `<pkg_script.php>` which contains a class `pkg_<packagename>InstallerScript` with public function **postflight** can be used.
 
 ### Extension Tag
 
-As of Joomla! 3.4, you should include `method="upgrade"` in the `<extension>` tag if you want your package to succeed in updating itself on subsequent installations.
-
-The version attribute of the `<extension>` tag should be set to the minimum supported version of Joomla for this package. For example, if your package only supports Joomla! 3.2 and above, set this to 3.2.
-
-Note: This `version` attribute is purely optional. It has no influence on Joomla's installation routine. As of Joomla 4, the `version` attribute has therefore been removed from all core extensions.
+The `<extension>` tag should include `method="upgrade"` for a package update to succeed on subsequent installations.
 
 ### Extension Uninstall Dependency
 
-As of Jooma! 3.7.0, a package extension can declare that its child elements cannot be uninstalled independently with a `<blockChildUninstall>true</blockChildUninstall>` element in the package manifest. If your package needs all its extensions to operate effectively, set this to true or 1.
-
-Source: https://docs.joomla.org/Package
+A package extension can declare that its child elements cannot be uninstalled independently with a `<blockChildUninstall>true</blockChildUninstall>` element in the package manifest. If your package needs all its extensions to operate effectively, set this to true or 1.

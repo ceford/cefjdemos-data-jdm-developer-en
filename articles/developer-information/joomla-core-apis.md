@@ -1,9 +1,6 @@
 <!-- Filename: J4.x:Joomla_Core_APIs / Display title: Joomla Core APIs -->
 
-Joomla!  4.0
-
-This page lists the endpoints available in Joomla by example of curl
-commands.
+This page lists the endpoints available in Joomla by example of curl commands. It was prepared for Joomla 4 and requires checking for conformance with current Joomla versions.
 
 Every URL requires authentication unless designated a public URL. For
 security in Joomla 4.0.0 we plan to make the default Api Application
@@ -22,8 +19,7 @@ a variable that should be substituted.
 
 Unless otherwise noted these APIs were introduced in Joomla 4. For more
 information on the Joomla API Specification (as opposed to this list of
-URLs and options) please visit the [Joomla Api
-Specification](https://docs.joomla.org/Joomla_Api_Specification "Special:MyLanguage/Joomla Api Specification").
+URLs and options) please visit the [Joomla Api Specification](https://docs.joomla.org/Joomla_Api_Specification).
 
 Where end points require the value of {app} the variable currently takes
 two values, site (front end), or administrator {back end)
@@ -34,20 +30,11 @@ A number of complimentary resources have been created to introduce
 Joomla Web Services and assist you with learning how to implement Web
 Services on your project.
 
-- <a href="https://github.com/alexandreelise/j4x-api-collection"
-  class="external text" target="_blank"
-  rel="nofollow noreferrer noopener">Postman collection of Joomla Web
-  Services API calls by Alexandre Elise</a>
-- <a href="https://www.youtube.com/watch?v=lT9qodsvfZg"
-  class="external text" target="_blank"
-  rel="nofollow noreferrer noopener">Youtube: Joomla 4 tutorial: Using the
-  Web Services API with Eoin Oliver</a>
-- <a
-  href="https://magazine.joomla.org/all-issues/august-2020/joomla-web-services-api-101-tokens,-testing-and-a-taste-test"
-  class="external text" target="_blank" rel="noreferrer noopener">Joomla
-  Community Magazine: Joomla Web Services API 101 by Patrick Jackson</a>
+- Postman collection of [Joomla Web Services API](https://github.com/alexandreelise/j4x-api-collection) calls by Alexandre Elise.
+- Youtube Joomla 4 tutorial: [Using the Web Services API](https://www.youtube.com/watch?v=lT9qodsvfZg) with Eoin Oliver.
+- Joomla Community Magazine: [Joomla Web Services API 101](https://magazine.joomla.org/all-issues/august-2020/joomla-web-services-api-101-tokens,-testing-and-a-taste-test) by Patrick Jackson.
 
-## Banners
+## Banners Component
 
 ### Banners
 
@@ -134,7 +121,7 @@ curl -X PATCH -H "Content-Type: application/json"
         "name": "Clients"
     }
 
-### Categories
+### Banners Categories
 
 #### Get List of Categories
 
@@ -176,7 +163,7 @@ curl -X PATCH -H "Content-Type: application/json"
         "title": "New Title"
     }
 
-### Content History
+### Banners Content History
 
 #### Get List of Content Histories
 
@@ -192,7 +179,7 @@ curl -X PATCH -H "Content-Type: application/json"
 curl -X DELETE
 /api/index.php/v1/banners/contenthistory/{contenthistory_id}
 
-## Config
+## Config Component
 
 ### Application
 
@@ -218,7 +205,7 @@ curl -X GET /api/index.php/v1/config/{component_name}
 
 Example “component_name” is “com_content”.
 
-#### Update Application Config
+#### Update Component Application Config
 
 curl -X PATCH -H "Content-Type: application/json"
 /api/index.php/v1/config/application -d
@@ -227,7 +214,7 @@ curl -X PATCH -H "Content-Type: application/json"
         "link_titles": 1
     }
 
-## Contact
+## Contact Component
 
 ### Contact
 
@@ -278,11 +265,10 @@ curl -X POST -H "Content-Type: application/json"
         "contact_subject": "subject"
     }
 
-### Categories
+### Contact Categories
 
 1.  Route Contact Categories is: "v1/contact/categories"
-2.  Working with it is similar to [Banners
-    Categories](https://docs.joomla.org/#Categories "Special:MyLanguage/").
+2.  Working with it is similar to Banners Categories.
 
 ### Fields Contact
 
@@ -351,14 +337,12 @@ curl -X PATCH -H "Content-Type: application/json"
 ### Fields Contact Mail
 
 1.  Route Fields Contact Mail is: "v1/fields/contact/mail"
-2.  Working with it is similar to [Fields
-    Contact](https://docs.joomla.org/#Fields_Contact "Special:MyLanguage/").
+2.  Working with it is similar to Fields Contact.
 
 ### Fields Contact Categories
 
 1.  Route Fields Contact Categories is: "v1/fields/contact/categories"
-2.  Working with it is similar to [Fields
-    Contact](https://docs.joomla.org/#Fields_Contact "Special:MyLanguage/").
+2.  Working with it is similar to Fields Contact.
 
 ### Groups Fields Contact
 
@@ -424,23 +408,20 @@ curl -X PATCH -H "Content-Type: application/json"
 ### Group Fields Contact Mail
 
 1.  Route Group Fields Contact Mail is: "v1/fields/groups/contact/mail"
-2.  Working with it is similar to [Group Fields
-    Contact](https://docs.joomla.org/#Groups_Fields_Contact "Special:MyLanguage/").
+2.  Working with it is similar to Group Fields Contact.
 
 ### Group Fields Contact Categories
 
 1.  Route Group Fields Contact Categories is:
     "v1/fields/groups/contact/categories"
-2.  Working with it is similar to [Group Fields
-    Contact](https://docs.joomla.org/#Groups_Fields_Contact "Special:MyLanguage/").
+2.  Working with it is similar to Group Fields Contact.
 
-### Content History
+### Contact Content History
 
 1.  Route Content History is: "v1/contact/contenthistory"
-2.  Working with it is similar to [Banners Content
-    History](https://docs.joomla.org/#Content_History "Special:MyLanguage/").
+2.  Working with it is similar to Banners Content History.
 
-## Content
+## Content Component
 
 ### Articles
 
@@ -485,40 +466,33 @@ curl -X PATCH -H "Content-Type: application/json"
         "title": "Updated article"
     }
 
-### Categories
+### Content Categories
 
 1.  Route Content Categories is: "v1/content/categories"
-2.  Working with it is similar to [Banners
-    Categories](https://docs.joomla.org/#Categories "Special:MyLanguage/"),
-    note if workflows is enabled then specifying a workflow is required
-    (similarly to the UI)
+2.  Working with it is similar to working with Banners Categories. Note: if workflows is enabled then specifying a workflow is required (similarly to the UI)
 
 ### Fields Articles
 
 1.  Route Fields Articles is: "v1/fields/content/articles"
-2.  Working with it is similar to [Fields
-    Contact](https://docs.joomla.org/#Fields_Contact "Special:MyLanguage/").
+2.  Working with it is similar to Fields Contact.
 
 ### Groups Fields Articles
 
 1.  Route Groups Fields Articles is: "v1/fields/groups/content/articles"
-2.  Working with it is similar to [Groups Fields
-    Contact](https://docs.joomla.org/#Groups_Fields_Contact "Special:MyLanguage/").
+2.  Working with it is similar to Groups Fields Contact.
 
 ### Fields Categories
 
 1.  Route Fields Categories is: "v1/fields/groups/content/categories"
-2.  Working with it is similar to [Fields
-    Contact](https://docs.joomla.org/#Fields_Contact "Special:MyLanguage/").
+2.  Working with it is similar to Fields Contact.
 
-### Content History
+### Content Component Content History
 
 1.  Route Content History is:
     "v1/content/articles/{article_id}/contenthistory"
-2.  Working with it is similar to [Banners Content
-    History](https://docs.joomla.org/#Content_History "Special:MyLanguage/").
+2.  Working with it is similar to Banners Content History.
 
-## Languages
+## Languages Component
 
 ### Languages
 
@@ -595,12 +569,12 @@ curl -X GET /api/index.php/v1/languages/overrides/{app}/{lang_code}
 curl -X GET
 /api/index.php/v1/languages/overrides/{app}/{lang_code}/{constant_id}
 
-#### Delete Content Language
+#### Delete Content Language Overrides
 
 curl -X DELETE
 /api/index.php/v1/languages/overrides/{app}/{lang_code}/{constant_id}
 
-#### Create Content Language
+#### Create Content Language Overrides
 
 curl -X POST -H "Content-Type: application/json"
 /api/index.php/v1/languages/overrides/{app}/{lang_code} -d
@@ -610,7 +584,7 @@ curl -X POST -H "Content-Type: application/json"
         "override": "text"
     }
 
-#### Update Content Language
+#### Update Content Language Overrides
 
 curl -X PATCH -H "Content-Type: application/json"
 /api/index.php/v1/languages/overrides/{app}/{lang_code}/{constant_id} -d
@@ -643,7 +617,7 @@ constant name, “value” - search by constant value
 curl -X POST -H "Content-Type: application/json"
 /api/index.php/v1/languages/overrides/search/cache/refresh
 
-## Menus
+## Menus Component
 
 ### Menus
 
@@ -768,7 +742,7 @@ curl -X PATCH -H "Content-Type: application/json"
 
 Example for "Create Article Page"
 
-## Messages
+## Messages Component
 
 ### Messages
 
@@ -809,7 +783,7 @@ curl -X PATCH -H "Content-Type: application/json"
         "user_id_to": 772
     }
 
-## Modules
+## Modules Component
 
 ### Modules
 
@@ -886,7 +860,7 @@ curl -X PATCH -H "Content-Type: application/json"
 
 Example for "Articles - Archived"
 
-## Newsfeeds
+## Newsfeeds Component
 
 ### Feeds
 
@@ -964,12 +938,12 @@ curl -X PATCH -H "Content-Type: application/json"
         "name": "Test"
     }
 
-### Categories
+### Newsfeeds Categories
 
 1.  Route Newsfeeds Categories is: "v1/newsfeeds/categories"
-2.  Working with it is similar to [Banners Categories](#Categories).
+2.  Working with it is similar to Banners Categories.
 
-## Privacy
+## Privacy Component
 
 ### Request
 
@@ -1009,7 +983,7 @@ curl -X GET /api/index.php/v1/privacy/consent/{consent_id}
 
 curl -X DELETE /api/index.php/v1/privacy/consent/{consent_id}
 
-## Redirect
+## Redirect Component
 
 ### Redirect
 
@@ -1050,7 +1024,7 @@ curl -X PATCH -H "Content-Type: application/json"
         "old_url": "/content/art/132"
     }
 
-## Tags
+## Tags Component
 
 ### Tags
 
@@ -1138,7 +1112,7 @@ curl -X PATCH -H "Content-Type: application/json"
         "title": "new cassiopeia - Default"
     }
 
-## Users
+## Users Component
 
 ### Users
 
@@ -1203,11 +1177,9 @@ curl -X PATCH -H "Content-Type: application/json"
 ### Fields Users
 
 1.  Route Fields Users is: "v1/fields/users"
-2.  Working with it is similar to [Fields
-    Contact](https://docs.joomla.org/J4.x:Joomla_Core_APIs#Fields_Contact "Special:MyLanguage/J4.x:Joomla Core APIs").
+2.  Working with it is similar to working with Fields Contact.
 
 ### Groups Fields Users
 
 1.  Route Groups Fields Users is: "v1/fields/groups/users"
-2.  Working with it is similar to [Groups Fields
-    Contact](https://docs.joomla.org/J4.x:Joomla_Core_APIs#Groups_Fields_Contact "Special:MyLanguage/J4.x:Joomla Core APIs").
+2.  Working with it is similar to Groups Fields Contact.
