@@ -243,7 +243,7 @@ Code Sniffer is supported out of the box in PhpStorm. Go to Settings and under *
 
 ![CodeSniffer in PHPStorm](../../../en/images/getting-started/core-phpstorm-code-sniffer.png)
 
-#### Netbeans
+### Installation in Netbeans
 
 Netbeans has the sniffer functionality integrated into the core system.
 

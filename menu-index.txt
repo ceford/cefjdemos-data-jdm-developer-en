@@ -20,26 +20,24 @@ developer=developer-information=setting-up-your-local-environment.md
 developer=developer-information=setting-up-eclipse-pdt-2020-and-git-for-pulls.md
 
 heading=developer-information=General Concepts
-developer=developer-information=namespaces.md
-developer=developer-information=manifest-files.md
-developer=developer-information=dependency-injection.md
-
-developer=developer-information=package.md
-developer=developer-information=web-assets.md
-developer=developer-information=joomla-core-apis.md
-developer=developer-information=api-guides.md
-developer=developer-information=deploying-an-update-server.md
 developer=developer-information=adding-changelog.md
 developer=developer-information=joomla-codesniffer.md
+developer=developer-information=dependency-injection.md
+developer=developer-information=manifest-files.md
+developer=developer-information=namespaces.md
+developer=developer-information=deploying-an-update-server.md
+developer=developer-information=web-assets.md
+
+heading-1=api-guides=API Guides
+developer=developer-information=api-guides.md
+developer=developer-information=joomla-core-apis.md
 
 heading=tips=Tips
 developer=getting-started=apache-php-handler.md
 
 heading=plugin-development=Plugin Development
-developer=plugin-development=creating-a-plugin-for-joomla.md
-developer=plugin-development=creating-an-authentication-plugin-for-joomla.md
-developer=plugin-development=creating-a-smart-search-plug-in.md
-developer=plugin-development=triggering-content-plugins-in-your-extension.md
+developer=plugin-development=about-plugins.md
+developer=plugin-development=smart-search.md
 developer=plugin-development=cloud-file-systems-for-media-manager.md
 developer=plugin-development=j4-plugin-example-table-of-contents.md
 
