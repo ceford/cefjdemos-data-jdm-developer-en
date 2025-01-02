@@ -38,12 +38,11 @@ developer=getting-started=apache-php-handler.md
 heading=plugin-development=Plugin Development
 developer=plugin-development=about-plugins.md
 developer=plugin-development=smart-search.md
+developer=plugin-development=content-toc.md
 developer=plugin-development=cloud-file-systems-for-media-manager.md
-developer=plugin-development=j4-plugin-example-table-of-contents.md
 
 heading=module-development=Module Development
-developer=module-development=creating-a-simple-module.md
-developer=module-development=j4-module-example-mydownmsg.md
+developer=module-development=down-message.md
 
 heading=developing-an-mvc-component=Developing an MVC Component
 developer=developing-an-mvc-component=developing-an-mvc-component.md

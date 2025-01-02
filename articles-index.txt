@@ -55,8 +55,7 @@ getting-started=developer-eclipse-pdt.md=https://docs.joomla.org/J4.x:Developer:
 
 getting-started=apache-php-handler.md=https://docs.joomla.org/J4.x:Apache_PHP_Handler
 
-module-development=creating-a-simple-module.md=https://docs.joomla.org/J4.x:Creating_a_Simple_Module
-module-development=j4-module-example-mydownmsg.md=https://docs.joomla.org/J4.x:J4_Module_example_-_Mydownmsg
+module-development=down-message.md=https://docs.joomla.org/J4.x:J4_Module_example_-_Mydownmsg
 
 mvc-anatomy=mvc-anatomy-administrator-edit-files.md=https://docs.joomla.org/J4.x:MVC_Anatomy:_Administrator_Edit_Files
 mvc-anatomy=mvc-anatomy-administrator-startup-files.md=https://docs.joomla.org/J4.x:MVC_Anatomy:_Administrator_Startup_Files
@@ -72,7 +71,7 @@ mvc-examples=my-walks-part-2-the-administrator-code.md=https://docs.joomla.org/J
 plugin-development=about-plugins.md=https://manual.joomla.org/docs/building-extensions/plugins/
 plugin-development=cloud-file-systems-for-media-manager.md=https://docs.joomla.org/J4.x:Cloud_File_Systems_for_Media_Manager
 plugin-development=smart-search.md=https://docs.joomla.org/Creating_a_Smart_Search_plug-in
-plugin-development=j4-plugin-example-table-of-contents.md=https://docs.joomla.org/J4.x:J4_Plugin_example_-_Table_of_Contents
+plugin-development=content-toc.md=https://docs.joomla.org/J4.x:J4_Plugin_example_-_Table_of_Contents
 
 unclassified=changed-parameters-for-template-providers.md=https://docs.joomla.org/J4.x:Changed_parameters_for_template_providers
 unclassified=clientsideevents.md=https://docs.joomla.org/J4.x:ClientSideEvents

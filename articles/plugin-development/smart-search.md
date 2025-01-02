@@ -1,4 +1,4 @@
-<!-- Filename: Creating_a_Smart_Search_plug-in / Display title: Smart Search -->
+<!-- Filename: Creating_a_Smart_Search_plug-in / Display title: Example: Smart Search -->
 
 ## Introduction
 
@@ -20,7 +20,7 @@ cefjdemos-plg-finder-jdocmanual
     |-- services (folder for dependency injection)
         |-- provider.php (the DI code)
     |-- src (folder for namespaced classes)
-        |-- Extension (folder for extension speficic code)
+        |-- Extension (folder for extension specific code)
             |-- Jdocmanual.php (the extension class code)
     |-- jdocmanual.xml (the manifest file)
 |-- .gitignore (items not to include in the git repository)
@@ -134,4 +134,4 @@ Eventually, your custom smart search plugin should work. This is an example resu
 
 ![Smart search result](../../../en/images/plugins/jdocmanual-search-result.png)
 
-An aside: the System - Joomla Accessibility Checker plugin shows there are 3 errors related to the *Search Terms** data entry form. That needs a core fix or override. 
+An aside: the System - Joomla Accessibility Checker plugin shows there are 3 errors related to the *Search Terms* data entry form. That needs a core fix or override.
