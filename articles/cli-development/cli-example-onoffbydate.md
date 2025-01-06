@@ -41,28 +41,28 @@ This is the installation file - a standard item for any extension.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="plugin" group="system" method="upgrade">
-	<name>plg_system_onoffbydate</name>
-	<author>Clifford E Ford</author>
-	<creationDate>October 2021</creationDate>
-	<copyright>(C) Clifford E Ford</copyright>
-	<license>GNU General Public License version 3 or later</license>
-	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
-	<version>0.2.0</version>
-	<description>PLG_SYSTEM_ONOFFBYDATE_DESCRIPTION</description>
-	<namespace path="src">Joomla\Plugin\System\Onoffbydate</namespace>
-	<files>
-		<filename plugin="onoffbydate">onoffbydate.php</filename>
-		<folder>services</folder>
-		<folder>src</folder>
-	</files>
-	<languages>
-		<language tag="en-GB">language/en-GB/plg_system_onoffbydate.ini</language>
-		<language tag="en-GB">language/en-GB/plg_system_onoffbydate.sys.ini</language>
-	</languages>
-	<config>
-	</config>
+    <name>plg_system_onoffbydate</name>
+    <author>Clifford E Ford</author>
+    <creationDate>October 2021</creationDate>
+    <copyright>(C) Clifford E Ford</copyright>
+    <license>GNU General Public License version 3 or later</license>
+    <authorEmail>cliff@ford.myzen.co.uk</authorEmail>
+    <version>0.2.0</version>
+    <description>PLG_SYSTEM_ONOFFBYDATE_DESCRIPTION</description>
+    <namespace path="src">Joomla\Plugin\System\Onoffbydate</namespace>
+    <files>
+        <filename plugin="onoffbydate">onoffbydate.php</filename>
+        <folder>services</folder>
+        <folder>src</folder>
+    </files>
+    <languages>
+        <language tag="en-GB">language/en-GB/plg_system_onoffbydate.ini</language>
+        <language tag="en-GB">language/en-GB/plg_system_onoffbydate.sys.ini</language>
+    </languages>
+    <config>
+    </config>
 </extension>
-```        
+```
 
 Note in particular the **namespace** line. It tells Joomla where to find
 the namespaced code for this plugin.
@@ -126,33 +126,33 @@ use Joomla\Event\DispatcherInterface;
 use Joomla\Plugin\System\Onoffbydate\Extension\Onoffbydate;
 
 return new class implements ServiceProviderInterface {
-	/**
-	 * Registers the service provider with a DI container.
-	 *
-	 * @param   Container  $container  The DI container.
-	 *
-	 * @return  void
-	 *
-	 * @since   4.0.0
-	 */
-	public function register(Container $container)
-	{
-		$container->set(
-				PluginInterface::class,
+    /**
+     * Registers the service provider with a DI container.
+     *
+     * @param   Container  $container  The DI container.
+     *
+     * @return  void
+     *
+     * @since   4.0.0
+     */
+    public function register(Container $container)
+    {
+        $container->set(
+                PluginInterface::class,
 
-				function (Container $container) {
-					$subject = $container->get(DispatcherInterface::class);
-					$config  = (array) PluginHelper::getPlugin('system', 'onoffbydate');
+                function (Container $container) {
+                    $subject = $container->get(DispatcherInterface::class);
+                    $config  = (array) PluginHelper::getPlugin('system', 'onoffbydate');
 
-					return new Onoffbydate($subject, $config);
-				}
-				);
+                    return new Onoffbydate($subject, $config);
+                }
+                );
 
-	}
+    }
 };
 ```
 
-Notice the call to create a new Onoffbydate class. That is located in the src/Extension folder - the standard location to boot a Joomla 4 extension. 
+Notice the call to create a new Onoffbydate class. That is located in the src/Extension folder - the standard location to boot a Joomla 4 extension.
 
 ### src/Extension/Onoffbydate.php
 
@@ -231,169 +231,169 @@ use Symfony\Component\Console\Style\SymfonyStyle;
 
 class OnoffbydateCommand extends AbstractCommand
 {
-	/**
-	 * The default command name
-	 *
-	 * @var    string
-	 *
-	 * @since  4.0.0
-	 */
-	protected static $defaultName = 'onoffbydate:action';
+    /**
+     * The default command name
+     *
+     * @var    string
+     *
+     * @since  4.0.0
+     */
+    protected static $defaultName = 'onoffbydate:action';
 
-	/**
-	 * @var InputInterface
-	 * @since version
-	 */
-	private $cliInput;
+    /**
+     * @var InputInterface
+     * @since version
+     */
+    private $cliInput;
 
-	/**
-	 * SymfonyStyle Object
-	 * @var SymfonyStyle
-	 * @since 4.0.0
-	 */
-	private $ioStyle;
+    /**
+     * SymfonyStyle Object
+     * @var SymfonyStyle
+     * @since 4.0.0
+     */
+    private $ioStyle;
 
-	/**
-	 * Instantiate the command.
-	 *
-	 * @since   4.0.0
-	 */
-	public function __construct()
-	{
-		parent::__construct();
-	}
+    /**
+     * Instantiate the command.
+     *
+     * @since   4.0.0
+     */
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
-	/**
-	 * Configures the IO
-	 *
-	 * @param   InputInterface   $input   Console Input
-	 * @param   OutputInterface  $output  Console Output
-	 *
-	 * @return void
-	 *
-	 * @since 4.0.0
-	 *
-	 */
-	private function configureIO(InputInterface $input, OutputInterface $output)
-	{
-		$this->cliInput = $input;
-		$this->ioStyle = new SymfonyStyle($input, $output);
-	}
+    /**
+     * Configures the IO
+     *
+     * @param   InputInterface   $input   Console Input
+     * @param   OutputInterface  $output  Console Output
+     *
+     * @return void
+     *
+     * @since 4.0.0
+     *
+     */
+    private function configureIO(InputInterface $input, OutputInterface $output)
+    {
+        $this->cliInput = $input;
+        $this->ioStyle = new SymfonyStyle($input, $output);
+    }
 
-	/**
-	 * Initialise the command.
-	 *
-	 * @return  void
-	 *
-	 * @since   4.0.0
-	 */
-	protected function configure(): void
-	{
-		$this->addArgument('action',
-				InputArgument::REQUIRED,
-				'name of action');
+    /**
+     * Initialise the command.
+     *
+     * @return  void
+     *
+     * @since   4.0.0
+     */
+    protected function configure(): void
+    {
+        $this->addArgument('action',
+                InputArgument::REQUIRED,
+                'name of action');
 
-		$this->addArgument('module_id',
-				InputArgument::REQUIRED,
-				'module id');
+        $this->addArgument('module_id',
+                InputArgument::REQUIRED,
+                'module id');
 
-		$help = "<info>%command.name%</info> Toggles module Enabled/Disabled state
-			\nUsage: <info>php %command.full_name% action_id module_id
-			\nwhere action_id is one of winter or weekend</info>";
+        $help = "<info>%command.name%</info> Toggles module Enabled/Disabled state
+            \nUsage: <info>php %command.full_name% action_id module_id
+            \nwhere action_id is one of winter or weekend</info>";
 
-		$this->setDescription('Called by cron to set the enabled state of a module.');
-		$this->setHelp($help);
+        $this->setDescription('Called by cron to set the enabled state of a module.');
+        $this->setHelp($help);
 
-	}
+    }
 
-	/**
-	 * Internal function to execute the command.
-	 *
-	 * @param   InputInterface   $input   The input to inject into the command.
-	 * @param   OutputInterface  $output  The output to inject into the command.
-	 *
-	 * @return  integer  The command exit code
-	 *
-	 * @since   4.0.0
-	 */
-	protected function doExecute(InputInterface $input, OutputInterface $output): int
-	{
-		$this->configureIO($input, $output);
+    /**
+     * Internal function to execute the command.
+     *
+     * @param   InputInterface   $input   The input to inject into the command.
+     * @param   OutputInterface  $output  The output to inject into the command.
+     *
+     * @return  integer  The command exit code
+     *
+     * @since   4.0.0
+     */
+    protected function doExecute(InputInterface $input, OutputInterface $output): int
+    {
+        $this->configureIO($input, $output);
 
-		$action = $this->cliInput->getArgument('action');
-		$module_id = $this->cliInput->getArgument('module_id');
+        $action = $this->cliInput->getArgument('action');
+        $module_id = $this->cliInput->getArgument('module_id');
 
-		switch ($action) {
-			case 'winter' :
-				$result = $this->winter($module_id);
-				break;
-			case 'weekend' :
-				$result = $this->weekend($module_id);
-				break;
-			default:
-				$this->ioStyle->error("Unknwon action: {$action}");
-				return 0;
-		}
+        switch ($action) {
+            case 'winter' :
+                $result = $this->winter($module_id);
+                break;
+            case 'weekend' :
+                $result = $this->weekend($module_id);
+                break;
+            default:
+                $this->ioStyle->error("Unknwon action: {$action}");
+                return 0;
+        }
 
-		return 1;
-	}
+        return 1;
+    }
 
-	protected function weekend($module_id)
-	{
-		// get the day of the week
-		$day = date('w');
-		if (in_array($day, array(0,6)))
-		{
-			$msg = "Today is a weekend.";
-			$published = 1;
-		}
-		else
-		{
-			$msg = "Today is not a weekend.";
-			$published = 0;
-		}
+    protected function weekend($module_id)
+    {
+        // get the day of the week
+        $day = date('w');
+        if (in_array($day, array(0,6)))
+        {
+            $msg = "Today is a weekend.";
+            $published = 1;
+        }
+        else
+        {
+            $msg = "Today is not a weekend.";
+            $published = 0;
+        }
 
-		$this->publish($module_id, $published);
+        $this->publish($module_id, $published);
 
-		$state = empty($published) ? 'Unpublished' : 'Published';
+        $state = empty($published) ? 'Unpublished' : 'Published';
 
-		$this->ioStyle->success("That seemed to work. {$msg} Module {$module_id} has been {$state}");
+        $this->ioStyle->success("That seemed to work. {$msg} Module {$module_id} has been {$state}");
 
-	}
+    }
 
-	protected function winter($module_id)
-	{
-		// get the month of the month
-		$month = date('n');
-		if (in_array($month, array(1,2,11,12)))
-		{
-			$msg = "Today is in winter.";
-			$published = 0;
-		}
-		else
-		{
-			$msg = "Today is not in winter.";
-			$published = 1;
-		}
+    protected function winter($module_id)
+    {
+        // get the month of the month
+        $month = date('n');
+        if (in_array($month, array(1,2,11,12)))
+        {
+            $msg = "Today is in winter.";
+            $published = 0;
+        }
+        else
+        {
+            $msg = "Today is not in winter.";
+            $published = 1;
+        }
 
-		$this->publish($module_id, $published);
+        $this->publish($module_id, $published);
 
-		$state = empty($published) ? 'Unpublished' : 'Published';
+        $state = empty($published) ? 'Unpublished' : 'Published';
 
-		$this->ioStyle->success("That seemed to work. {$msg} Module {$module_id} has been {$state}");
+        $this->ioStyle->success("That seemed to work. {$msg} Module {$module_id} has been {$state}");
 
-	}
+    }
 
-	protected function publish ($module_id, $published)
-	{
-		$db = Factory::getDbo();
-		$query = $db->getQuery(true);
-		$query->update('#__modules')
-		->set('published = ' . $published)
-		->where('id = ' . $module_id);
-		$db->setQuery($query);
-		$db->execute();
-	}
+    protected function publish ($module_id, $published)
+    {
+        $db = Factory::getDbo();
+        $query = $db->getQuery(true);
+        $query->update('#__modules')
+        ->set('published = ' . $published)
+        ->where('id = ' . $module_id);
+        $db->setQuery($query);
+        $db->execute();
+    }
 }
 ```
 
@@ -438,9 +438,9 @@ see onoffbydate among the list of commands you can invoke help to see
 how it should be used:
 
 ```bash
-    php cli/joomla.php onoffbydate:action --help     
+    php cli/joomla.php onoffbydate:action --help
     Usage:
-      onoffbydate:action  
+      onoffbydate:action
 
     Arguments:
       action                name of action
@@ -457,9 +457,9 @@ how it should be used:
 
     Help:
       onoffbydate:action Toggles module Enabled/Disabled state
-                    
+
       Usage: php cli/joomla.php onoffbydate:action action_id module_id
-                    
+
       where action_id is one of winter or weekend
 ```
 
@@ -467,8 +467,8 @@ And then just try it out:
 
 ```bash
     php cli/joomla.php onoffbydate:action winter 130
-          
-     [OK] That seemed to work. Today is not in winter. Module 130 has been Published                                        
+
+     [OK] That seemed to work. Today is not in winter. Module 130 has been Published
 ```
 
 ## The cron

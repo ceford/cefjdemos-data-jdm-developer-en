@@ -14,31 +14,31 @@ At the top of the edit.php file containing the form generation code include the 
 /** @var Joomla\CMS\WebAsset\WebAssetManager $wa */
 $wa = $this->document->getWebAssetManager();
 $wa->useScript('keepalive')
-	->useScript('form.validate');
+    ->useScript('form.validate');
 ```
 
 in the form tag make sure to include class="form-validate". This example is from the user edit form:
 
 ```html
 <form action="<?php echo Route::_('index.php?option=com_users&layout=edit&id=' . (int) $this->item->id); ?>"
-	method="post" name="adminForm" id="user-form"
-	enctype="multipart/form-data"
-	aria-label="<?php echo Text::_('COM_USERS_USER_FORM_' . ( (int) $this->item->id === 0 ? 'NEW' : 'EDIT'), true); ?>"
-	class="form-validate">
+    method="post" name="adminForm" id="user-form"
+    enctype="multipart/form-data"
+    aria-label="<?php echo Text::_('COM_USERS_USER_FORM_' . ( (int) $this->item->id === 0 ? 'NEW' : 'EDIT'), true); ?>"
+    class="form-validate">
 ```
 
 In the form xml file include the statements that invoke individual field validation. This example is the user email field:
 
 ```xml
-		<field
-			name="email"
-			type="email"
-			label="JGLOBAL_EMAIL"
-			required="true"
-			size="30"
-			validate="email"
-			validDomains="com_users.domains"
-		/>
+        <field
+            name="email"
+            type="email"
+            label="JGLOBAL_EMAIL"
+            required="true"
+            size="30"
+            validate="email"
+            validDomains="com_users.domains"
+        />
 ```
 
 ## The Validation Expressions
@@ -97,15 +97,15 @@ Here the value must start with a digit or minus sign zero or one times, be follo
 Suppose you want an input field to be a positive integer. You could use your own pattern placed in the form xml file:
 
 ```xml
-		<field
-			name="number"
-			type="text"
-			label="COM_MYCOMPONENT_CAMP_NUMBER_LABEL"
-			description="COM_MYCOMPONENT_CAMP_NUMBER_DESC"
-			class="w-auto"
-			required="true"
-			pattern="\d+"
-		/>
+        <field
+            name="number"
+            type="text"
+            label="COM_MYCOMPONENT_CAMP_NUMBER_LABEL"
+            description="COM_MYCOMPONENT_CAMP_NUMBER_DESC"
+            class="w-auto"
+            required="true"
+            pattern="\d+"
+        />
 ```
 
 Here the pattern allows one or more digits. So -1 would be invalid, as would 3.142.

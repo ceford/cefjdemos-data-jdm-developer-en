@@ -24,7 +24,7 @@ There is more information in the [Namespace](jdocmanual?article=docus/namespaces
 The initial declaration of an extension namespace is located in an extension manifest file, as in this example:
 
 ```xml
-	<namespace path="src">Acme\Component\Wonderful</namespace>
+    <namespace path="src">Acme\Component\Wonderful</namespace>
 ```
 
 The items in this declaration are as follows:

@@ -1,7 +1,7 @@
 <!-- Filename: J4.x:Page_Builder / Display title: Page Builder -->
 
-<span id="main-portal-heading">GSoC 2019  
-Joomla 4 Page Builder  
+<span id="main-portal-heading">GSoC 2019
+Joomla 4 Page Builder
 Documentation</span> [<img
 src="https://docs.joomla.org/images/thumb/7/7d/Gsoc2016.png/75px-Gsoc2016.png"
 decoding="async"
@@ -30,10 +30,10 @@ Apodis:
 ```xml
 <fieldset name="pagebuilder" label="TPL_APODIS_PAGEBUILDER">
    <field
-		name="grid"
-		type="pagebuilder"
-		hidden="true"
-		label="TPL_APODIS_PAGEBUILDER"
+        name="grid"
+        type="pagebuilder"
+        hidden="true"
+        label="TPL_APODIS_PAGEBUILDER"
    />
 </fieldset>
 ```

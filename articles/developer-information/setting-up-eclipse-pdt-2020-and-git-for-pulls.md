@@ -202,9 +202,9 @@ The Eclipse clone contains a build.xml file but it is used to test and build a d
 <project name="joomla-cms" basedir="." default="main">
     <property file=".project" />
 
-	<property name="joomladir" value="/Users/username/public_html/joomla-cms"  override="true" />
+    <property name="joomladir" value="/Users/username/public_html/joomla-cms"  override="true" />
 
-	<property name="srcdir" value="${project.basedir}" override="true" />
+    <property name="srcdir" value="${project.basedir}" override="true" />
 
     <!-- Fileset for all files -->
     <fileset dir="${srcdir}" id="allfiles">
@@ -230,7 +230,7 @@ The Eclipse clone contains a build.xml file but it is used to test and build a d
     <!-- ============================================  -->
     <target name="main" description="main target">
         <copy todir="${joomladir}">
-        	<fileset refid="allfiles" />
+            <fileset refid="allfiles" />
         </copy>
     </target>
 </project>

@@ -156,7 +156,7 @@ The following code contains an exmple build.xml file to go in the root of your H
     <fileset dir="${srcdir}/media" id="mediafiles">
         <include name="**" />
     </fileset>
-	<fileset dir="${srcdir}/site" id="sitefiles">
+    <fileset dir="${srcdir}/site" id="sitefiles">
         <include name="**" />
     </fileset>
     <fileset dir="${srcdir}" id="allfiles">

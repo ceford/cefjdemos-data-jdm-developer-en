@@ -63,10 +63,6 @@ mvc-anatomy=mvc-anatomy-file-structure.md=https://docs.joomla.org/J4.x:MVC_Anato
 mvc-anatomy=mvc-anatomy-getting-started.md=https://docs.joomla.org/J4.x:MVC_Anatomy:_Getting_Started
 mvc-anatomy=mvc-anatomy-manifest-file.md=https://docs.joomla.org/J4.x:MVC_Anatomy:_Manifest_File
 mvc-anatomy=mvc-anatomy-site-files.md=https://docs.joomla.org/J4.x:MVC_Anatomy:_Site_Files
-mvc-examples=j4-component-example-mywalks.md=https://docs.joomla.org/J4.x:J4_Component_example_-_Mywalks
-mvc-examples=j4-developer-resources.md=https://docs.joomla.org/J4.x:J4_Developer_Resources
-mvc-examples=my-walks-part-1-the-site-code.md=https://docs.joomla.org/J4.x:My_Walks_Part_1:_The_Site_code
-mvc-examples=my-walks-part-2-the-administrator-code.md=https://docs.joomla.org/J4.x:My_Walks_Part_2:_The_Administrator_code
 
 plugin-development=about-plugins.md=https://manual.joomla.org/docs/building-extensions/plugins/
 plugin-development=cloud-file-systems-for-media-manager.md=https://docs.joomla.org/J4.x:Cloud_File_Systems_for_Media_Manager

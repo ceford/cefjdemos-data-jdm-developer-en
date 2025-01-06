@@ -1,58 +1,66 @@
 <!-- Filename: J4.x:MVC_Anatomy:_File_Structure / Display title: MVC Anatomy: File Structure -->
 
-## Component Zip File Structure
+## Developer Setup
 
-On installation the parts of the come_countrybase component are
-distributed to different locations in the Joomla file structure.
-Administrator files go into
-root/administrator/components/com_countrybase. Site files go into
-root/components/com_countrybase. Media files, javascript and css files
-(if any), go into root/media/com_countrybase. In some components
-language files may go into root/language/en-GB/com_countrybase.ini but
-the latest recommendation is to keep the language files in a subfolder
-of the component.
+There are several ways to organise files for development purposes. One method is to use a clone of a GitHub repository as in the following schematic structure:
 
-Just where the items go is controlled by the component manifest file, in
-this case countrybase.xml.
+```
+cefjdemos-com-countrybase
+|-- .vscode (folder for build settings)
+|-- com_countrybase (folder compressed to create an installable zip file)
+    |-- admin (the administrator files)
+        |-- forms
+        |-- help
+            |-- countrybase.html (this is a Help screen used in the backend module edit form)
+        |-- language
+            |-- en-GB (language folder, kept with the extension code)
+                |-- mod_downmsg.ini
+                |-- mod_downmsg.sys.ini
+        |-- services (folder for dependency injection)
+            |-- provider.php (the DI code)
+        |-- sql
+            |-- updates
+                |-- mysql
+                    |-- index.html (an empty file required to avoid an installation error if there are no sql updates)
+        |-- src (folder for namespaced classes)
+            |-- more folders: Controller, Extension, Helper, Model, Table and View
+        |-- tmpl (folder for layouts)
+            |-- more folders: countries, country, currencies and currency
+        |-- access.xml (standard list of access permissions)
+        |-- config.xml (options parameters)
+    |-- media
+        |-- css (placeholder for CSS files - contains an empty index.html file)
+        |-- js (placeholder for JavaScript files - contains an empty index.html file)
+    |-- site (the site files, abbreviated here)
+        |-- forms
+        |-- language
+        |-- src
+        |-- tmpl
+    |-- countrybase.xml (the manifest file)
+    |-- script.php (a script to run on install, update or uninstall)
+|-- .gitignore (items not to include in the git repository)
+|-- build.xml (instructions for building the extension with phing)
+|-- changelog.xml (record of changes)
+|-- LICENSE (the license statement)
+|-- README.md (brief description and instructions on use)
+|-- updates.xml (update server specification)
+```
 
-The component zip file structure is illustrated below as it appears in
-the Eclipse IDE:
+This is the structure in the VSCodium IDE:
 
-<img
-src="https://docs.joomla.org/images/thumb/0/01/J4x-mvc-anatomy-component-file-structure-en.png/800px-J4x-mvc-anatomy-component-file-structure-en.png"
-decoding="async"
-srcset="https://docs.joomla.org/images/0/01/J4x-mvc-anatomy-component-file-structure-en.png 1.5x"
-data-file-width="1200" data-file-height="661" width="800" height="441"
-alt="com_countrybase File Structure" />
+![Vscodium file structure view](../../../en/images/mvc-anatomy/com-countrybase-vscodium.png)
 
-Note that the zip file contains everything inside the com_countrybase
-folder. You can make a zip just by compressing that folder. Outside that
-folder are build.xml, which is a file used to build the component
-whenever a change is made, and README.md, which is a standard Markdown
-file in Github format that describes the component.
+On installation the parts of the `com_countrybase` component are distributed to different locations in the Joomla file structure:
+- Administrator files go into `root/administrator/components/com_countrybase`.
+- Site files go into `root/components/com_countrybase`.
+- Media files, javascript and css files (if any), go into `root/media/com_countrybase`.
+- Language files go into the administrator and site component structures. A previous convention placed them in the core language folders.
+
+Just where the items go is controlled by the component manifest file, in this case countrybase.xml.
+
+Note that the zip file contains everything inside the com_countrybase folder. You can make a zip just by compressing that folder. Outside that folder are build.xml, which is a file used to build the component whenever a change is made, and README.md, which is a standard Markdown file in Github format that describes the component.
 
 ## Notes
 
 - There are more than 40 files in this simple component!
-- Files destined for the administrator, media and site locations are
-  shown expanded.
-- On installation the countrybase.xml file is copied to
-  administrator/components/com_countrybase where it is needed for update
-  or uninstall purposes.
-
-## Related Tutorials
-
-### MVC Anatomy
-
-- [Getting
-  Started](https://docs.joomla.org/J4.x:MVC_Anatomy:_Getting_Started "Special:MyLanguage/J4.x:MVC Anatomy: Getting Started")
-- [File
-  Structure](https://docs.joomla.org/J4.x:MVC_Anatomy:_File_Structure "Special:MyLanguage/J4.x:MVC Anatomy: File Structure")
-- [Manifest
-  File](https://docs.joomla.org/J4.x:MVC_Anatomy:_Manifest_File "Special:MyLanguage/J4.x:MVC Anatomy: Manifest File")
-- [Site
-  Files](https://docs.joomla.org/J4.x:MVC_Anatomy:_Site_Files "Special:MyLanguage/J4.x:MVC Anatomy: Site Files")
-- [Administrator Startup
-  Files](https://docs.joomla.org/J4.x:MVC_Anatomy:_Administrator_Startup_Files "Special:MyLanguage/J4.x:MVC Anatomy: Administrator Startup Files")
-- [Administrator Edit
-  Files](https://docs.joomla.org/J4.x:MVC_Anatomy:_Administrator_Edit_Files "Special:MyLanguage/J4.x:MVC Anatomy: Administrator Edit Files")
+- On installation the countrybase.xml file is copied to administrator/components/com_countrybase where it is needed for update or uninstall purposes.

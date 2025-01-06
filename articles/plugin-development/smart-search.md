@@ -55,14 +55,14 @@ There are two parts to the build. I have a build.xml file that contains instruct
     <property name="zipsdir" value="/Users/ceford/git/zips/cefjdemos"  override="true" />
 
     <!-- Fileset for plugin files -->
-	<fileset dir="./plg_finder_jdocmanual" id="plgfiles">
+    <fileset dir="./plg_finder_jdocmanual" id="plgfiles">
         <include name="**" />
-	</fileset>
+    </fileset>
 
-	<!-- fileset for zip -->
-	<fileset dir="./plg_finder_jdocmanual" id="plgfiles">
+    <!-- fileset for zip -->
+    <fileset dir="./plg_finder_jdocmanual" id="plgfiles">
         <include name="**" />
-	</fileset>
+    </fileset>
 
     <!-- ============================================  -->
     <!-- (DEFAULT) Target: main                        -->
@@ -85,24 +85,24 @@ The second part is a `tasks.json` file in the .vscode folder. It tells VSCode wh
 
 ```json
 {
-	// See https://go.microsoft.com/fwlink/?LinkId=733558
-	// for the documentation about the tasks.json format
-	"version": "2.0.0",
-	"tasks": [
-	  {
-		"label": "Build plg_finder_jdocmanual",
-		"type": "shell",
-		"command": "php ~/bin/phing-latest.phar",
-		"windows": {
-		  "command": "php ~/bin/phing-latest.phar"
-		},
-		"group": "build",
-		"presentation": {
-		  "reveal": "always",
-		  "panel": "shared"
-		}
-	  }
-	]
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Build plg_finder_jdocmanual",
+        "type": "shell",
+        "command": "php ~/bin/phing-latest.phar",
+        "windows": {
+          "command": "php ~/bin/phing-latest.phar"
+        },
+        "group": "build",
+        "presentation": {
+          "reveal": "always",
+          "panel": "shared"
+        }
+      }
+    ]
 }
 ```
 
