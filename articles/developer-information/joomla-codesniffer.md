@@ -127,6 +127,41 @@ FOUND 38 ERRORS AFFECTING 30 LINES
 PHPCBF CAN FIX THE 38 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 -------------------------------------------------------------------------------------
 ```
+
+## Command Variations
+
+You can obtain help with phpcs commands:
+
+```sh
+phpcs --help
+```
+
+### Exclude one or more files
+
+Use a comma separated list of file patterns to exclude files from code style validation. Example
+
+```php
+phpcs --standard=PSR12 --ignore='libraries/*' .
+```
+
+### Exclude one or more rules
+
+Joomla allows longer lines than the PSR standard, 560 instead of 120. The following command can be used to omit the long line warnings:
+
+```sh
+phpcs --standard=PSR12 --ignore='libraries/*' --exclude=Generic.Files.LineLength .
+```
+
+You can find the rule that is being violated with this command:
+
+```sh
+phpcs -s yourfile.php
+```
+
+### Joomla Exceptions
+
+For development of an extension using an IDE you may decide to use the PSR12 standard without any exceptions. Joomla has a [custom ruleset](https://github.com/joomla/joomla-cms/blob/5.2-dev/ruleset.xml) that allows many exceptions. It is used for validation of the entire Joomla installation during system testing.
+
 ## Fixing Violations
 
 The single php file that `FOUND 132 ERRORS AND 3 WARNINGS AFFECTING 116 LINES` shown above can be mostly fixed as follows:
