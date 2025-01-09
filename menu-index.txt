@@ -65,9 +65,6 @@ developer=mvc-anatomy=mvc-anatomy-administrator-startup-files.md
 developer=mvc-anatomy=mvc-anatomy-administrator-edit-files.md
 
 heading=cli-development=CLI Development
-developer=cli-development=writing-a-cli-application.md
-developer=cli-development=cli-database-exporter-importer.md
-developer=cli-development=cli-update.md
 developer=cli-development=cli-example-onoffbydate.md
 
 heading=database=Database

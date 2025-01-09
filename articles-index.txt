@@ -5,10 +5,7 @@ advanced-administrator=language-pack-updates.md=https://docs.joomla.org/J4.x:One
 advanced-developer=automated-system-testing.md=https://docs.joomla.org/J4.x:Automated_System_Testing
 advanced-developer=scss-and-sass.md=https://docs.joomla.org/J4.x:SCSS_and_Sass
 
-cli-development=cli-database-exporter-importer.md=https://docs.joomla.org/J4.x:CLI_Database_Exporter_Importer
 cli-development=cli-example-onoffbydate.md=https://docs.joomla.org/J4.x:CLI_example_-_Onoffbydate
-cli-development=cli-update.md=https://docs.joomla.org/J4.x:CLI_Update
-cli-development=writing-a-cli-application.md=https://docs.joomla.org/J4.x:Writing_A_CLI_Application
 
 coding-examples=form-validation.md=https://docs.joomla.org/J4.x:Joomla_4_Tips_and_Tricks:_Form_Validation_Basics
 coding-examples=tips-and-tricks-for-joomla-4-developers.md=https://docs.joomla.org/J4.x:Tips_and_Tricks_for_Joomla_4_Developers
