@@ -12,10 +12,6 @@ coding-examples=tips-and-tricks-for-joomla-4-developers.md=https://docs.joomla.o
 coding-examples=using-bootstrap-components-in-joomla-4.md=https://docs.joomla.org/J4.x:Using_Bootstrap_Components_in_Joomla_4
 coding-examples=how-to-use-the-date-class.md=https://docs.joomla.org/How_to_use_JDate
 
-database=inserting-updating-and-removing-data-using-jdatabase.md=https://docs.joomla.org/J4.x:Inserting_Updating_and_Removing_data_using_JDatabase
-database=moving-joomla-to-prepared-statements.md=https://docs.joomla.org/J4.x:Moving_Joomla_To_Prepared_Statements
-database=selecting-data-using-jdatabase.md=https://docs.joomla.org/J4.x:Selecting_data_using_JDatabase
-
 developer-information=adding-changelog.md=https://docs.joomla.org/Adding_changelog_to_your_manifest_file
 developer-information=api-guides.md=https://docs.joomla.org/API_Guides
 developer-information=dependency-injection.md=https://docs.joomla.org/J4.x:Dependency_Injection_in_Joomla_4

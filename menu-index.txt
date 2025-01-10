@@ -67,11 +67,6 @@ developer=mvc-anatomy=mvc-anatomy-administrator-edit-files.md
 heading=cli-development=CLI Development
 developer=cli-development=cli-example-onoffbydate.md
 
-heading=database=Database
-developer=database=moving-joomla-to-prepared-statements.md
-developer=database=selecting-data-using-jdatabase.md
-developer=database=inserting-updating-and-removing-data-using-jdatabase.md
-
 heading=coding-examples=Coding Examples
 developer=coding-examples=form-validation.md
 developer=coding-examples=tips-and-tricks-for-joomla-4-developers.md
