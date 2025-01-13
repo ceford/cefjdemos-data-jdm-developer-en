@@ -79,12 +79,4 @@ developer=testing=testing-css-and-javascript.md
 
 heading=advanced-administrator=Advanced Administrator
 developer=advanced-administrator=http-header-management.md
-developer=advanced-administrator=improved-override-management.md
 developer=advanced-administrator=language-pack-updates.md
-
-heading=unclassified=Unclassified
-developer=unclassified=joomla-entities.md
-developer=unclassified=changed-parameters-for-template-providers.md
-developer=unclassified=clientsideevents.md
-developer=unclassified=page-builder.md
-developer=unclassified=response-formats.md

@@ -1,5 +1,4 @@
 advanced-administrator=http-header-management.md=https://docs.joomla.org/J4.x:Http_Header_Management
-advanced-administrator=improved-override-management.md=https://docs.joomla.org/J4.x:Improved_Override_Management
 advanced-administrator=language-pack-updates.md=https://docs.joomla.org/J4.x:One_click_updates_for_language_packs
 
 testing=automated-system-testing.md=https://docs.joomla.org/J4.x:Automated_System_Testing
@@ -61,9 +60,3 @@ plugin-development=about-plugins.md=https://manual.joomla.org/docs/building-exte
 plugin-development=cloud-file-systems-for-media-manager.md=https://docs.joomla.org/J4.x:Cloud_File_Systems_for_Media_Manager
 plugin-development=smart-search.md=https://docs.joomla.org/Creating_a_Smart_Search_plug-in
 plugin-development=content-toc.md=https://docs.joomla.org/J4.x:J4_Plugin_example_-_Table_of_Contents
-
-unclassified=changed-parameters-for-template-providers.md=https://docs.joomla.org/J4.x:Changed_parameters_for_template_providers
-unclassified=clientsideevents.md=https://docs.joomla.org/J4.x:ClientSideEvents
-unclassified=joomla-entities.md=https://docs.joomla.org/J4.x:Joomla_Entities
-unclassified=page-builder.md=https://docs.joomla.org/J4.x:Page_Builder
-unclassified=response-formats.md=https://docs.joomla.org/J4.x:Response_Formats
