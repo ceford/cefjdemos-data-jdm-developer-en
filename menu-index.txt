@@ -73,9 +73,9 @@ developer=coding-examples=tips-and-tricks-for-joomla-4-developers.md
 developer=coding-examples=using-bootstrap-components-in-joomla-4.md
 developer=coding-examples=how-to-use-the-date-class.md
 
-heading=advanced-developer=Advanced Developer
-developer=advanced-developer=automated-system-testing.md
-developer=advanced-developer=scss-and-sass.md
+heading=testing=Testing
+developer=testing=automated-system-testing.md
+developer=testing=testing-css-and-javascript.md
 
 heading=advanced-administrator=Advanced Administrator
 developer=advanced-administrator=http-header-management.md
