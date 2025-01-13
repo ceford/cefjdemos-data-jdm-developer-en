@@ -109,6 +109,7 @@ Suppose you want an input field to be a positive integer. You could use your own
 ```
 
 Here the pattern allows one or more digits. So -1 would be invalid, as would 3.142.
-Required
 
-Make sure to include required="true" in the field specification or the form label will omit the commonly used * marker used to indicate required fields. Including required in the class is not enough (is this a bug?).
+### Required
+
+Make sure to include required="true" in the field specification or the form label will omit the commonly used * marker used to indicate required fields. Including required in the class is not enough for validation.
