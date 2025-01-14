@@ -4,320 +4,234 @@
 
 ### Bootstrap Components
 
-Some of the components described in the Bootstrap documentation use CSS
-only. For example, the Breadcrumbs component is rendered with CSS and
-requires no JavaScript support. Others respond to user actions such as
-click or hover, and need JavaScript support. The latter are referred to
-here as Interactive Components. This article explains how to use them in
-Articles and a Custom Module.
+Some of the components described in the Bootstrap documentation use CSS only. For example, the Breadcrumbs component is rendered with CSS and requires no JavaScript support. Others respond to user actions such as click or hover, and need JavaScript support. The latter are referred to here as Interactive Components. This article explains how to use them in Articles and a Custom Module.
 
-See: <a
-href="https://getbootstrap.com/docs/5.0/getting-started/introduction/"
-class="external text" target="_blank"
-rel="nofollow noreferrer noopener">Bootstrap Documentation</a>
+See the [Bootstrap Documentation](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 
 ### Joomla 4 Introduces a Modular Approach for Interactive Components
 
 - What is a modular approach?
-- The functionality is broken down into individual components supported
-  by individual files. There is no **one file** approach as it was with
-  Bootstrap in Joomla 3. The modular approach is more efficient and
-  offers performance gains (send only the code that is needed instead of
-  delivering everything in case some page will need some component).
+- The functionality is broken down into individual components supported by individual files. There is no **one file** approach as it was with Bootstrap in Joomla 3. The modular approach is more efficient and offers performance gains (send only the code that is needed instead of delivering everything in case some page will need some component).
 
 ### Using Interactive Components: Coders
 
-- Load what you need per case! There are helper functions to set up
-  individual components with appropriate arguments.
+- Load what you need per case! There are helper functions to set up individual components with appropriate arguments.
 - See the list of Bootstrap Interactive Components.
 
 ### Using Interactive Components: Non-Coders
 
-- Using components in articles is not so easy because the helper
-  functions cannot be called from an article or standard Custom HTML
-  module. Three possible solutions are suggested later in this tutorial:
+- Using components in articles is not so easy because the helper functions cannot be called from an article or standard Custom HTML module. Three possible solutions are suggested later in this tutorial:
   - A custom module
   - A custom plugin
   - A custom module override
-- Skip or scan the list of Bootstrap Interactive Components. You won't
-  be using these function calls directly.
+- Skip or scan the list of Bootstrap Interactive Components. You won't be using these function calls directly.
 
 ## Bootstrap Interactive Components
 
 ### Alert
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.alert', '.selector');
 ```
 
-- The **.selector** refers to the CSS selector for the alert. You can
-  call this function multiple times with different CSS selectors
+- The **.selector** refers to the CSS selector for the alert. You can call this function multiple times with different CSS selectors.
 - No extra options available
 
 ### Button
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.button', '.selector');
 ```
 
-- The **.selector** refers to the CSS selector for the button. You can
-  call this function multiple times with different CSS selectors
+- The **.selector** refers to the CSS selector for the button. You can call this function multiple times with different CSS selectors
 - No extra options available
 
 ### Carousel
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.carousel', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the carousel. You can
-  call this function multiple times with different CSS selectors
+- The **.selector** refers to the CSS selector for the carousel. You can call this function multiple times with different CSS selectors
 - The third argument refers to the options available for carousel
 
 Options for the carousel can be:
 
-- **interval**, number, default:**5000**, The amount of time to delay
-  between automatically cycling an item. If false, carousel will not
-  automatically cycle.
-- **keyboard**, boolean, default:**true** Whether the carousel should
-  react to keyboard events.
-- **pause**, string\|boolean, **hover** Pauses the cycling of the
-  carousel on mouseenter and resumes the cycling of the carousel on
-  mouseleave.
-- **slide**, string\|boolean, default:**false** Autoplays the carousel
-  after the user manually cycles the first item. If "carousel",
-  autoplays the carousel on load.
+- **interval**, number, default:**5000**, The amount of time to delay between automatically cycling an item. If false, carousel will not automatically cycle.
+- **keyboard**, boolean, default:**true** Whether the carousel should react to keyboard events.
+- **pause**, string\|boolean, **hover** Pauses the cycling of the carousel on mouseenter and resumes the cycling of the carousel on mouseleave.
+- **slide**, string\|boolean, default:**false** Autoplays the carousel after the user manually cycles the first item. If "carousel", autoplays the carousel on load.
 
 ### Collapse
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.collapse', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the collapse. You can
-  call this function multiple times with different CSS selectors
-- The third argument refers to the options available for collapse
+- The **.selector** refers to the CSS selector for the collapse. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for collapse.
 
 Options for the collapse can be:
 
-- **parent**, string, default:**false** If parent is provided, then all
-  collapsible elements under the specified parent will be closed when
-  this collapsible item is shown.
-- **toggle**, boolean default:**true** Toggles the collapsible element
-  on invocation
+- **parent**, string, default:**false** If parent is provided, then all collapsible elements under the specified parent will be closed when this collapsible item is shown.
+- **toggle**, boolean default:**true** Toggles the collapsible element on invocation.
 
 ### Dropdown
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.dropdown', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the dropdown. You can
-  call this function multiple times with different CSS selectors
-- The third argument refers to the options available for dropdown
+- The **.selector** refers to the CSS selector for the dropdown. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for dropdown.
 
 Options for the collapse can be:
 
-- **flip**, boolean, default:**true** Allow Dropdown to flip in case of
-  an overlapping on the reference element
-- **boundary**, string, default:**scrollParent** Overflow constraint
-  boundary of the dropdown menu
-- **reference**, string, default:**toggle** Reference element of the
-  dropdown menu. Accepts **toggle** or **parent**
-- **display**, string, default:**dynamic** By default, we use Popper for
-  dynamic positioning. Disable this with **static**
+- **flip**, boolean, default:**true** Allow Dropdown to flip in case of an overlapping on the reference element.
+- **boundary**, string, default:**scrollParent** Overflow constraint boundary of the dropdown menu.
+- **reference**, string, default:**toggle** Reference element of the dropdown menu. Accepts **toggle** or **parent**.
+- **display**, string, default:**dynamic** By default, we use Popper for dynamic positioning. Disable this with **static**.
 
 ### Modal
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.modal', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the modal. You can
-  call this function multiple times with different CSS selectors
-- The third argument refers to the options available for modal
+- The **.selector** refers to the CSS selector for the modal. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for modal.
 
 Options for the modal can be:
 
-- **backdrop**, string\|boolean default:**true** Includes a
-  modal-backdrop element. Alternatively, specify static for a backdrop
-  which doesn't close the modal on click.
-- **keyboard**, boolean default:**true** Closes the modal when escape
-  key is pressed
-- **focus**, boolean default:**true** Closes the modal when escape key
-  is pressed
+- **backdrop**, string\|boolean default:**true** Includes a modal-backdrop element. Alternatively, specify static for a backdrop which doesn't close the modal on click.
+- **keyboard**, boolean default:**true** Closes the modal when escape key is pressed.
+- **focus**, boolean default:**true** Closes the modal when escape key is pressed.
 
 ### Offcanvas
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.offcanvas', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the offcanvas. You
-  can call this function multiple times with different CSS selectors
-- The third argument refers to the options available for offcanvas
+- The **.selector** refers to the CSS selector for the offcanvas. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for offcanvas.
 
 Options for the offcanvas can be:
 
-- **backdrop**, boolean, default:**true** Apply a backdrop on body while
-  offcanvas is open
-- **keyboard**, boolean, default:**true** Closes the offcanvas when
-  escape key is pressed
-- **scroll**, boolean, default:**false** Allow body scrolling while
-  offcanvas is open
+- **backdrop**, boolean, default:**true** Apply a backdrop on body while offcanvas is open.
+- **keyboard**, boolean, default:**true** Closes the offcanvas when escape key is pressed.
+- **scroll**, boolean, default:**false** Allow body scrolling while offcanvas is open.
 
 ### Popover
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.popover', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the popover. You can
-  call this function multiple times with different CSS selectors
-- The third argument refers to the options available for popover
+- The **.selector** refers to the CSS selector for the popover. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for popover.
 
 Options for the popover can be:
 
-- **animation**, boolean, default:**true** Apply a CSS fade transition
-  to the popover
-- **container**, string\|boolean, default:**false** Appends the popover
-  to a specific element. Eg.: **body**
-- **content**, string, default:**null** Default content value if
-  data-bs-content attribute isn't present
-- **delay**, number, default:**0** Delay showing and hiding the popover
-  (ms) does not apply to manual trigger type
-- **html**, boolean, default:**true** Insert HTML into the popover. If
-  **false**, innerText property will be used to insert content into the
-  DOM.
-- **placement**, string, default:**right** How to position the popover -
-  **auto** \| **top** \| **bottom** \| **left** \| **right**. When auto
-  is specified, it will dynamically reorient the popover
-- **selector**, string, default:**false** If a selector is provided,
-  popover objects will be delegated to the specified targets.
-- **template**, string, default:**null** Base HTML to use when creating
-  the popover.
-- **title**, string, default:**null** Default title value if **title**
-  tag isn't present
-- **trigger**, string, default:**click** How popover is triggered -
-  **click** \| **hover** \| **focus** \| **manual**
-- **offset**, integer, default:**0** Offset of the popover relative to
-  its target.
+- **animation**, boolean, default:**true** Apply a CSS fade transition to the popover.
+- **container**, string\|boolean, default:**false** Appends the popover to a specific element. Eg.: **body**.
+- **content**, string, default:**null** Default content value if data-bs-content attribute isn't present.
+- **delay**, number, default:**0** Delay showing and hiding the popover (ms) does not apply to manual trigger type.
+- **html**, boolean, default:**true** Insert HTML into the popover. If **false**, innerText property will be used to insert content into the DOM.
+- **placement**, string, default:**right** How to position the popover - **auto** \| **top** \| **bottom** \| **left** \| **right**. When auto is specified, it will dynamically reorient the popover.
+- **selector**, string, default:**false** If a selector is provided, popover objects will be delegated to the specified targets.
+- **template**, string, default:**null** Base HTML to use when creating the popover.
+- **title**, string, default:**null** Default title value if **title** tag isn't present.
+- **trigger**, string, default:**click** How popover is triggered - **click** \| **hover** \| **focus** \| **manual**.
+- **offset**, integer, default:**0** Offset of the popover relative to its target.
 
 ### Scrollspy
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.scrollspy', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the scrollspy. You
-  can call this function multiple times with different CSS selectors
-- The third argument refers to the options available for scrollspy
+- The **.selector** refers to the CSS selector for the scrollspy. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for scrollspy.
 
 Options for the Scrollspy can be:
 
-- **offset** number Pixels to offset from top when calculating position
-  of scroll.
+- **offset** number Pixels to offset from top when calculating position of scroll.
 - **method** string Finds which section the spied element is in.
 - **target** string Specifies element to apply Scrollspy plugin.
 
 ### Tab
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.tab', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the tab. You can call
-  this function multiple times with different CSS selectors
-- The third argument refers to the options available for tab
+- The **.selector** refers to the CSS selector for the tab. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for tab.
 
 Options for the Tab can be:
 
 ### Tooltip
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.tooltip', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the tooltip. You can
-  call this function multiple times with different CSS selectors
-- The third argument refers to the options available for tooltip
+- The **.selector** refers to the CSS selector for the tooltip. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for tooltip.
 
 Options for the tooltip can be:
 
-- **animation**, boolean apply a css fade transition to the popover
-- **container**, string\|boolean Appends the popover to a specific
-  element: { container: **body** }
-- **delay**, number\|object delay showing and hiding the popover (ms) -
-  does not apply to manual trigger type If a number is supplied, delay
-  is applied to both hide/show Object structure is: delay: { show: 500,
-  hide: 100 }
-- **html**, boolean Insert HTML into the popover. If false, jQuery's
-  text method will be used to insert content into the dom.
-- **placement**, string\|function how to position the popover - **top**
-  \| **bottom** \| **left** \| **right**
-- **selector** string If a selector is provided, popover objects will be
-  delegated to the specified targets.
+- **animation**, boolean apply a css fade transition to the popover.
+- **container**, string\|boolean Appends the popover to a specific element: { container: **body** }.
+- **delay**, number\|object delay showing and hiding the popover (ms) - does not apply to manual trigger type If a number is supplied, delay is applied to both hide/show Object structure is: delay: { show: 500, hide: 100 }.
+- **html**, boolean Insert HTML into the popover. If false, jQuery's text method will be used to insert content into the dom.
+- **placement**, string\|function how to position the popover - **top** \| **bottom** \| **left** \| **right**.
+- **selector** string If a selector is provided, popover objects will be delegated to the specified targets.
 - **template**, string Base HTML to use when creating the popover.
-- **title**, string\|function default title value if **title** tag isn't
-  present
-- **trigger**, string how popover is triggered - hover \| focus \|
-  manual
-- **constraints**, array An array of constraints - passed through to
-  Popper.
+- **title**, string\|function default title value if **title** tag isn't present.
+- **trigger**, string how popover is triggered - hover \| focus \| manual.
+- **constraints**, array An array of constraints - passed through to Popper.
 - **offset**, string Offset of the popover relative to its target.
 
 ### Toast
 
-Assuming you have the HTML part already in your Layout, you will also
-need to include the interactivity (the JavaScript part):
+Assuming you have the HTML part already in your Layout, you will also need to include the interactivity (the JavaScript part):
 
 ```php
     \Joomla\CMS\HTML\HTMLHelper::_('bootstrap.toast', '.selector', []);
 ```
 
-- The **.selector** refers to the CSS selector for the toast. You can
-  call this function multiple times with different CSS selectors
-- The third argument refers to the options available for toast
+- The **.selector** refers to the CSS selector for the toast. You can call this function multiple times with different CSS selectors.
+- The third argument refers to the options available for toast.
 
 Options for the toast can be:
 
-- **animation**, boolean, default:**true** Apply a CSS fade transition
-  to the toast
-- **autohide**, boolean, default:**true** Auto hide the toast
-- **delay**, number , default:**5000** Delay hiding the toast (ms)
+- **animation**, boolean, default:**true** Apply a CSS fade transition to the toast.
+- **autohide**, boolean, default:**true** Auto hide the toast.
+- **delay**, number , default:**5000** Delay hiding the toast (ms).
 
 ### See Also
 
@@ -326,50 +240,28 @@ Options for the toast can be:
 
 ## Using Bootstrap Components in Articles
 
-The HTML mark-up for most components can be included in an article or a
-module that can itself be included in an article. The snag is that the
-HTMLHelper call to set up the JavaScript support cannot be included
-there. There are several possible approaches to this problem. Three
-approaches are suggested here, using a custom Module, using a Plugin or
-using a Template override.
+The HTML mark-up for most components can be included in an article or a module that can itself be included in an article. The snag is that the HTMLHelper call to set up the JavaScript support cannot be included there. There are several possible approaches to this problem. Three approaches are suggested here, using a custom Module, using a Plugin or using a Template override.
 
-**Caution:** The TinyMCE and JCE editors remove white space on Save and
-make editing code difficult! The simple solution is to go to the top
-right of your Administrator screen and select **User Menu **→** Edit
-Account** and set the Editor to Code Mirror.
+**Caution:** The TinyMCE and JCE editors remove white space on Save and make editing code difficult! The simple solution is to go to the top right of your Administrator screen and select **User Menu → Edit Account** and set the Editor to Code Mirror.
 
 ## Approach 1: Using a Custom Module
 
-This is probably the least error prone approach because the Bootstrap
-component support options are selected with check boxes. The steps
-involved are as follows:
+This is probably the least error prone approach because the Bootstrap component support options are selected with check boxes. The steps involved are as follows:
 
-- Download, install and enable this module: <a
-  href="https://github.com/ceford/j4xdemos-mod-custom-bscompos/raw/master/mod_custom_bscompos.zip"
-  class="external free" target="_blank"
-  rel="nofollow noreferrer noopener">https://github.com/ceford/j4xdemos-mod-custom-bscompos/raw/master/mod_custom_bscompos.zip</a>
-- From the Administrator menu go to **Content **→** Site
-  Modules **→** New**
+- Download, install and enable this [Custom Module](https://github.com/ceford/j4xdemos-mod-custom-bscompos/raw/master/mod_custom_bscompos.zip)
+- From the Administrator menu go to **Content **→** Site Modules → New**
 - Select **Custom BS Components**
 - Enter a Title
-- Toggle the Editor to plain text mode and paste in or type in the HTML
-  code for the component you want to use.
-- In the Options tab scroll down to the list of BS Components and select
-  type of component in this instance of the module. Note that you can
-  select more than one if your using more than one component.
+- Toggle the Editor to plain text mode and paste in or type in the HTML code for the component you want to use.
+- In the Options tab scroll down to the list of BS Components and select type of component in this instance of the module. Note that you can select more than one if your using more than one component.
 - Select a module Position: either
-  - a template defined position if you want to use the module in a
-    specific location or
-  - type in a position if you wish to use the module within a specific
-    article: in the article type in {loadposition whatever}
+  - a template defined position if you want to use the module in a specific location or
+  - type in a position if you wish to use the module within a specific article: in the article type in {loadposition whatever}
 - Save and go to the site to Test!
 
 ### Selectors
 
-For some components JavaScript action is triggered by a specific
-**class** in the HTML code. In other components action is triggered by a
-**data-bs-whatever** attribute. The following are the current triggers
-and may change:
+For some components JavaScript action is triggered by a specific **class** in the HTML code. In other components action is triggered by a **data-bs-whatever** attribute. The following are the current triggers and may change:
 
 - **Alert** triggered by class="alert ..."
 - **Button** triggered by data-bs-toggle="button"
@@ -379,19 +271,18 @@ and may change:
 - **Modal** triggered by data-bs-toggle="modal"
 - **Offcanvas** triggered by data-bs-toggle="offcanvas"
 - **Popover** triggered by class="btn ..." or
-  tag (could be changed to class="haspopover ...") AND
-  data-bs-toggle="popover"
+    - tag (could be changed to class="haspopover ...") AND
+    - data-bs-toggle="popover"
 - **Scrollspy** triggered by data-bs-spy="scroll"
 - **Tab** triggered by data-bs-toggle="tab"
 - **Toast** triggered by class="toast ..."
 - **Tooltip** triggered by class="btn ..." or
-  tag (could be changed to class="hastooltip ...") AND
-  data-bs-toggle="tooltip"
+    - tag (could be changed to class="hastooltip ...") AND
+    - data-bs-toggle="tooltip"
 
 ### Example 1: Alert
 
-Alerts may be used in html code without JavaScript support. This is only
-needed for the dismiss capability. HTML code example:
+Alerts may be used in html code without JavaScript support. This is only needed for the dismiss capability. HTML code example:
 
 ```html
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -402,20 +293,13 @@ needed for the dismiss capability. HTML code example:
 
 Example result of including a module in an article:
 
-<img
-src="https://docs.joomla.org/images/4/4c/Using-bootstrap-components-in-joomla-4-alert-demo.png"
-class="thumbborder" decoding="async" data-file-width="800"
-data-file-height="143" width="800" height="143" alt="Alert Demo" />
+![Bootstrap alert](../../../en/images/coding-examples/coding-examples-alert.png)
 
-Note that without JavaScript support, the alert will appear exactly as
-above but a click on the close button \[X\] will not dismiss the alert.
-Also, the alert will appear on every page load.
+Note that without JavaScript support, the alert will appear exactly as above but a click on the close button \[X\] will not dismiss the alert. Also, the alert will appear on every page load.
 
 ### Example 2: Buttons
 
-Buttons may be used in HTML code without JavaScript support. This is
-only needed for the sometimes subtle change of style applied to buttons
-with a change of state, styled active. Bootstrap example code:
+Buttons may be used in HTML code without JavaScript support. This is only needed for the sometimes subtle change of style applied to buttons with a change of state, styled active. Bootstrap example code:
 
 ```html
 <p><button type="button" class="btn btn-primary" data-bs-toggle="button" autocomplete="off">Toggle button</button>
@@ -437,18 +321,13 @@ With this style in the template user.css:
     }
 ```
 
-<img
-src="https://docs.joomla.org/images/e/e9/Using-bootstrap-components-in-joomla-4-button-demo.png"
-class="thumbborder" decoding="async" data-file-width="985"
-data-file-height="239" width="985" height="239" alt="Button Demo" />
+![Bootstrap buttons](../../../en/images/coding-examples/coding-examples-buttons.png)
 
 The buttons toggle between blue and green.
 
 ### Example 3: Carousel
 
-The Carousel offers a slide show cycling through a series of images or
-text panes. The following example used images from the Joomla 4 Sample.
-Bootstrap code:
+The Carousel offers a slide show cycling through a series of images or text panes. The following example used images from the Joomla 4 Sample. Bootstrap code:
 
 ```html
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -488,16 +367,11 @@ Bootstrap code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/5/5d/Using-bootstrap-components-in-joomla-4-carousel-demo.jpg"
-class="thumbborder" decoding="async" data-file-width="998"
-data-file-height="447" width="998" height="447" alt="Carousel Demo" />
+![Bootstrap carousel](../../../en/images/coding-examples/coding-examples-carousel.jpg)
 
 ### Example 4: Collapse
 
-Collapse is widely used in Joomla and you may not need to use a module
-or plugin to trigger action. The click opens a pane with extra
-information. Example Bootstrap code:
+Collapse is widely used in Joomla and you may not need to use a module or plugin to trigger action. The click opens a pane with extra information. Example Bootstrap code:
 
 ```html
 <p>
@@ -515,15 +389,11 @@ information. Example Bootstrap code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/3/3c/Using-bootstrap-components-in-joomla-4-collapse-demo.png"
-class="thumbborder" decoding="async" data-file-width="1011"
-data-file-height="261" width="1011" height="261" alt="Collapse Demo" />
+![Bootstrap collaps](../../../en/images/coding-examples/coding-examples-collapse.png)
 
 ### Example 5: Dropdown
 
-Dropdowns are toggleable, contextual overlays for displaying lists of
-links and more. Example Bootstrap code:
+Dropdowns are toggleable, contextual overlays for displaying lists of links and more. Example Bootstrap code:
 
 ```html
 <div class="btn-group">
@@ -540,17 +410,11 @@ links and more. Example Bootstrap code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/3/36/Using-bootstrap-components-in-joomla-4-dropdown-demo.png"
-class="thumbborder" decoding="async" data-file-width="996"
-data-file-height="258" width="996" height="258" alt="Dropdown Demo" />
+![Bootstrap dropdown](../../../en/images/coding-examples/coding-examples-dropdown.png)
 
 ### Example 6: Modal
 
-The Modal component opens a dialog box in the middle of the screen.
-There are quite a few options to control the size and content of the
-modal. See the Bootstrap documentation for more details. Example
-Bootstrap code:
+The Modal component opens a dialog box in the middle of the screen. There are quite a few options to control the size and content of the modal. See the Bootstrap documentation for more details. Example Bootstrap code:
 
 ```html
 <p><button class="btn btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"> Launch demo modal </button></p>
@@ -575,21 +439,15 @@ Bootstrap code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/2/23/Using-bootstrap-components-in-joomla-4-modal-demo.png"
-decoding="async" data-file-width="1000" data-file-height="212"
-width="1000" height="212" alt="Modal Demo" />
+![Bootstrap modal](../../../en/images/coding-examples/coding-examples-modal.png)
 
 ### Example 7: Offcanvas
 
-At the moment this component is not supported in Joomla. Watch this
-space - coming soon!
+At the moment this component is not supported in Joomla. Watch this space - coming soon!
 
 ### Example 8: Popover
 
-Popovers are like Tooltips but with a Title. They have some
-accessibility and performance issues so should be used with caution.
-Example Bootstrap code:
+Popovers are like Tooltips but with a Title. They have some accessibility and performance issues so should be used with caution. Example Bootstrap code:
 
 ```html
 <p><button class="btn btn-lg btn-danger" title="Popover title" type="button" data-bs-toggle="popover" data-bs-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button></p>
@@ -597,10 +455,7 @@ Example Bootstrap code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/a/a8/Using-bootstrap-components-in-joomla-4-popover-demo.png"
-class="thumbborder" decoding="async" data-file-width="1000"
-data-file-height="180" width="1000" height="180" alt="Popover Demo" />
+![Bootstrap alert](../../../en/images/coding-examples/coding-examples-popover.png)
 
 ### Example 9: Scrollspy
 
@@ -647,10 +502,7 @@ Example code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/1/19/Using-bootstrap-components-in-joomla-4-scrollspy-demo.png"
-class="thumbborder" decoding="async" data-file-width="1000"
-data-file-height="482" width="1000" height="482" alt="Scrollspy Demo" />
+![Bootstrap scrollspy](../../../en/images/coding-examples/coding-examples-scrollspy.png)
 
 Also, some styling is needed in user.css:
 
@@ -661,13 +513,11 @@ Also, some styling is needed in user.css:
     }
 ```
 
-Snag: the menu does not coordinate well with the content in this
-example!
+Snag: the menu does not coordinate well with the content in this example!
 
 ### Example 10: Tab
 
-Tabs are often used as navigation elements combined with dropdowns.
-Bootstrap example code:
+Tabs are often used as navigation elements combined with dropdowns. Bootstrap example code:
 
 ```html
 <ul class="nav nav-tabs">
@@ -688,20 +538,13 @@ Bootstrap example code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/a/a7/Using-bootstrap-components-in-joomla-4-tab-demo.png"
-class="thumbborder" decoding="async" data-file-width="1000"
-data-file-height="246" width="1000" height="246" alt="Tab Demo" />
+![Bootstrap tab](../../../en/images/coding-examples/coding-examples-tab.png)
 
-Remember to check both the Tab and Dropdown options for the dropdown
-part to work.
+Remember to check both the Tab and Dropdown options for the dropdown part to work.
 
 ### Example 11: Toast
 
-Toasts are lightweight notifications designed to mimic the push
-notifications that have been popularized by mobile and desktop operating
-systems. They’re built with flexbox, so they’re easy to align and
-position. Example Bootstrap code:
+Toasts are lightweight notifications designed to mimic the push notifications that have been popularized by mobile and desktop operating systems. They’re built with flexbox, so they’re easy to align and position. Example Bootstrap code:
 
 ```html
 <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
@@ -716,23 +559,13 @@ position. Example Bootstrap code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/6/64/Using-bootstrap-components-in-joomla-4-toast-demo.png"
-class="thumbborder" decoding="async" data-file-width="1000"
-data-file-height="196" width="1000" height="196" alt="Toast Demo" />
+![Bootstrap toast](../../../en/images/coding-examples/coding-examples-toast.png)
 
-Note that the Bootstrap demo that uses a button to show the Toast
-message needs some extra JavaScript. It seems this component needs a
-coder to make good use of it!
+Note that the Bootstrap demo that uses a button to show the Toast message needs some extra JavaScript. It seems this component needs a coder to make good use of it!
 
 ### Example 12: Tooltip
 
-A tooltip is a small piece of text that appears on hover over a button
-or link element to explain what it is or does. The tooltip can be
-positioned above or below or to the left or right of the element. If not
-specified the default position is top. The tooltip will switch to
-another position if there is insufficient room in the specified
-position. Example Bootstrap code:
+A tooltip is a small piece of text that appears on hover over a button or link element to explain what it is or does. The tooltip can be positioned above or below or to the left or right of the element. If not specified the default position is top. The tooltip will switch to another position if there is insufficient room in the specified position. Example Bootstrap code:
 
 ```html
 <p><button class="btn btn-secondary" title="Tooltip on left" type="button" data-bs-toggle="tooltip" data-bs-placement="left"> Tooltip on left </button>
@@ -746,30 +579,16 @@ position. Example Bootstrap code:
 
 Result:
 
-<img
-src="https://docs.joomla.org/images/b/b0/Using-bootstrap-components-in-joomla-4-tooltip-demo.png"
-class="thumbborder" decoding="async" data-file-width="1000"
-data-file-height="238" width="1000" height="238" alt="Tooltip Demo" />
+![Bootstrap tooltip](../../../en/images/coding-examples/coding-examples-tooltip.png)
 
 ## Approach 2: Using a Content Plugin
 
 The steps involved:
 
-- Download, install and enable this plugin: <a
-  href="https://github.com/ceford/j4xdemos-plg-bscompos/raw/master/plg_j4xdemos_bscompos.zip"
-  class="external free" target="_blank"
-  rel="nofollow noreferrer noopener">https://github.com/ceford/j4xdemos-plg-bscompos/raw/master/plg_j4xdemos_bscompos.zip</a>
-- In the article add the text that the plugin acts on, for example
-  {bscompos modal carousel} will trigger loading of the JavaScript
-  necessary to support a modal dialog and a carousel. The plugin removes
-  the trigger text and enclosing (now) empty
-  tags.
-- Include the Bootstrap Component HTML code directly in the article or
-  in a module included in the article. There is example HTML code below
-  for a simple Modal and a Modal containing a Carousel. Note that this
-  will not work if the HTML code is in a module in a template location.
-- This will also work for a standard Custom module if the Prepare
-  Content Option is set to Yes.
+- Download, install and enable this plugin: [](https://github.com/ceford/j4xdemos-plg-bscompos/raw/master/plg_j4xdemos_bscompos.zip)
+- In the article add the text that the plugin acts on, for example {bscompos modal carousel} will trigger loading of the JavaScript necessary to support a modal dialog and a carousel. The plugin removes the trigger text and enclosing (now) empty tags.
+- Include the Bootstrap Component HTML code directly in the article or in a module included in the article. There is example HTML code below for a simple Modal and a Modal containing a Carousel. Note that this will not work if the HTML code is in a module in a template location.
+- This will also work for a standard Custom module if the Prepare Content Option is set to Yes.
 - Test it!
 
 ## Approach 3: Using a Template Override
@@ -777,17 +596,14 @@ The steps involved:
 The steps involved:
 
 - Create a mod_custom template override.
-- Add a mod_custom module containing the component markup and trigger
-  classes.
+- Add a mod_custom module containing the component markup and trigger classes.
 - Include the module in an article.
 
 ### The mod_custom Template Override
 
-- In the Administrator interface go to **System **→** Site
-  Templates **→** Cassiopeia Details and Files**.
+- In the Administrator interface go to **System → Site Templates → Cassiopeia Details and Files**.
 - Select **Create Overrides **→** mod_custom **→** default.php**.
-- On the line following defined('\_JEXEC') or die; add the following
-  code:
+- On the line following defined('\_JEXEC') or die; add the following code:
 
 ```php
     $module_class = $params->get('moduleclass_sfx');
@@ -844,13 +660,7 @@ The steps involved:
     }
 ```
 
-This code searches for class names set in mod_custom and makes the
-HTMLHelper call to set up the JavaScript support. Note that the last
-item in each call is a selector that may or may not be used to trigger
-action. Many of the components are triggered by data attributes in the
-mark-up and they do not use the selectors here. For some, the selector
-is needed. For example, it makes sense to use the **.btn** class and the
-**a** tag to trigger Tooltips.
+This code searches for class names set in mod_custom and makes the HTMLHelper call to set up the JavaScript support. Note that the last item in each call is a selector that may or may not be used to trigger action. Many of the components are triggered by data attributes in the mark-up and they do not use the selectors here. For some, the selector is needed. For example, it makes sense to use the **.btn** class and the **a** tag to trigger Tooltips.
 
 ### A mod_custom Module for a Modal Component
 
@@ -886,28 +696,22 @@ is needed. For example, it makes sense to use the **.btn** class and the
 </div>
 ```
 
-- Select the Advanced tab and in the Module Class field enter
-  **bs-modal**
+- Select the Advanced tab and in the Module Class field enter **bs-modal**
 - Optional: set Ttitle to Hide to use the H2 in the pasted code.
-- Save and Close (do not worry that the modal looks all wrong in the
-  editor).
+- Save and Close (do not worry that the modal looks all wrong in the editor).
 
 ### Create an Article and Menu Item
 
-- Create a new article, Demo Modal, and in plain text entry mode set the
-  content to
+- Create a new article, Demo Modal, and in plain text entry mode set the content to
 
 ```html
 <div>{loadposition demomodal}</div>
 ```
 
 - Create a Single Article menu item.
-
 - Test it:
 
-<img src="https://docs.joomla.org/images/9/9a/Demomodal.png"
-decoding="async" data-file-width="1440" data-file-height="742"
-width="1440" height="742" alt="Bootstrap Modal in an Article" />
+![Bootstrap modal module in article](../../../en/images/coding-examples/coding-examples-modal-module.png)
 
 ### A Modal Component Containing a Carousel
 
@@ -973,11 +777,8 @@ width="1440" height="742" alt="Bootstrap Modal in an Article" />
 </div>
 ```
 
-- Create a new Article with {loadposition demomodalcarousel} in the
-  content.
+- Create a new Article with {loadposition demomodalcarousel} in the content.
 - Create a new single article menu item: Demo Modal Carousel
 - Test it:
 
-<img src="https://docs.joomla.org/images/f/f8/Demomodalcarousel.png"
-decoding="async" data-file-width="1440" data-file-height="742"
-width="1440" height="742" alt="Demo Modal containing a Carousel" />
+![Bootstrap modal carousel](../../../en/images/coding-examples/coding-examples-modal-carousel.png)

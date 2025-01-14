@@ -1,13 +1,10 @@
 <!-- Filename: How_to_use_JDate / Display title: How to use the Date class -->
 
 ## Introduction
-Joomla's Date class is a helper class, extended from PHP's DateTime class, which allows developers to handle date formatting more efficiently. The class allows developers to format dates for readable strings, MySQL interaction, UNIX timestamp calculation, and also provides helper methods for working in different timezones.
-
-'''Regarding the "JDate" class name:''' This page has been updated to utilise namespaced class names. `JDate`, `JApplication` and other similarly named classes you will see throughout the Joomla documentation are actually class aliases, maintained for legacy reasons. It is recommended to use namespaced access to Joomla classes, which will improve your development experience by providing better code hints and checks in your editor, leading to fewer errors.
-
-You can view the full list of aliased classes [in this file inside the Joomla codebase](https://github.com/joomla/joomla-cms/blob/staging/libraries/classmap.php).
+Joomla's Date class is a helper class, extended from PHP's DateTime class, which allows developers to handle date formatting more efficiently. The class allows developers to format dates for readable strings, MySQL interaction, UNIX timestamp calculation, and also provides helper methods for working in different time zones.
 
 ## Creating a Date Instance
+
 All of the date helper methods require an instance of the Date class. To begin, you must create one. A Date object may be created in two ways. One is the typical native method of simply creating a new instance:
 
 ```php
@@ -130,7 +127,7 @@ echo Factory::getDate()->setTimezone($timezone)->format(Text::_('DATE_FORMAT_FIL
 
 ### Adding and Subtracting from Dates
 
-Because the Joomla Date object extends the PHP DateTime object, it provides methods for adding and subtracting from dates. The easiest of these methods to use is the modify() method, which accepts any relative modification string that the PHP [https://www.php.net/manual/en/function.strtotime.php strtotime]() method would accept. For example:
+Because the Joomla Date object extends the PHP DateTime object, it provides methods for adding and subtracting from dates. The easiest of these methods to use is the modify() method, which accepts any relative modification string that the PHP [strtotime](https://www.php.net/manual/en/function.strtotime.php) method would accept. For example:
 
 ```php
 use Joomla\CMS\Date\Date;
@@ -140,7 +137,7 @@ $date->modify('+1 year');
 echo $date->toSQL(); // 2013-12-01 15:20:00
 ```
 
-There are also separate add() and sub() methods, for adding or subtracting time from a date object respectively. These accept PHP-standard [https://www.php.net/manual/en/class.dateinterval.php DateInterval] objects:
+There are also separate add() and sub() methods, for adding or subtracting time from a date object respectively. These accept PHP-standard [DateInterval](https://www.php.net/manual/en/class.dateinterval.php) objects:
 
 ```php
 use Joomla\CMS\Date\Date;
@@ -180,4 +177,3 @@ $date->toSQL(); // 2012-12-01 15:20:00
 ### Outputting Dates as Unix Timestamps
 
 A Unix timestamp is expressed as the number of seconds that have passed since the Unix Epoch (the first second of Jan 1st 1970).
-
