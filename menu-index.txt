@@ -77,6 +77,5 @@ heading=testing=Testing
 developer=testing=automated-system-testing.md
 developer=testing=testing-css-and-javascript.md
 
-heading=advanced-administrator=Advanced Administrator
-developer=advanced-administrator=http-header-management.md
-developer=advanced-administrator=language-pack-updates.md
+heading=security=Security
+developer=security=http-header-management.md

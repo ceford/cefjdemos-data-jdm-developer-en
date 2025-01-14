@@ -1,9 +1,3 @@
-advanced-administrator=http-header-management.md=https://docs.joomla.org/J4.x:Http_Header_Management
-advanced-administrator=language-pack-updates.md=https://docs.joomla.org/J4.x:One_click_updates_for_language_packs
-
-testing=automated-system-testing.md=https://docs.joomla.org/J4.x:Automated_System_Testing
-testing=testing-css-and-javascript.md=https://docs.joomla.org/J4.x:SCSS_and_Sass
-
 cli-development=cli-example-onoffbydate.md=https://docs.joomla.org/J4.x:CLI_example_-_Onoffbydate
 
 coding-examples=form-validation.md=https://docs.joomla.org/J4.x:Joomla_4_Tips_and_Tricks:_Form_Validation_Basics
@@ -60,3 +54,8 @@ plugin-development=about-plugins.md=https://manual.joomla.org/docs/building-exte
 plugin-development=cloud-file-systems-for-media-manager.md=https://docs.joomla.org/J4.x:Cloud_File_Systems_for_Media_Manager
 plugin-development=smart-search.md=https://docs.joomla.org/Creating_a_Smart_Search_plug-in
 plugin-development=content-toc.md=https://docs.joomla.org/J4.x:J4_Plugin_example_-_Table_of_Contents
+
+testing=automated-system-testing.md=https://docs.joomla.org/J4.x:Automated_System_Testing
+testing=testing-css-and-javascript.md=https://docs.joomla.org/J4.x:SCSS_and_Sass
+
+security=http-header-management.md=https://docs.joomla.org/J4.x:Http_Header_Management
