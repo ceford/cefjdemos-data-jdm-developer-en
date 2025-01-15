@@ -39,8 +39,6 @@ getting-started=ides.md=https://jdocmanual.org/jdocmanual?article=developer/gett
 getting-started=visual-studio-code-primer.md=https://docs.joomla.org/Visual_Studio_Code_Primer
 getting-started=developer-eclipse-pdt.md=https://docs.joomla.org/J4.x:Developer:_Eclipse_PDT
 
-getting-started=apache-php-handler.md=https://docs.joomla.org/J4.x:Apache_PHP_Handler
-
 module-development=down-message.md=https://docs.joomla.org/J4.x:J4_Module_example_-_Mydownmsg
 
 mvc-anatomy=mvc-anatomy-administrator-edit-files.md=https://docs.joomla.org/J4.x:MVC_Anatomy:_Administrator_Edit_Files
