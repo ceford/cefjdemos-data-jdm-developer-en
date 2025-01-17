@@ -4,7 +4,7 @@ Since Joomla 4.0, extension developers can leverage the ability of Joomla to rea
 
 The changes in a release will be presented in this manner:
 
-<img alt="Changelog modal" src="https://docs.joomla.org/images/thumb/7/7a/Changelog_modal-en.png/700px-Changelog_modal-en.png" decoding="async" width="700" height="461" srcset="https://docs.joomla.org/images/thumb/7/7a/Changelog_modal-en.png/1050px-Changelog_modal-en.png 1.5x, https://docs.joomla.org/images/thumb/7/7a/Changelog_modal-en.png/1400px-Changelog_modal-en.png 2x" data-file-width="1618" data-file-height="1066">
+![changelog modal view](../../../en/images/developer-information/adding-changelog-example-1.png)
 
 The changelog is used in two different places.
 
@@ -12,7 +12,7 @@ The changelog is used in two different places.
 
 The installer will show the changelog of the version that can be installed if available.
 
-<img alt="Changelog button on the Update View" src="https://docs.joomla.org/images/thumb/7/79/Update_view_changelog_button-en.png/700px-Update_view_changelog_button-en.png" decoding="async" width="700" height="152" srcset="https://docs.joomla.org/images/thumb/7/79/Update_view_changelog_button-en.png/1050px-Update_view_changelog_button-en.png 1.5x, https://docs.joomla.org/images/7/79/Update_view_changelog_button-en.png 2x" data-file-width="1282" data-file-height="278">
+![changelog installer view](../../../en/images/developer-information/adding-changelog-update-view.png)
 
 Clicking the Changelog button here will show the changelog of the new available version.
 
@@ -20,7 +20,7 @@ Clicking the Changelog button here will show the changelog of the new available 
 
 The extension manager will show the changelog of the currently installed extension if available.
 
-<img alt="Version number is a link to the changelog modal" src="https://docs.joomla.org/images/thumb/4/4b/Manage_view_changelog_link-en.png/700px-Manage_view_changelog_link-en.png" decoding="async" width="700" height="81" srcset="https://docs.joomla.org/images/thumb/4/4b/Manage_view_changelog_link-en.png/1050px-Manage_view_changelog_link-en.png 1.5x, https://docs.joomla.org/images/4/4b/Manage_view_changelog_link-en.png 2x" data-file-width="1274" data-file-height="148">
+![changelog installer view](../../../en/images/developer-information/adding-changelog-extension-view.png)
 
 Clicking the version number here will show the changelog of the current installed version.
 
