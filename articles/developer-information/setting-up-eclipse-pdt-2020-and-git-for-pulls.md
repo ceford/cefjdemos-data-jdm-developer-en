@@ -101,7 +101,7 @@ Your copy of the joomla-cms code needs more steps to make it usable as a web sit
 
 - Open a terminal and switch to the folder containing your cloned code.
 - Run composer install:
-  - Linux and OSX users can set up the following bash alias by placing the following inside the ~/.bash_profile or ~/.zsh file (\$ source ~/.bash_profile to effect immediately):
+  - Linux and OSX users can set up the following bash alias by placing the following inside the `~/.bash_profile` or `~/.zsh` file (`\$ source ~/.bash_profile` to effect immediately):
 ```sh
     alias jclean="rm -rf administrator/templates/atum/css; \
     rm -rf templates/cassiopeia/css; \
