@@ -41,18 +41,6 @@ developer=plugin-development=cloud-file-systems-for-media-manager.md
 heading=module-development=Module Development
 developer=module-development=down-message.md
 
-;heading=developing-an-mvc-component=Developing an MVC Component
-;developer=developing-an-mvc-component=developing-an-mvc-component.md
-;developer=developing-an-mvc-component=developing-an-mvc-component-introduction.md
-;developer=developing-an-mvc-component=developing-an-mvc-component-developing-a-basic-component.md
-;developer=developing-an-mvc-component=developing-an-mvc-component-adding-a-view-to-the-site-part.md
-;developer=developing-an-mvc-component=developing-an-mvc-component-adding-a-menu-type-to-the-site-part.md
-;developer=developing-an-mvc-component=developing-an-mvc-component-language-management.md
-;developer=developing-an-mvc-component=developing-an-mvc-component-adding-a-model-to-the-site-part.md
-;developer=developing-an-mvc-component=developing-an-mvc-component-adding-a-request-variable-in-the-menu-link.md
-;developer=developing-an-mvc-component=developing-an-mvc-component-setting-up-the-database.md
-;developer=developing-an-mvc-component=adding-an-api-to-a-joomla-component.md
-
 heading=mvc-anatomy=MVC Anatomy
 developer=mvc-anatomy=mvc-anatomy-getting-started.md
 developer=mvc-anatomy=mvc-anatomy-file-structure.md

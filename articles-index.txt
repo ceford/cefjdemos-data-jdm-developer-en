@@ -18,17 +18,6 @@ developer-information=setting-up-your-local-environment.md=https://docs.joomla.o
 developer-information=web-assets.md=https://docs.joomla.org/J4.x:Web_Assets
 developer-information=working-with-git-and-github.md=https://docs.joomla.org/Working_with_git_and_github
 
-developing-an-mvc-component=adding-an-api-to-a-joomla-component.md=https://docs.joomla.org/J4.x:Adding_an_API_to_a_Joomla_Component
-developing-an-mvc-component=developing-an-mvc-component-adding-a-menu-type-to-the-site-part.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Adding_a_Menu_Type_to_the_Site_Part
-developing-an-mvc-component=developing-an-mvc-component-adding-a-model-to-the-site-part.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Adding_a_Model_to_the_Site_Part
-developing-an-mvc-component=developing-an-mvc-component-adding-a-request-variable-in-the-menu-link.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Adding_a_Request_Variable_in_the_Menu_Link
-developing-an-mvc-component=developing-an-mvc-component-adding-a-view-to-the-site-part.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Adding_a_View_to_the_Site_Part
-developing-an-mvc-component=developing-an-mvc-component-developing-a-basic-component.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Developing_a_Basic_Component
-developing-an-mvc-component=developing-an-mvc-component-introduction.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Introduction
-developing-an-mvc-component=developing-an-mvc-component-language-management.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Language_Management
-developing-an-mvc-component=developing-an-mvc-component-setting-up-the-database.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component/Setting_up_the_Database
-developing-an-mvc-component=developing-an-mvc-component.md=https://docs.joomla.org/J4.x:Developing_an_MVC_Component
-
 getting-started=preface.md=https://jdocmanual.org/jdocmanual?article=developer/gettting-started/preface
 getting-started=developer-required-software.md=https://docs.joomla.org/J4.x:Developer:_Required_Software
 getting-started=databases.md=https://jdocmanual.org/jdocmanual?article=developer/gettting-started/databases
