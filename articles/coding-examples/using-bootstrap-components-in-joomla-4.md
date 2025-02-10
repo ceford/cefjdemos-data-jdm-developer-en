@@ -391,7 +391,7 @@ Collapse is widely used in Joomla and you may not need to use a module or plugin
 
 Result:
 
-![Bootstrap collaps](../../../en/images/coding-examples/coding-examples-collapse.png)
+![Bootstrap collapse](../../../en/images/coding-examples/coding-examples-collapse.png)
 
 ### Example 5: Dropdown
 
@@ -587,7 +587,7 @@ Result:
 
 The steps involved:
 
-- Download, install and enable this plugin: [](https://github.com/ceford/j4xdemos-plg-bscompos/raw/master/plg_j4xdemos_bscompos.zip)
+- Download, install and enable this [plugin](https://github.com/ceford/j4xdemos-plg-bscompos/raw/master/plg_j4xdemos_bscompos.zip)
 - In the article add the text that the plugin acts on, for example {bscompos modal carousel} will trigger loading of the JavaScript necessary to support a modal dialog and a carousel. The plugin removes the trigger text and enclosing (now) empty tags.
 - Include the Bootstrap Component HTML code directly in the article or in a module included in the article. There is example HTML code below for a simple Modal and a Modal containing a Carousel. Note that this will not work if the HTML code is in a module in a template location.
 - This will also work for a standard Custom module if the Prepare Content Option is set to Yes.
