@@ -40,7 +40,7 @@ Let us assume you have installed everything except Eclipse.
 
 ## Fork joomla-cms on Github
 
-There is a workflow described in [My first pull request to Joomla! on Github](https://docs.joomla.org/My_first_pull_request_to_Joomla!_on_Github "Special:MyLanguage/My first pull request to Joomla! on Github")  that I cannot praise too highly. It shows exactly what you need to do:
+There is a workflow described in [My first pull request to Joomla! on Github](https://docs.joomla.org/My_first_pull_request_to_Joomla!_on_Github)  that I cannot praise too highly. It shows exactly what you need to do:
 
 ![Github work flow](../../../en/images/getting-started/core-work-flow-joomla.png)
 
@@ -176,18 +176,18 @@ At one stage my local clone somehow became corrupted and I had no idea how to fi
 
 ## Other Resources
 
-- [Configuring Eclipse for Joomla development](https://docs.joomla.org/Configuring_Eclipse_for_joomla_development "Special:MyLanguage/Configuring Eclipse for joomla development") (2012-2013) But get the latest Eclipse PDT version!
-- [My first pull request to Joomla! on Github](https://docs.joomla.org/My_first_pull_request_to_Joomla!_on_Github "Special:MyLanguage/My first pull request to Joomla! on Github") (2011-2014) Good overview if a little out of date.
-- [Working with git and github](https://docs.joomla.org/Working_with_git_and_github "Special:MyLanguage/Working with git and github") (2011-2015)
-- [Setting Up Your Local Environment](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment "Special:MyLanguage/J4.x:Setting Up Your Local Environment") (2018-2020)
-- [Configuring Eclipse and Xdebug](https://docs.joomla.org/Configuring_Eclipse_and_Xdebug "Special:MyLanguage/Configuring Eclipse and Xdebug") (2013) All about debugging.
-- [Working with Git and Eclipse](https://docs.joomla.org/Working_with_Git_and_Eclipse "Special:MyLanguage/Working with Git and Eclipse") (2014) Method for old editions of Eclipse.
-- [Running Automated Tests from Eclipse](https://docs.joomla.org/Running_Automated_Tests_from_Eclipse "Special:MyLanguage/Running Automated Tests from Eclipse") (2020) For advanced users?
-- [Configuring Xdebug for PHP development/Linux](https://docs.joomla.org/Configuring_Xdebug_for_PHP_development/Linux "Special:MyLanguage/Configuring Xdebug for PHP development/Linux") (2016) Install and configure.
-- [Configuring Eclipse IDE for PHP development/Linux](https://docs.joomla.org/Configuring_Eclipse_IDE_for_PHP_development/Linux "Special:MyLanguage/Configuring Eclipse IDE for PHP development/Linux") (2019) Install and configure for Linux.
-- [Configuring Xdebug for PHP development](https://docs.joomla.org/Configuring_Xdebug_for_PHP_development "Special:MyLanguage/Configuring Xdebug for PHP development") (2014) Steps for Linux, Windows and Mac OS X.
-- [Webinar: Using Eclipse for Joomla! Development](https://docs.joomla.org/Webinar:_Using_Eclipse_for_Joomla!_Development "Special:MyLanguage/Webinar: Using Eclipse for Joomla! Development") (2014) This 45-minute video webinar, recorded on April 30, 2009, provides an overview of Eclipse features for Joomla! development.
-- [Setting up your workstation for Joomla development](https://docs.joomla.org/Setting_up_your_workstation_for_Joomla_development "Special:MyLanguage/Setting up your workstation for Joomla development") (2020) Brief overview of software required and alternative IDEs.
+- [Configuring Eclipse for Joomla development](https://docs.joomla.org/Configuring_Eclipse_for_joomla_development) (2012-2013) But get the latest Eclipse PDT version!
+- [My first pull request to Joomla! on Github](https://docs.joomla.org/My_first_pull_request_to_Joomla!_on_Github) (2011-2014) Good overview if a little out of date.
+- [Working with git and github](https://docs.joomla.org/Working_with_git_and_github) (2011-2015)
+- [Setting Up Your Local Environment](https://docs.joomla.org/J4.x:Setting_Up_Your_Local_Environment) (2018-2020)
+- [Configuring Eclipse and Xdebug](https://docs.joomla.org/Configuring_Eclipse_and_Xdebug) (2013) All about debugging.
+- [Working with Git and Eclipse](https://docs.joomla.org/Working_with_Git_and_Eclipse) (2014) Method for old editions of Eclipse.
+- [Running Automated Tests from Eclipse](https://docs.joomla.org/Running_Automated_Tests_from_Eclipse) (2020) For advanced users?
+- [Configuring Xdebug for PHP development/Linux](https://docs.joomla.org/Configuring_Xdebug_for_PHP_development/Linux) (2016) Install and configure.
+- [Configuring Eclipse IDE for PHP development/Linux](https://docs.joomla.org/Configuring_Eclipse_IDE_for_PHP_development/Linux) (2019) Install and configure for Linux.
+- [Configuring Xdebug for PHP development](https://docs.joomla.org/Configuring_Xdebug_for_PHP_development) (2014) Steps for Linux, Windows and Mac OS X.
+- [Webinar: Using Eclipse for Joomla! Development](https://docs.joomla.org/Webinar:_Using_Eclipse_for_Joomla!_Development) (2014) This 45-minute video webinar, recorded on April 30, 2009, provides an overview of Eclipse features for Joomla! development.
+- [Setting up your workstation for Joomla development](https://docs.joomla.org/Setting_up_your_workstation_for_Joomla_development) (2020) Brief overview of software required and alternative IDEs.
 
 ## Appendix
 

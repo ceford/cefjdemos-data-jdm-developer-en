@@ -281,4 +281,4 @@ Cake days?
 
 ## References
 
-From Joomla! Documentation: [Visual Studio Code](https://docs.joomla.org/Visual_Studio_Code "Visual Studio Code") which also covers configuration of other tools, for example CodeSniffer and PHPUnit.
+From Joomla! Documentation: [Visual Studio Code](https://docs.joomla.org/Visual_Studio_Code) which also covers configuration of other tools, for example CodeSniffer and PHPUnit.
