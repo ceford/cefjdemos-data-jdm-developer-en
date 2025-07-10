@@ -13,7 +13,7 @@ There are many parts to the Joomla language system, each needing its own specifi
 - The use of multiple languages in a Joomla site using Associations or Overrides requires User documentation.
 - The CMS language debugging feature requires Developer documentation.
 - Third party components may offer several languages for which developers need some guidance on best practices.
-- There may be circumstances where a Language Pack produced by a third party is not an ***Official*** language pack. An example is described for [Scottish Gaelic](../languages/language-extension-example/) in this section of the Manual.
+- There may be circumstances where a Language Pack produced by a third party is not an ***Official*** language pack. An example is described for [Scottish Gaelic](jdocmanual?article=developer/languages/language-extension-example) in this section of the Manual.
 
 ## References
 

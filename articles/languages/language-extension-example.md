@@ -325,7 +325,7 @@ The files in these folders are similar to those in the admin folder except that 
 
 The following screenshot shows the Home Dashboard with Scottish Gaelic as the Administrator language:
 
-![Home dashboard in Gaelic](_assets/home-dashboard-gaelic.png)
+![Home dashboard in Gaelic](../../../en/images/languages/home-dashboard-gaelic.png)
 
 You may notice that some words are in English! They are the module headings that were entered in English. The modules could be edited and the module titles changed to the default language.
 
@@ -412,6 +412,6 @@ The build process is then called from a VSCode tasks file.
 
 Although this extension is not destined for the Joomla Extensions Directory, the JED Checker is an invaluable development tool. This is what it reports:
 
-![JED Checker Screenshot](_assets/jed-check-gaelic.png)
+![JED Checker Screenshot](../../../en/images/languages/jed-check-gaelic.png)
 
 The XML Manifest errors appear to be a JED Checker bug that has been reported. There are no other problems.
