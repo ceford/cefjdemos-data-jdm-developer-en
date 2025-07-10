@@ -32,6 +32,11 @@ heading-1=api-guides=API Guides
 developer=developer-information=api-guides.md
 developer=developer-information=joomla-core-apis.md
 
+heading=languages=Languages
+developer=languages=about-languages.md
+developer=languages=language-extension-example.md
+developer=languages=translate-openai.md
+
 heading=plugin-development=Plugin Development
 developer=plugin-development=about-plugins.md
 developer=plugin-development=smart-search.md

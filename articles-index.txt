@@ -18,6 +18,10 @@ developer-information=setting-up-your-local-environment.md=https://docs.joomla.o
 developer-information=web-assets.md=https://docs.joomla.org/J4.x:Web_Assets
 developer-information=working-with-git-and-github.md=https://docs.joomla.org/Working_with_git_and_github
 
+languages=about-languages.md=https://jdocmanual.org/jdocmanual?article=developer/languages/about-languages
+languages=language-extension-example.md=https://jdocmanual.org/jdocmanual?article=developer/languages/language-pack-example
+languages=translate-openai.md=https://jdocmanual.org/jdocmanual?article=developer/languages/translation-script-example
+
 getting-started=preface.md=https://jdocmanual.org/jdocmanual?article=developer/gettting-started/preface
 getting-started=developer-required-software.md=https://docs.joomla.org/J4.x:Developer:_Required_Software
 getting-started=databases.md=https://jdocmanual.org/jdocmanual?article=developer/gettting-started/databases
