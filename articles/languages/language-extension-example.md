@@ -35,6 +35,8 @@ cefjdemos-pkg-gd-gb
     LICENSE
     pkg_gd-GB.zip
     README.md
+    update-hashes.php
+    updates.xml
 ```
 
 The pkg_gd-GB.zip file contains the three client zip files, the script.php file and the pkg_gd-GB.xml file but not the contents of each client folder as they are in the individual zips.
@@ -335,7 +337,7 @@ To convert the repository structure into an installable package a build process 
 
 This particular build is very simple. Each of the client folders needs to be compressed into separate zip files and then incorporated into the package zip file.
 
-### build.xml
+### The build.xml file
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -377,13 +379,15 @@ This particular build is very simple. Each of the client folders needs to be com
 			<fileset refid="pkgfiles" />
 		</zip>
 
+		<exec command="php update-hashes.php pkg_gd-GB.zip updates.xml" passthru="true"/>
+
 	</target>
 </project>
 ```
 
 The build process is then called from a VSCode tasks file.
 
-### .vscode/tasks.json
+### The .vscode/tasks.json file
 
 ```json
 {
@@ -406,6 +410,77 @@ The build process is then called from a VSCode tasks file.
 	  }
 	]
 }
+```
+
+### The update-hashes.php file
+
+In the last stage of the build the SHA256, SHA384 and SHA512 values are calculated for use in the `updates.xml` file. This is accomplished by executing a short PHP script:
+
+```php
+<?php
+if ($argc !== 3) {
+    fwrite(STDERR, "Usage: php update-hashes.php <zip-file> <xml-file>\n");
+    exit(1);
+}
+
+$zipFile = $argv[1];
+$xmlFile = $argv[2];
+
+// Calculate hashes
+$sha256 = hash_file('sha256', $zipFile);
+$sha384 = hash_file('sha384', $zipFile);
+$sha512 = hash_file('sha512', $zipFile);
+
+// Load and update XML
+$doc = new DOMDocument();
+$doc->preserveWhiteSpace = false;
+$doc->formatOutput = true;
+$doc->load($xmlFile);
+
+if (($sha256Node = $doc->getElementsByTagName('sha256')->item(0)) !== null) {
+    $sha256Node->nodeValue = $sha256;
+}
+
+if (($sha384Node = $doc->getElementsByTagName('sha384')->item(0)) !== null) {
+    $sha384Node->nodeValue = $sha384;
+}
+
+if (($sha512Node = $doc->getElementsByTagName('sha512')->item(0)) !== null) {
+    $sha512Node->nodeValue = $sha512;
+}
+
+$doc->save($xmlFile);
+echo "Updated hashes in $xmlFile\n";
+```
+
+### The updates.xml file
+
+This file is referred to in the installation pkg_gd-GB.xml file so that the integrity of the extension can be checked before it is unpacked.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+  <update>
+    <name>Scottish Gaelic</name>
+    <description>Scottish Gaelic Language Pack</description>
+    <element>gd-GB</element>
+    <type>language</type>
+    <version>5.3.1.2</version>
+    <client>administrator</client>
+    <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
+    <downloads>
+      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</downloadurl>
+    </downloads>
+    <sha256>9f87ff34e266f9cf7aa69ade02a05c633023cd938d7bd618bc8ff43f16600daf</sha256>
+    <sha384>63c1ce944c5a5f79ebbde758c1c10f803c4684fcb1dab6df7aa138eab1c98260e7c93ebb652f577ed65ce308d0d29ff2</sha384>
+    <sha512>98868560977f1a8bcec9b9b223a65ba33f1abdd5146b027b8fb768ce9eb5fef7fbb866990208b9850520d89a435c8f11b28ceff10e86c543ecb2967a36f8e1d4</sha512>
+    <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/main/changelog.xml</changelogurl>
+    <tags>
+      <tag>stable</tag>
+    </tags>
+    <targetplatform name="joomla" version="[456].[012345]"/>
+  </update>
+</updates>
 ```
 
 ## JED Checker
