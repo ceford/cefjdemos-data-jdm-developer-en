@@ -6,21 +6,7 @@ This article presents an example of a method to translate a language pack using 
 
 ## Preparation
 
-The default English language pack contains .ini files for three clients: admin (454 files), api (2 files) and site (69 files). Lists of the .ini files were made in three .txt files, as in this short example for the list of admin .ini files:
-
-```
-com_actionlogs.ini
-com_actionlogs.sys.ini
-com_admin.ini
-com_admin.sys.ini
-com_ajax.ini
-...
-plg_workflow_notification.sys.ini
-plg_workflow_publishing.ini
-plg_workflow_publishing.sys.ini
-tpl_atum.ini
-tpl_atum.sys.ini
-```
+The default English language pack contains .ini files for three clients: admin (454 files), api (2 files) and site (69 files). 
 
 The PHP script used for translation is shown in full below. It was intended initially for one-time use only so was not *polished* for public eyes. It is run from the command line. Example input and output:
 
@@ -31,6 +17,8 @@ Processing api/language/en-GB/com_media.ini
 Processing api/language/en-GB/joomla.ini
 Total = 2
 ```
+
+Processing the com_media.ini file takes only a few seconds as it contains just a few key-value strings. Processing the joomla.ini file takes a few minutes as it contains about 900 strings. The api client is used as an example because it has only two .ini files and takes a few minutes to complete. The admin and site clients contain many more .ini files and may take hours to complete!
 
 Some parameters are hard-coded:
 
@@ -133,26 +121,26 @@ class ChatGPTIniTranslate {
         }
 
         // Read in the list of source files.
-        $files = file_get_contents(__DIR__ . "/{$folder}.txt");
-        $lines = explode(PHP_EOL, $files);
+        $files = glob("{$this->base_in}{$source}*.ini");
         $count = 0;
         $pattern = '/(.*)"(.*)"/';
-        foreach ($lines as $line) {
-            if (empty(trim($line))) {
+        foreach ($files as $file) {
+            if (empty(trim($file))) {
                 continue;
             }
 
+            $basename = basename($file);
             // If the translation has been done, skip this file.
-            if (is_file($sink . $line)) {
+            if (is_file($sink . $basename)) {
                 continue;
             }
 
             // Create an empty file.
-            file_put_contents($sink . $line, "");
+            file_put_contents($sink . $basename, "");
 
             // Read in the English ini file.
-            $inifile = file_get_contents($this->base_in . $source . $line);
-            echo "Processing {$source}{$line}\n";
+            $inifile = file_get_contents($this->base_in . $source . $basename);
+            echo "Processing {$source}{$basename}\n";
             $inilines = explode(PHP_EOL, $inifile);
             $inicount = 0;
             $batch = [];
@@ -168,17 +156,17 @@ class ChatGPTIniTranslate {
                     $inicount += 1;
                     // If the batch is a multiple of 25 send it for translation.
                     if ($inicount % 25 === 0) {
-                        file_put_contents($sink . $line, $this->translateme($batch), FILE_APPEND);
+                        file_put_contents($sink . $basename, $this->translateme($batch), FILE_APPEND);
                         $batch = [];
                     }
                 } else {
                     // Output any pending batch translations.
                     if (!empty($batch)) {
-                        file_put_contents($sink . $line, $this->translateme($batch), FILE_APPEND);
+                        file_put_contents($sink . $basename, $this->translateme($batch), FILE_APPEND);
                     }
 
                    // Output the line unchanged
-                    file_put_contents($sink . $line, "{$iniline}\n", FILE_APPEND);
+                    file_put_contents($sink . $basename, "{$iniline}\n", FILE_APPEND);
 
                    $batch = [];
                 }
@@ -186,7 +174,7 @@ class ChatGPTIniTranslate {
 
             // Translate any lines still in the batch;
             if (!empty($batch)) {
-                file_put_contents($sink . $line, $this->translateme($batch), FILE_APPEND);
+                file_put_contents($sink . $basename, $this->translateme($batch), FILE_APPEND);
             }
             $count += 1;
         }
@@ -366,7 +354,7 @@ class ChatGPTIniTranslate {
     }
 }
 
-$client = readline("Client (one of api, admin or site: ");
+$client = readline("Client (one of api, admin or site): ");
 if ($client === 'api' || $client === 'admin' || $client === 'site') {
     $chat = new ChatGPTIniTranslate;
     $chat->go($client);
