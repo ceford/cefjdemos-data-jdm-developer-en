@@ -48,9 +48,9 @@ Note that **gd-GB** is the ISO code for Scottish Gaelic. Most of the fields in t
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <extension type="package" method="upgrade">
-	<name>Scottish Gaelic Language Pack</name>
+	<name>Scottish Gaelic</name>
 	<packagename>gd-GB</packagename>
-	<version>5.3.1.1</version>
+	<version>5.3.1.2</version>
 	<creationDate>2025-06-18</creationDate>
 	<author>Clifford E Ford</author>
 	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
@@ -69,7 +69,7 @@ Note that **gd-GB** is the ISO code for Scottish Gaelic. Most of the fields in t
 		<file type="language" client="api" id="gd-GB">api_gd-GB.zip</file>
 	</files>
 	<updateservers>
-		<server type="extension" priority="2" name="Scottish Gaelic Update Site">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</server>
+		<server type="extension" priority="2" name="Scottish Gaelic Update Site">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/updates.xml</server>
 	</updateservers>
 </extension>
 ```
@@ -150,7 +150,7 @@ This file is used for installation and removal of the language extension.
 <extension client="administrator" type="language" method="upgrade">
 	<name>Scottish Gaelic</name>
 	<tag>gd-GB</tag>
-	<version>5.3.1.1</version>
+	<version>5.3.1.2</version>
 	<creationDate>2025-06-18</creationDate>
 	<author>Clifford E Ford</author>
 	<authorEmail>cliff@ford.myzen.co.uk</authorEmail>
@@ -161,8 +161,8 @@ This file is used for installation and removal of the language extension.
 
 	<files>
 		<folder>/</folder>
-		<filename file="meta">langmetadata.xml</filename>
-		<filename file="meta">install.xml</filename>
+		<filename>langmetadata.xml</filename>
+		<filename>install.xml</filename>
 	</files>
 </extension>
 ```
