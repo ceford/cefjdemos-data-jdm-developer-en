@@ -6,7 +6,9 @@ This article presents an example of a method to translate a language pack using 
 
 ## Preparation
 
-The default English language pack contains .ini files for three clients: admin (454 files), api (2 files) and site (69 files). 
+The default English language pack contains .ini files for three clients: admin (454 files), api (2 files) and site (69 files).
+
+There are lists of core .ini files in the same folder as the php script. This allows comparison with lists of .ini files obtained from the source installation so that non-core .ini files can be skipped with a message. The lists may need revision with new major or minor Joomla releases.
 
 The PHP script used for translation is shown in full below. It was intended initially for one-time use only so was not *polished* for public eyes. It is run from the command line. Example input and output:
 
@@ -120,12 +122,29 @@ class ChatGPTIniTranslate {
                 exit("unkown folder: {$folder}\n");
         }
 
-        // Read in the list of source files.
+        // Read in the list of expected core files.
+        $core_files = file_get_contents("{$folder}.txt");
+        if (empty($core_files)) {
+            exit("The list of core files is missing: {$folder}.txt\n");
+        }
+        $core_files = explode(PHP_EOL, $core_files);
+
+        // Read in the list of source files in the input installation.
         $files = glob("{$this->base_in}{$source}*.ini");
+
         $count = 0;
+        // Pattern to select key and value (but not used).
         $pattern = '/(.*)"(.*)"/';
+
+        // Process each ini file.
         foreach ($files as $file) {
             if (empty(trim($file))) {
+                continue;
+            }
+
+            // Skip if the file is not a core file.
+            if (!in_array(basename($file), $core_files)) {
+                echo "Skipping none-core file: {$file}\n";
                 continue;
             }
 
