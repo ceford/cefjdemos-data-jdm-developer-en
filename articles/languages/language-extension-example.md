@@ -2,14 +2,22 @@
 
 ## Introduction
 
-Official Joomla language extensions are normally installed via the System &rarr; Install &rarr; Languages route. However, there may be occasions when it is necessary to install a language extension via the Install &rarr; Extensions &rarr; Upload & Install route. This example is for Scottish Gaelic with all of the English to Gaelic translation obtained using openai.com at a cost of just under $5. It is an unofficial language extension because it really needs the translations verified by Gaelic speakers, perhaps unlikely as there are only 60,000 of them in total. Creation of the extension was inspired by the coincidence of an enquiry in the Forum and a personal visit to the ruins or Carnasserie Castle where the very first printed document in Scottish Gaelic was produced in 1567.
+Official Joomla language extensions are normally installed via the System &rarr; Install &rarr; Languages route. However, there may be occasions when it is necessary to install a language extension via the Install &rarr; Extensions &rarr; Upload & Install route. This example is for Scottish Gaelic with all of the English to Gaelic translation obtained using openai.com at a cost of just under $5. It is an unofficial language extension because it really needs the translations verified by Gaelic speakers, of which there are about 60,000 in total. Creation of the extension was inspired by the coincidence of an enquiry in the Forum and a personal visit to the ruins of Carnasserie Castle where the very first printed document in Scottish Gaelic was produced in 1567.
 
-## Repository File Structure
+## Local Repository File Structure
 
-The following structure includes a build.xml file, used to build the package using phing, and a .gitignore file, neither of which are present in the GitHub [repository](https://github.com/ceford/cefjdemos-pkg-gd-gb). The .ini files are translations of the original English .ini files. The method of translation is covered in a separate article.
+The following local repository structure is the same as that present in the remote GitHub [repository](https://github.com/ceford/cefjdemos-pkg-gd-gb). The .ini files are translations of the original English .ini files. The method of translation is covered in a separate [article](jdocmanual?article=developer/languages/translate-openai). The downloads folder contents are created by the GitHub workflow and downloaded to the local repository with `git pull`.
 
 ```sh
 cefjdemos-pkg-gd-gb
+    .github
+        workflows
+            package.yml
+    downloads
+        pkg_gd-GB-joomla5.zip
+        pkg_gd-GB-joomla5.zip.sha256
+        pkg_gd-GB-joomla5.zip.sha384
+        pkg_gd-GB-joomla5.zip.sha512
     gd-GB
         admin_gd-GB
             454 *.ini files
@@ -25,21 +33,13 @@ cefjdemos-pkg-gd-gb
             install.xml
             langmetadata.xml
             localise.php
-        admin_gd-GB.zip
-        api_gd-GB.zip
-        pkg_gd-GB.xml
-        script.php
-        site_gd-GB.zip
+    pkg_gd-GB.xml
     .gitignore
-    build.xml
     LICENSE
-    pkg_gd-GB.zip
     README.md
-    update-hashes.php
     updates.xml
 ```
-
-The pkg_gd-GB.zip file contains the three client zip files, the script.php file and the pkg_gd-GB.xml file but not the contents of each client folder as they are in the individual zips.
+The local repository has two branches: joomla5 and joomla6. This article does not cover the joomla6 version, which is almost identical except for version numbers and the actual contents of the ini files. There are more entries in the ini files in Joomla 6.
 
 ## The pkg_gd-GB.xml File
 
@@ -62,7 +62,6 @@ Note that **gd-GB** is the ISO code for Scottish Gaelic. Most of the fields in t
 	<packagerurl>https://github.com/ceford/cefjdemos-pkg-gd-gb</packagerurl>
 	<description><![CDATA[Scottish Gaelic translation created by openai.com]]></description>
 	<blockChildUninstall>true</blockChildUninstall>
-	<scriptfile>script.php</scriptfile>
 	<files>
 		<file type="language" client="site" id="gd-GB">site_gd-GB.zip</file>
 		<file type="language" client="administrator" id="gd-GB">admin_gd-GB.zip</file>
@@ -73,69 +72,10 @@ Note that **gd-GB** is the ISO code for Scottish Gaelic. Most of the fields in t
 	</updateservers>
 </extension>
 ```
+
 The extension version is usually the same as the Joomla version for which it was created. An optional extra parameter may be used for updates, for example 5.3.1.1. When creating a third party extension take care not to copy any Official Joomla! elements. The JED Checker will flag some as invalid.
 
-## The script.php file
-
-This file is used to perform additional changes during extension install, update or uninstall. It is stored in the administrator/manifests/packages/gd-GB folder.
-
-```php
-<?php
-/**
- * @package    Joomla.Language
- *
- * @copyright  (C) 2025
- * @license    GNU General Public License version 2 or later; see LICENSE.txt
- */
-
-\defined('_JEXEC') or die;
-
-use Joomla\CMS\Installer\InstallerScript;
-
-/**
- * Installation class to perform additional changes during install/uninstall/update
- *
- * @since  4.0.0v1
- */
-class Pkg_gdGBInstallerScript extends InstallerScript
-{
-	/**
-	 * Extension script constructor.
-	 *
-	 * @since   4.0.0v1
-	 */
-	public function __construct()
-	{
-		// Define the minimum versions to be supported.
-		$this->minimumJoomla = '5.0';
-		$this->minimumPhp    = '8.1.0';
-
-		$this->deleteFiles = [
-			// Previous available version was for 2.5 - assume already removed
-			// Old files from Joomla 3 language packs - assume already removed
-			// Old files from Joomla 4 language packs - assume already removed
-			// Old files from Joomla 5 language packs (Only relevant for Joomla 6, should then be included in the deletion array with the 6.0-dev branch once created)
-			// '/administrator/language/gd-GB/plg_captcha_recaptcha_invisible.ini',
-			// '/administrator/language/gd-GB/plg_captcha_recaptcha_invisible.sys.ini',
-		];
-	}
-
-	/**
-	 * Function to perform changes during postflight
-	 *
-	 * @param   string            $type    The action being performed
-	 * @param   ComponentAdapter  $parent  The class calling this method
-	 *
-	 * @return  void
-	 *
-	 * @since   4.0.0v1
-	 */
-	public function postflight($type, $parent)
-	{
-		$this->removeFiles();
-	}
-}
-```
+**Important:** A version number is maintained in this file for update purposes but all versions of Joomla 5 (or 6) will use the latest language version.
 
 ## Administrator
 
@@ -323,139 +263,171 @@ abstract class Gd_GBLocalise
 
 The files in these folders are similar to those in the admin folder except that the client attribute is set to *api* and *site* respectively and there are fewer *.ini files. The files are not reproduced here. See the en-GB versions for examples.
 
-## Result
+## The GitHub Workflow
 
-The following screenshot shows the Home Dashboard with Scottish Gaelic as the Administrator language:
+Package creation involves several steps:
 
-![Home dashboard in Gaelic](../../../en/images/languages/home-dashboard-gaelic.png)
+- Create individual zip files for each client (admin,api and site).
+- Create final package zip.
+- Generate SHA hashes.
+- Save package and hashes for public access.
+- Update the `updates.xml` file with current metadata.
 
-You may notice that some words are in English! They are the module headings that were entered in English. The modules could be edited and the module titles changed to the default language.
+This work is accomplished on GitHub with the .github/workflows/package.yml file. It is triggered every time there is a commit to the repository. 
 
-## The Build
+### The package.yml file
 
-To convert the repository structure into an installable package a build process is required. [Phing](https://www.phing.info/) is a PHP based build tool suitable for this purpose. It uses a build.xml file containing the build instructions and requires a method to call it. 
+Some preliminary notes:
 
-This particular build is very simple. Each of the client folders needs to be compressed into separate zip files and then incorporated into the package zip file.
+- workflow_dispatch: is used for manually triggering a run using a GitHub button.
+- permissions: contents: write is needed to allow the workflow to save its output.
+- env: EXTENSION_NAME: pkg_gd-GB is the item to change for a different extension.
+- steps: are the individual steps required to build the extension.
+- the last two steps update and save the `updates.xml` file.
 
-### The build.xml file
+```yml
+name: Build Joomla Language Extension Package
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<project name="gaelic" basedir="." default="main">
+on:
 
-	<fileset dir="./gd-GB/admin_gd-GB" id="adminfiles">
-		<include name="**" />
-	</fileset>
+  push:
+    branches:
+      - joomla5
+      - joomla6
 
-	<fileset dir="./gd-GB/api_gd-GB" id="apifiles">
-		<include name="**" />
-	</fileset>
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Custom version (optional, overrides pkg_gd-GB.xml <version>)'
+        required: false
+      forceRebuild:
+        description: 'Force rebuild all zip files (true/false)'
+        required: false
+        default: 'false'
 
-	<fileset dir="./gd-GB/site_gd-GB" id="sitefiles">
-		<include name="**" />
-	</fileset>
+permissions:
+  contents: write
 
-	<fileset dir="./gd-GB" id="pkgfiles">
-		<include name="*.zip" />
-		<include name="pkg_gd-GB.xml" />
-		<include name="script.php" />
-	</fileset>
+env:
+  EXTENSION_NAME: pkg_gd-GB
 
-	<target name="main" description="main target">
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-		<zip destfile="./gd-GB/admin_gd-GB.zip">
-			<fileset refid="adminfiles" />
-		</zip>
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-		<zip destfile="./gd-GB/api_gd-GB.zip">
-			<fileset refid="apifiles" />
-		</zip>
+      - name: Install xmllint
+        run: sudo apt-get update && sudo apt-get install -y libxml2-utils
 
-		<zip destfile="./gd-GB/site_gd-GB.zip">
-			<fileset refid="sitefiles" />
-		</zip>
+      - name: Set version and target
+        id: vars
+        run: |
+          BRANCH_NAME="${GITHUB_REF##*/}"
 
-		<zip destfile="./pkg_gd-GB.zip">
-			<fileset refid="pkgfiles" />
-		</zip>
+          # Use manual version input if provided, else read from pkg_gd-GB.xml
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            VERSION="${{ github.event.inputs.version }}"
+          else
+            VERSION=$(xmllint --xpath "string(//version)" pkg_gd-GB.xml)
+          fi
 
-		<exec command="php update-hashes.php pkg_gd-GB.zip updates.xml" passthru="true"/>
+          PACKAGE_NAME="${EXTENSION_NAME}-${BRANCH_NAME}"
+          echo "branch=${BRANCH_NAME}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
+          echo "package_name=${PACKAGE_NAME}" >> $GITHUB_OUTPUT
 
-	</target>
-</project>
-```
+      - name: Create individual zip files
+        run: |
+          mkdir -p build/zips
+          zip -r build/zips/admin_gd-GB.zip gd-GB/admin_gd-GB
+          zip -r build/zips/api_gd-GB.zip gd-GB/api_gd-GB
+          zip -r build/zips/site_gd-GB.zip gd-GB/site_gd-GB
 
-The build process is then called from a VSCode tasks file.
+      - name: Create final package zip
+        run: |
+          mkdir -p build/final
+          cp pkg_gd-GB.xml build/zips/
+          cd build/zips
+          zip -r ../final/${{ steps.vars.outputs.package_name }}.zip ./*
+          cd ../..
 
-### The .vscode/tasks.json file
+      - name: Generate SHA256 and SHA512 hashes
+        run: |
+          cd build/final
+          sha256sum ${{ steps.vars.outputs.package_name }}.zip > ${{ steps.vars.outputs.package_name }}.zip.sha256
+          sha384sum ${{ steps.vars.outputs.package_name }}.zip > ${{ steps.vars.outputs.package_name }}.zip.sha384
+          sha512sum ${{ steps.vars.outputs.package_name }}.zip > ${{ steps.vars.outputs.package_name }}.zip.sha512
+          cd ../..
 
-```json
-{
-	// See https://go.microsoft.com/fwlink/?LinkId=733558
-	// for the documentation about the tasks.json format
-	"version": "2.0.0",
-	"tasks": [
-	  {
-		"label": "Build pkg_gd-GB",
-		"type": "shell",
-		"command": "php ~/bin/phing-latest.phar",
-		"windows": {
-		  "command": "php ~/bin/phing-latest.phar"
-		},
-		"group": "build",
-		"presentation": {
-		  "reveal": "always",
-		  "panel": "shared"
-		}
-	  }
-	]
-}
-```
+      - name: Upload package and hashes as artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.vars.outputs.package_name }}
+          path: |
+            build/final/${{ steps.vars.outputs.package_name }}.zip
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha256
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha384
+            build/final/${{ steps.vars.outputs.package_name }}.zip.sha512
 
-### The update-hashes.php file
+      - name: Commit to download folder (optional)
+        if: github.ref == 'refs/heads/joomla5' || github.ref == 'refs/heads/joomla6'
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "actions@github.com"
+          git fetch
+          git checkout ${{ steps.vars.outputs.branch }}
+          mkdir -p downloads
+          cp build/final/* downloads/
+          git add -f downloads/
+          git commit -m "Add new package ${{ steps.vars.outputs.package_name }}"
+          git push
 
-In the last stage of the build the SHA256, SHA384 and SHA512 values are calculated for use in the `updates.xml` file. This is accomplished by executing a short PHP script:
+      - name: Install xmlstarlet
+        run: sudo apt-get update && sudo apt-get install -y xmlstarlet
 
-```php
-<?php
-if ($argc !== 3) {
-    fwrite(STDERR, "Usage: php update-hashes.php <zip-file> <xml-file>\n");
-    exit(1);
-}
+      - name: Update updates.xml with current metadata
+        run: |
+          PACKAGE_NAME="${{ steps.vars.outputs.package_name }}"
+          ZIP_PATH="build/final/${PACKAGE_NAME}.zip"
 
-$zipFile = $argv[1];
-$xmlFile = $argv[2];
+          VERSION="${{ steps.vars.outputs.version }}"
+          SHA256=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha256)
+          SHA384=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha384)
+          SHA512=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha512)
+          BRANCH="${{ steps.vars.outputs.branch }}"
 
-// Calculate hashes
-$sha256 = hash_file('sha256', $zipFile);
-$sha384 = hash_file('sha384', $zipFile);
-$sha512 = hash_file('sha512', $zipFile);
+          DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}.zip"
+          CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
 
-// Load and update XML
-$doc = new DOMDocument();
-$doc->preserveWhiteSpace = false;
-$doc->formatOutput = true;
-$doc->load($xmlFile);
+          xmlstarlet ed \
+            -u "//update/version" -v "$VERSION" \
+            -u "//update/downloads/downloadurl" -v "$DOWNLOAD_URL" \
+            -u "//update/sha256" -v "$SHA256" \
+            -u "//update/sha384" -v "$SHA384" \
+            -u "//update/sha512" -v "$SHA512" \
+            -u "//update/changelogurl" -v "$CHANGELOG_URL" \
+            updates.xml > updated_updates.xml
 
-if (($sha256Node = $doc->getElementsByTagName('sha256')->item(0)) !== null) {
-    $sha256Node->nodeValue = $sha256;
-}
+          mv updated_updates.xml updates.xml
 
-if (($sha384Node = $doc->getElementsByTagName('sha384')->item(0)) !== null) {
-    $sha384Node->nodeValue = $sha384;
-}
+      - name: Commit updated updates.xml
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
-if (($sha512Node = $doc->getElementsByTagName('sha512')->item(0)) !== null) {
-    $sha512Node->nodeValue = $sha512;
-}
-
-$doc->save($xmlFile);
-echo "Updated hashes in $xmlFile\n";
+          git add updates.xml
+          git commit -m "Update updates.xml with version ${{ steps.vars.outputs.version }}" || echo "No changes to commit"
+          git push origin ${{ steps.vars.outputs.branch }}
 ```
 
 ### The updates.xml file
 
-This file is referred to in the installation pkg_gd-GB.xml file so that the integrity of the extension can be checked before it is unpacked.
+The pkg_gd-GB.xml file is copied into the installation zip file during the build process. It contains the url of the update server - the link to the latest `updates.xml` file. This allows the Joomla installer to check the hash value of an update before unpacking and installing.
+
+**Important:** This file will change on every update.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -469,16 +441,16 @@ This file is referred to in the installation pkg_gd-GB.xml file so that the inte
     <client>administrator</client>
     <infourl title="Scottish Gaelic Language Pack">https://github.com/ceford/cefjdemos-pkg-gd-gb/blob/main/README.md</infourl>
     <downloads>
-      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/main/pkg_gd-GB.zip</downloadurl>
+      <downloadurl type="full" format="zip">https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/joomla5/downloads/pkg_gd-GB-joomla5.zip</downloadurl>
     </downloads>
-    <sha256>9f87ff34e266f9cf7aa69ade02a05c633023cd938d7bd618bc8ff43f16600daf</sha256>
-    <sha384>63c1ce944c5a5f79ebbde758c1c10f803c4684fcb1dab6df7aa138eab1c98260e7c93ebb652f577ed65ce308d0d29ff2</sha384>
-    <sha512>98868560977f1a8bcec9b9b223a65ba33f1abdd5146b027b8fb768ce9eb5fef7fbb866990208b9850520d89a435c8f11b28ceff10e86c543ecb2967a36f8e1d4</sha512>
-    <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/refs/heads/main/changelog.xml</changelogurl>
+    <sha256>f21ed31c4453e74e0be83e279ba090965714a6f3d8fe2ca97d08aa415e4efb9a</sha256>
+    <sha384>a06602deb5abed5f5560f496732c639dea97a4bc900599662428784ee646b3b5689da3e36d92ba59c3ea47ce00080bbd</sha384>
+    <sha512>79c8ad3714512cabe16602097f0a33844249ae6d8d4468fae2e1ac8f0ee185e647d106089a5c375f79a1c2d0cbad7bde610837665f4b7fa26b20cd5cde3058d6</sha512>
+    <changelogurl>https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/joomla5/changelog.xml</changelogurl>
     <tags>
       <tag>stable</tag>
     </tags>
-    <targetplatform name="joomla" version="[456].[012345]"/>
+    <targetplatform name="joomla" version="[45].[012345]"/>
   </update>
 </updates>
 ```
@@ -489,4 +461,20 @@ Although this extension is not destined for the Joomla Extensions Directory, the
 
 ![JED Checker Screenshot](../../../en/images/languages/jed-check-gaelic.png)
 
-The XML Manifest errors appear to be a JED Checker bug that has been reported. There are no other problems.
+The XML Manifest errors appear to be a JED Checker bug that has been reported. It says:
+
+```html
+#001 /pkg_gd-GB.xml
+The node <file> has attribute 'client' with unknown value "api"
+```
+
+## Result
+
+If you would like to try out Scottish Gaelic you can obtain the [package](https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/joomla5/downloads/pkg_gd-GB-joomla5.zip) from the GitHub
+
+The following screenshot shows the Home Dashboard with Scottish Gaelic as the Administrator language:
+
+![Home dashboard in Gaelic](../../../en/images/languages/home-dashboard-gaelic.png)
+
+You may notice that some words are in English! They are the module headings that were entered in English. The modules could be edited and the module titles changed to the default language.
+
