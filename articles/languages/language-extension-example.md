@@ -310,6 +310,8 @@ permissions:
 
 env:
   EXTENSION_NAME: pkg_gd-GB
+  LANGUAGE_CODE: gd-GB
+  LC_LANGUAGE_CODE: gd-gb
 
 jobs:
   build:
@@ -327,11 +329,11 @@ jobs:
         run: |
           BRANCH_NAME="${GITHUB_REF##*/}"
 
-          # Use manual version input if provided, else read from pkg_gd-GB.xml
+          # Use manual version input if provided, else read from pkg_${LANGUAGE_CODE}.xml
           if [ -n "${{ github.event.inputs.version }}" ]; then
             VERSION="${{ github.event.inputs.version }}"
           else
-            VERSION=$(xmllint --xpath "string(//version)" pkg_gd-GB.xml)
+            VERSION=$(xmllint --xpath "string(//version)" pkg_${LANGUAGE_CODE}.xml)
           fi
 
           PACKAGE_NAME="${EXTENSION_NAME}-${BRANCH_NAME}"
@@ -342,14 +344,14 @@ jobs:
       - name: Create individual zip files
         run: |
           mkdir -p build/zips
-          zip -r build/zips/admin_gd-GB.zip gd-GB/admin_gd-GB
-          zip -r build/zips/api_gd-GB.zip gd-GB/api_gd-GB
-          zip -r build/zips/site_gd-GB.zip gd-GB/site_gd-GB
+          zip -r build/zips/admin_${LANGUAGE_CODE}.zip ${LANGUAGE_CODE}/admin_${LANGUAGE_CODE}
+          zip -r build/zips/api_${LANGUAGE_CODE}.zip ${LANGUAGE_CODE}/api_${LANGUAGE_CODE}
+          zip -r build/zips/site_${LANGUAGE_CODE}.zip ${LANGUAGE_CODE}/site_${LANGUAGE_CODE}
 
       - name: Create final package zip
         run: |
           mkdir -p build/final
-          cp pkg_gd-GB.xml build/zips/
+          cp pkg_${LANGUAGE_CODE}.xml build/zips/
           cd build/zips
           zip -r ../final/${{ steps.vars.outputs.package_name }}.zip ./*
           cd ../..
@@ -399,8 +401,8 @@ jobs:
           SHA512=$(cut -d' ' -f1 build/final/${PACKAGE_NAME}.zip.sha512)
           BRANCH="${{ steps.vars.outputs.branch }}"
 
-          DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-gd-gb/raw/${BRANCH}/downloads/${PACKAGE_NAME}.zip"
-          CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-gd-gb/${BRANCH}/changelog.xml"
+          DOWNLOAD_URL="https://github.com/ceford/cefjdemos-pkg-${LC_LANGUAGE_CODE}/raw/${BRANCH}/downloads/${PACKAGE_NAME}.zip"
+          CHANGELOG_URL="https://raw.githubusercontent.com/ceford/cefjdemos-pkg-${LC_LANGUAGE_CODE}/${BRANCH}/changelog.xml"
 
           xmlstarlet ed \
             -u "//update/version" -v "$VERSION" \
@@ -477,4 +479,3 @@ The following screenshot shows the Home Dashboard with Scottish Gaelic as the Ad
 ![Home dashboard in Gaelic](../../../en/images/languages/home-dashboard-gaelic.png)
 
 You may notice that some words are in English! They are the module headings that were entered in English. The modules could be edited and the module titles changed to the default language.
-
