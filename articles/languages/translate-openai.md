@@ -6,21 +6,36 @@ This article presents an example of a method to translate a language pack using 
 
 ## Preparation
 
-The default English language pack contains .ini files for three clients: admin (454 files), api (2 files) and site (69 files).
+The default English language pack contains .ini files for three clients: administrator (454 files), api (2 files) and site (69 files).
 
-There are lists of core .ini files in the same folder as the php script. This allows comparison with lists of .ini files obtained from the source installation so that non-core .ini files can be skipped with a message. The lists may need revision with new major or minor Joomla releases.
+The command line PHP script used for translation is shown in full below. It requires two local git repositories for translation processing purposes:
 
-The PHP script used for translation is shown in full below. It was intended initially for one-time use only so was not *polished* for public eyes. It is run from the command line. Example input and output:
+- A clean Joomla 5 installation with the `5.3-dev` branch checked out: use a clone of the Joomla CMS without building it.
+- A place to receive the translations with a branch named `joomla5` checked out: use `path/yourprefix-pkg-lc-cc` where"
+    - `path` is a suitable path to a place for local repositories.
+    - `yourprefix` is whatever you use for a personal namespace.
+    - `pkg` is literally to indicate this is a package.
+    - `lc` is a two-character ISO language code.
+    - `cc` is a two character ISO country code.
+
+The script checks these locations and aborts if either is not set correctly. It processes each English .ini file in turn, breaks it into chunks and sends each chunk to openai.com for translation. The translated chunks are then reassembled and output to a new language .ini file.
+
+The script outputs the name of each file being processed with progress indicated by dots. Example input and output:
 
 ```
 php initrans.php
 Client (one of api, admin or site): api
-Processing api/language/en-GB/com_media.ini
-Processing api/language/en-GB/joomla.ini
+Translating api/language/en-GB/com_media.ini. Chunks (total): .
+Translating api/language/en-GB/joomla.ini. Chunks (total): ..........
 Total = 2
 ```
 
-Processing the com_media.ini file takes only a few seconds as it contains just a few key-value strings. Processing the joomla.ini file takes a few minutes as it contains about 900 strings. The api client is used as an example because it has only two .ini files and takes a few minutes to complete. The admin and site clients contain many more .ini files and may take hours to complete!
+Where `total` indicates the number of chunks the file has been split into and the dots (...) indicate the chunk being processed.
+
+If something goes wrong there is a message to that effect and the script terminates. Partial translations of a single file are saved so that translation can continue where it previously ceased when the script is re-started. 
+
+Processing the `com_media.ini` file takes only a few seconds as it contains just a few key-value strings. Processing the `joomla.ini` file takes a few minutes as it contains about 900 strings. The api client is used as an example because it has only two .ini files and takes a few **minutes** to complete. The administrator and site clients contain many more .ini files and may take **hours** to complete!
+
 
 Some parameters are hard-coded:
 
@@ -32,15 +47,6 @@ Some parameters are hard-coded:
 Not hard coded:
 
 - Your personal openai.com api key is read from an environment variable.
-
-The script processes each English .ini file in turn, breaks it into short sections of up to 25 lines and sends each section to openai.com for translation. The translated sections are then reassembled and output to a new language .ini file.
-
-The script outputs the name of each file being processed. If something goes wrong there is a message to that effect. The longer lists of .ini files did run into completion problems, probably related to openai usage rates. In those cases the solution is to delete the translated files with problems and run the script again. It skips the .ini files that have already been translated.
-
-Lots of improvements are possible:
-
-- Although each line in an .ini file is split into key and value, they are not used. The whole line is submitted for translation with appropriate instructions.
-- Some experimentation with the openai message parameters may improve performance.
 
 ## The initrans.php file
 
@@ -59,7 +65,7 @@ class ChatGPTIniTranslate {
     /**
      * Base path for ini files in an existing Joomla installation.
      */
-    protected $base_in = '/Users/ceford/Sites/joomla-cms5/';
+    protected $base_in = '/Users/ceford/Sites/jclean5/';
 
     /**
      * Base path for translated ini files, typically a local git repo.
@@ -79,7 +85,7 @@ class ChatGPTIniTranslate {
     /**
      * URL of current version of the API endpoint.
      */
-    private static $open_ai_url = 'https://api.openai.com/v1';
+    protected $open_ai_url = 'https://api.openai.com/v1/chat/completions';
 
     /**
      * Personal openai api key: https://platform.openai.com/account/api-keys
@@ -87,6 +93,12 @@ class ChatGPTIniTranslate {
      * export OPENAI_API_KEY="your key here"
      */
     protected $openai_api_key;
+
+    protected $model = 'gpt-4o';                    // change if needed
+    protected $maxCharsPerChunk = 3500;             // ~2-4KB safe starting point (tweak as needed)
+    protected $pauseBetweenCallsMs = 300;           // polite pause between requests
+    protected $maxRetries = 6;                      // exponential backoff attempts
+    protected $progressDir = __DIR__ . '/progress'; // where partial responses are saved
 
     /**
      * Process one of the client ini folders
@@ -96,6 +108,8 @@ class ChatGPTIniTranslate {
      * @return void
      */
     public function go($folder) {
+        echo "\nTranslating {$this->language_name}\n\n";
+
         $this->openai_api_key = getenv('OPENAI_API_KEY');
 
         if (!$this->openai_api_key) {
@@ -105,271 +119,299 @@ class ChatGPTIniTranslate {
         switch ($folder) {
             case 'api':
                 $source = "api/language/en-GB/";
-                $sink   = "{$this->base_out}{$this->language_code}/api_{$this->language_code}/";
-                $this->check_source_and_sink($source, $sink);
+                $sink   = "{$this->language_code}/api_{$this->language_code}/";
                 break;
             case 'admin':
                 $source = "administrator/language/en-GB/";
-                $sink   = "{$this->base_out}{$this->language_code}/admin_{$this->language_code}";
-                $this->check_source_and_sink($source, $sink);
+                $sink   = "{$this->language_code}/admin_{$this->language_code}/";
                 break;
             case 'site':
                 $source  = "language/en-GB/";
-                $sink   = "{$this->base_out}{$this->language_code}/site_{$this->language_code}/";
-                $this->check_source_and_sink($source, $sink);
+                $sink   = "{$this->language_code}/site_{$this->language_code}/";
                 break;
             default:
-                exit("unkown folder: {$folder}\n");
+                exit("Unknown folder: {$folder}\n");
         }
+        $this->ensureCorrectGitBranch($this->base_in, $source, '5.3-dev');
+        $this->ensureCorrectGitBranch($this->base_out, $sink, 'joomla5');
 
-        // Read in the list of expected core files.
-        $core_files = file_get_contents("{$folder}.txt");
-        if (empty($core_files)) {
-            exit("The list of core files is missing: {$folder}.txt\n");
-        }
-        $core_files = explode(PHP_EOL, $core_files);
+        // Get a list of ini files in the English source
+        $files = glob($this->base_in . $source . '*.ini');
 
-        // Read in the list of source files in the input installation.
-        $files = glob("{$this->base_in}{$source}*.ini");
-
-        $count = 0;
-        // Pattern to select key and value (but not used).
-        $pattern = '/(.*)"(.*)"/';
-
-        // Process each ini file.
         foreach ($files as $file) {
-            if (empty(trim($file))) {
-                continue;
-            }
+            $rel = basename($file);
+            $outFile = $this->base_out . $sink . $rel;
 
-            // Skip if the file is not a core file.
-            if (!in_array(basename($file), $core_files)) {
-                echo "Skipping none-core file: {$file}\n";
-                continue;
-            }
-
-            $basename = basename($file);
             // If the translation has been done, skip this file.
-            if (is_file($sink . $basename)) {
+            if (is_file($outFile)) {
+                continue;
+            }
+            try {
+                $sourceFile = $this->base_in . $source . $rel;
+                $this->translateIniFile($sourceFile, $outFile);
+            } catch (Exception $e) {
+                echo "\nError translating $rel: " . $e->getMessage() . "\n";
+                // decide whether to continue or abort:
+                // continue;
+                exit(1);
+            }
+        }
+
+        echo "\n\nAll done.\n";
+    }
+
+    /**
+     * Check that the source or sink folders exist and are git repos with the joomla5 branch checked out.
+     *
+     * @param string $repoPath The absolute path to the folder containing a .git folder.
+     * @param string $folder The subfolder path where ini files are located.
+     * @param string $expectedBranch Should be set to j5.3-dev for input and joomla5 for output
+     */
+    protected function ensureCorrectGitBranch(string $repoPath, string $folder, string $expectedBranch): void {
+        if (!is_dir($repoPath . $folder)) {
+            exit("\nThe ini folder does not exist: {$repoPath}{$folder}\n\n");
+        }
+        if (!is_dir($repoPath . '/.git')) {
+            exit("Not a Git repository: $repoPath");
+        }
+
+        // Run git command to get current branch
+        $cmd = "cd " . escapeshellarg($repoPath) . " && git rev-parse --abbrev-ref HEAD";
+        exec($cmd, $output, $exitCode);
+
+        if ($exitCode !== 0) {
+            exit("Failed to determine current Git branch in $repoPath");
+        }
+
+        $currentBranch = trim($output[0]);
+
+        if ($currentBranch !== $expectedBranch) {
+            exit("Expected branch '$expectedBranch', but found '$currentBranch' in $repoPath. Aborting.");
+        }
+
+        // Optional: confirm up-to-date with remote
+        echo "✓ Git branch check passed: $currentBranch in {$repoPath}{$folder}\n";
+    }
+
+    /**
+     * Minimal sanity check: ensure keys are unchanged between original and translated lines.
+     * Returns array [ok=>bool, message=>string]
+    */
+    function sanity_check_chunk(array $originalLines, array $translatedLines): array {
+        // Strip blank and comment lines and map keys in order
+        $origKeys = [];
+        foreach ($originalLines as $ln) {
+            $ln = trim($ln);
+            if ($ln === '' || $ln[0] === ';') continue;
+            if (preg_match('/^([A-Z0-9_\.]+)=/', $ln, $m)) {
+                $origKeys[] = $m[1];
+            }
+        }
+        $transKeys = [];
+        foreach ($translatedLines as $ln) {
+            $ln = trim($ln);
+            if ($ln === '' || $ln[0] === ';') {
+                continue;
+            }
+            if (preg_match('/^([A-Z0-9_\.]+)=/', $ln, $m)) {
+                $transKeys[] = $m[1];
+            }
+        }
+        if (count($origKeys) !== count($transKeys)) {
+            return ['ok' => false, 'message' => 'Key count mismatch'];
+        }
+        for ($i = 0; $i < count($origKeys); $i++) {
+            if ($origKeys[$i] !== $transKeys[$i]) {
+                return ['ok' => false, 'message' => "Key mismatch: {$origKeys[$i]} != {$transKeys[$i]} at index $i"];
+            }
+        }
+        return ['ok' => true, 'message' => 'ok'];
+    }
+
+    // ---------- CHUNKING ----------
+    protected function chunkIniByCharLimit(string $filePath, int $maxChars): array {
+        $lines = file($filePath, FILE_IGNORE_NEW_LINES);
+
+        // Remove first 5 lines (4 copyright + 1 blank)
+        $lines = array_slice($lines, 5);
+
+        $chunks = [];
+        $current = [];
+        $currentLen = 0;
+
+        foreach ($lines as $ln) {
+            $lnWithNewline = $ln . "\n";
+            $len = mb_strlen($lnWithNewline, '8bit');
+            // if this single line > maxChars, still put it alone in chunk
+            if ($currentLen + $len > $maxChars && count($current) > 0) {
+                $chunks[] = $current;
+                $current = [];
+                $currentLen = 0;
+            }
+            $current[] = $ln;
+            $currentLen += $len;
+        }
+        if (count($current) > 0) $chunks[] = $current;
+        return $chunks;
+    }
+
+    // ---------- MAIN PROCESS for one file ----------
+    protected function translateIniFile(string $sourceFile, string $outFile) {
+        if (!is_dir($this->progressDir)) {
+            mkdir($this->progressDir, 0777, true);
+        }
+        $chunks = $this->chunkIniByCharLimit($sourceFile, $this->maxCharsPerChunk);
+        $total = count($chunks);
+        echo "\nTranslating {$sourceFile}. Chunks ({$total}): ";
+        $baseName = basename($sourceFile);
+        $progressFile = "$this->progressDir/$baseName.progress.json";
+
+        // try to resume: load already translated chunks if progress file present
+        $translatedChunks = [];
+        if (file_exists($progressFile)) {
+            $translatedChunks = json_decode(file_get_contents($progressFile), true) ?? [];
+        }
+
+        for ($i = 0; $i < $total; $i++) {
+            if (isset($translatedChunks[$i])) {
+                echo "Chunk ".($i+1)."/$total already done (resume)\n";
                 continue;
             }
 
-            // Create an empty file.
-            file_put_contents($sink . $basename, "");
+            $chunkLines = $chunks[$i];
+            $stringLines = implode("\n", $chunkLines);
 
-            // Read in the English ini file.
-            $inifile = file_get_contents($this->base_in . $source . $basename);
-            echo "Processing {$source}{$basename}\n";
-            $inilines = explode(PHP_EOL, $inifile);
-            $inicount = 0;
-            $batch = [];
-            foreach ($inilines as $iniline) {
-                $test = preg_match($pattern, $iniline, $matches);
+            $messages = [
+                [
+                    'role' => 'system',
+                    'content' => <<<SYS
+You are translating Joomla .ini language files.
 
-                if (!empty($test)) {
-                    // The key is in $matches[1] and the value in $matches[2]
-                    $keys[$inicount] = $matches[1];
+RULES:
+- Preserve the exact format: each line is KEY="value".
+- Only translate the text inside the quotes.
+- Do not remove or alter the equals sign, the quotes, or the key names.
+- Do not add extra spaces.
+- Do not change the order of lines.
+- Do not wrap the output in code blocks, markdown fences, or any extra formatting.
+- Do not add explanations or comments.
+- Preserve comment lines (starting with ";") exactly as they are, without translation.
+SYS
+                ],
+                [
+                    'role' => 'user',
+                    'content' => <<<USER
+Translate the following Joomla .ini content from English to {$this->language_name}.
 
-                   // Add the whole line to the batch
-                    $batch[] = $matches[0];
-                    $inicount += 1;
-                    // If the batch is a multiple of 25 send it for translation.
-                    if ($inicount % 25 === 0) {
-                        file_put_contents($sink . $basename, $this->translateme($batch), FILE_APPEND);
-                        $batch = [];
-                    }
+Input:
+{$stringLines}
+
+Output must be plain text. No markdown. No extra characters before or after the .ini lines.
+USER
+                ]
+            ];
+
+            // Progress indicator
+            //echo "Translating chunk ".($i+1)."/$total ...\n";
+            echo ".";
+
+            $rawTranslation = $this->callOpenAI($messages, $this->maxRetries);
+
+            // Normalize result into lines
+            $translatedLines = preg_split("/\r\n|\n|\r/", trim($rawTranslation));
+
+            // Sanity-check keys unchanged
+            $check = $this->sanity_check_chunk($chunkLines, $translatedLines);
+            if (!$check['ok']) {
+                // Save the raw translation for inspection and throw
+                file_put_contents("$progressFile.err_$i.txt", $rawTranslation);
+                throw new RuntimeException("Sanity check failed for chunk ".($i+1).": " . $check['message'] . ". Raw response saved.");
+            }
+
+            // Save translated chunk to progress array and file
+            $translatedChunks[$i] = $translatedLines;
+            file_put_contents($progressFile, json_encode($translatedChunks, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT));
+
+            // be polite
+            usleep($this->pauseBetweenCallsMs * 1000);
+        }
+
+        // Merge chunks and write final file
+        $outLines = [];
+        for ($i = 0; $i < $total; $i++) {
+            $outLines = array_merge($outLines, $translatedChunks[$i]);
+        }
+
+        // final check: ensure utf-8
+        $outText = implode("\n", $outLines) . "\n";
+        if (!mb_check_encoding($outText, 'UTF-8')) {
+            throw new RuntimeException("Output is not valid UTF-8");
+        }
+
+        // When saving, prepend your custom copyright block
+        $year = date("Y");
+        $newCopyright = "; Joomla! Project. Translation by Clifford E Ford using openai.com.\n" .
+        "; (C) {$year} Open Source Matters, Inc. <https://www.joomla.org>\n" .
+        "; License GNU General Public License version 2 or later; see LICENSE.txt\n" .
+        "; Note : All ini files need to be saved as UTF-8\n\n";
+
+        file_put_contents($outFile, $newCopyright . $outText);
+        // done, remove progress file
+        @unlink($progressFile);
+        //echo "\nTranslated file written: $outFile\n";
+    }
+
+    protected function callOpenAI(array $messages, int $maxRetries = 3) {
+        $headers = [
+            "Content-Type: application/json",
+            "Authorization: Bearer " . $this->openai_api_key
+        ];
+        $data = [
+            'model' => $this->model,
+            'messages' => $messages,
+            'temperature' => 0,
+            'top_p' => 1,
+        ];
+
+        $attempt = 0;
+        while ($attempt < $maxRetries) {
+            $attempt++;
+
+            $ch = curl_init($this->open_ai_url);
+            curl_setopt_array($ch, [
+                CURLOPT_POST => true,
+                CURLOPT_HTTPHEADER => $headers,
+                CURLOPT_POSTFIELDS => json_encode($data),
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_CONNECTTIMEOUT => 10,
+                CURLOPT_TIMEOUT => 60
+            ]);
+
+            $result = curl_exec($ch);
+            $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            $curlErr = curl_error($ch);
+            curl_close($ch);
+
+            if ($result !== false && $httpCode >= 200 && $httpCode < 300) {
+                $response = json_decode($result, true);
+
+                // support both Chat Completions and Responses-style: check typical path
+                if (isset($response['choices'][0]['message']['content'])) {
+                    return $response['choices'][0]['message']['content'];
+                } elseif (isset($response['output'][0]['content'][0]['text'])) {
+                    // alternative shape
+                    return $response['output'][0]['content'][0]['text'];
                 } else {
-                    // Output any pending batch translations.
-                    if (!empty($batch)) {
-                        file_put_contents($sink . $basename, $this->translateme($batch), FILE_APPEND);
-                    }
-
-                   // Output the line unchanged
-                    file_put_contents($sink . $basename, "{$iniline}\n", FILE_APPEND);
-
-                   $batch = [];
+                    // unknown shape but return raw
+                    echo "Bad response!\n";
                 }
             }
 
-            // Translate any lines still in the batch;
-            if (!empty($batch)) {
-                file_put_contents($sink . $basename, $this->translateme($batch), FILE_APPEND);
-            }
-            $count += 1;
+            error_log("Attempt $attempt failed: HTTP $httpCode $curlErr");
+            sleep(2 * $attempt); // backoff
         }
 
-        echo "Total = {$count}\n\n";
-    }
-
-    /**
-     * Check the source and sink folders both exist
-     *
-     * @param string $source The absolute path to the folder with English .ini files.
-     * @param string $sink The folder to which the output ini files are to be written.
-     */
-    protected function check_source_and_sink($source, $sink) {
-        if (!is_dir($this->base_in . $source)) {
-            exit("\nThe ini source folder does not exist: {$this->base_in}{$source}\n\n");
-        }
-        if (!is_dir($sink)) {
-            exit("\nThe ini destination folder does not exist: {$sink}\n\n");
-        }
-    }
-
-    /**
-     * Prepare a batch of lines for translation
-     *
-     * @param array $batch The array of lines so far.
-     */
-    protected function translateme($batch) {
-        $text = implode("\n", $batch);
-
-        // submit a batch of lines to openai.com for translation.
-        $translation = $this->getTranslation($text);
-
-        return "{$translation}\n";
-    }
-
-    /**
-     * Compose the message to be sent to openai.com
-     *
-     * @param   string  $paragraphBuffer    The text to be translated.
-     *
-     * @return  string  The translated text or the original text with comments.
-     */
-    protected function getTranslation($paragraphBuffer) {
-        $instruction = "Please translate the following ini file text from English to {$this->language_name}";
-        if ($this->language_name == 'German') {
-            $instruction .= ' Please use the word Beiträge rather than Artikel. ';
-        }
-
-        $messages = [
-            [
-                "role" => "system",
-                "content" => "You are a translator who translates text from English to {$this->language_name}. " .
-                "Provide only the translated text, without any comments or explanations. " .
-                "The text is in ini file format with a key followed by the value to be translated in double quotes" .
-                "The translated value must be on one line."
-            ],
-            [
-            'role' => 'user',
-            'content' => $instruction . ": \n" .
-            $paragraphBuffer,
-            ],
-        ];
-
-        $return = $this->chat($messages);
-        if (empty($return['choices'])) {
-            // Find out what is going on!
-            //var_dump($return, $messages);
-            echo "Untranslated text: " . substr($paragraphBuffer, 0, 64) . "\n";
-            return "<!-- untranslated -->\n{$paragraphBuffer}\n<!-- enduntranslated -->\n";
-        } else {
-            return $return['choices'][0]['message']['content'];
-        }
-    }
-
-    /**
-     * Set the openai parameters and create a message: https://platform.openai.com/docs/api-reference/chat/create
-     *
-     * @param array $messages (each item must have "role" and "content" elements, this is the whole conversation)
-     * @param int $maxTokens maximum tokens for the response in ChatGPT (1000 is the limit for gpt-3.5-turbo)
-     * @param string $model valid options are "gpt-3.5-turbo", "gpt-4", and in the future probably "gpt-5"
-     * @param int $responseVariants how many response to come up with (normally we just want one)
-     * @param float $frequencyPenalty between -2.0 and 2.0, penalize new tokens based on their existing frequency in the answer
-     * @param int $presencePenalty between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the conversation so far, increasing the AI's chances to write on new topics.
-     * @param int $temperature default is 1, between 0 and 2, higher value makes the model more random in its discussion (going on tangents).
-     * @param string $user if you have distinct app users, you can send a user ID here, and OpenAI will look to prevent common abuses or attacks
-     */
-    protected function chat(
-        $messages = [],
-        $maxTokens=2000,
-        $model='gpt-4o',
-        $responseVariants=1,
-        $frequencyPenalty=0,
-        $presencePenalty=0,
-        $temperature=1,
-        $user='') {
-
-        //create message to post
-        $message = new stdClass();
-        $message -> messages = $messages;
-        $message -> model = $model;
-        $message -> n = $responseVariants;
-        $message -> frequency_penalty = $frequencyPenalty;
-        $message -> presence_penalty = $presencePenalty;
-        $message -> temperature = $temperature;
-
-        if($user) {
-            $message -> user = $user;
-        }
-
-        $result = self::_sendMessage('/chat/completions', data: json_encode($message));
-
-        return $result;
-    }
-
-    /**
-     * Send the request message to openai.
-     *
-     * @param string $endpoint  Endpoint obtained from the openai url
-     * @param string $data      The json encoded data to be sent.
-     * @param string $method    Defaults to post.
-     *
-     * @return object The response to the request.
-     */
-    protected function _sendMessage($endpoint, $data = '', $method = 'post') {
-        $apiEndpoint = self::$open_ai_url.$endpoint;
-
-        $curl = curl_init();
-
-        if($method == 'post') {
-            $params = array(
-                CURLOPT_URL => $apiEndpoint,
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_SSL_VERIFYPEER => false,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 90,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "POST",
-                CURLOPT_NOBODY => false,
-                CURLOPT_HTTPHEADER => array(
-                  "content-type: application/json",
-                  "accept: application/json",
-                  "authorization: Bearer " . $this->openai_api_key
-                )
-            );
-            curl_setopt_array($curl, $params);
-            curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        } else if($method == 'get') {
-            $params = array(
-                CURLOPT_URL =>  $apiEndpoint . ($data!=''?('?'.$data):''),
-                CURLOPT_SSL_VERIFYHOST => false,
-                CURLOPT_SSL_VERIFYPEER => false,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 90,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => "GET",
-                CURLOPT_NOBODY => false,
-                CURLOPT_HTTPHEADER => array(
-                  "content-type: application/json",
-                  "accept: application/json",
-                  "authorization: Bearer " . $this->openai_api_key
-                )
-            );
-            curl_setopt_array($curl, $params);
-        }
-
-        $response = curl_exec($curl);
-
-        curl_close($curl);
-
-        $data = json_decode($response, true);
-        if(!is_array($data)) return array();
-
-        return $data;
+        throw new Exception("Failed after $maxRetries attempts");
     }
 }
 

@@ -2,7 +2,7 @@
 
 ## Language Packs
 
-Joomla implements multilingual functionality using language packs, the default being British English. Each language pack consists of a number of .ini files for each **core** extension and each client (admin, api or site). There is information on the structure and use of language files in the [Multilingual](../../general-concepts/multilingual/) section of General Concepts in this manual. This section is more concerned with language packs as extensions.
+Joomla implements multilingual functionality using language packs, the default being British English. Each language pack consists of a number of .ini files for each extension and each client (administrator, api or site). There is information on the structure and use of language files for extensions in the [Multilingual](https://manual.joomla.org/docs/general-concepts/multilingual/) section of the Joomla! Programmers Documentation. 
 
 ## Language Pack Documentation
 
