@@ -27,6 +27,7 @@ developer=developer-information=manifest-files.md
 developer=developer-information=namespaces.md
 developer=developer-information=deploying-an-update-server.md
 developer=developer-information=web-assets.md
+developer=developer-information=errorhandling.md
 
 heading-1=api-guides=API Guides
 developer=developer-information=api-guides.md
