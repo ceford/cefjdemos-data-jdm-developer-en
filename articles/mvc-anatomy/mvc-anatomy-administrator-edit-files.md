@@ -23,18 +23,20 @@ When you invoke the edit form by selecting a list item title the url contains an
 ```php
     public function display($tpl = null)
     {
-        $this->form  = $this->get('Form');
-        $this->item  = $this->get('Item');
-        $this->state = $this->get('State');
+        $model = $this->getModel();
+        $model->setUseExceptions(true);
 
-        if (count($errors = $this->get('Errors')))
-        {
-            throw new GenericDataException(implode("\n", $errors), 500);
+        try {
+            $this->form  = $model->getForm();
+            $this->item  = $model->getItem();
+            $this->state = $model->getState();
+        } catch (\Exception $e) {
+            throw new GenericDataException($e->getMessage(), 500, $e);
         }
 
         $this->addToolbar();
 
-        return parent::display($tpl);
+        parent::display($tpl);
     }
 ```
 
@@ -50,7 +52,7 @@ The addToolbar() function is typically used to set the page title and add approp
 
         $canDo = ContentHelper::getActions('com_countrybase');
 
-        $toolbar = Toolbar::getInstance();
+        $toolbar = $this->getDocument()->getToolbar();
 
         ToolbarHelper::title(
             Text::_('COM_COUNTRYBASE_COUNTRY_PAGE_TITLE_' . ($isNew ? 'ADD' : 'EDIT'))
@@ -150,8 +152,9 @@ Notice declaration of the column alias. This is used because the form uses a dat
 
 ## tmpl/country/edit.php
 
-This is the file that creates the HTML output. It starts with two helpers: HTMLHelper::\_('behavior.formvalidator'); loads the javascript needed to for client side form validation. Although modern browsers
-apply form validation that does not prevent form submission. HTMLHelper::\_('behavior.keepalive'); loads javscript to ping the server to prevent session expiry whilst completing complex forms.
+This is the file that creates the HTML output. It starts with two helpers: 
+- `HTMLHelper::\_('behavior.formvalidator');` loads the javascript needed for client side form validation. Modern browsers apply form validation but that does not prevent form submission.
+- `HTMLHelper::\_('behavior.keepalive');` loads javscript to ping the server to prevent session expiry whilst completing complex forms.
 
 **Notes:**
 
@@ -229,3 +232,4 @@ HTMLHelper::_('behavior.keepalive');
 You can cycle through form fieldsets and fields within each fieldset. That can simplify output of complex forms with many tabs.
 
 ![country edit form](../../../en/images/mvc-anatomy/com-countrybase-edit-country.png)
+

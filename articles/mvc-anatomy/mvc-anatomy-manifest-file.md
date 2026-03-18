@@ -9,12 +9,12 @@ The component manifest file must be named manifest.xml or componentname.xml, in 
 <extension type="component" method="upgrade">
     <name>com_countrybase</name>
     <author>Clifford E Ford</author>
-    <authorEmail>john.doe@example.com</authorEmail>
-    <authorUrl>example.com</authorUrl>
+    <authorEmail>cliff@fford.me.uk</authorEmail>
+    <authorUrl>jdocmanual.org</authorUrl>
     <creationDate>2025-01-02</creationDate>
-    <copyright>(C) 2025 Clifford E Ford</copyright>
-    <license>GNU General Public License version 3 or later; see LICENSE.txt</license>
-    <version>0.0.1</version>
+    <copyright>(C) 2025 - 2026 Clifford E Ford</copyright>
+    <license>GNU General Public License version 3 or later</license>
+    <version>0.2.0</version>
     <description>COM_COUNTRYBASE_DESCRIPTION</description>
     <namespace path="src">Cefjdemos\Component\Countrybase</namespace>
 ```
@@ -25,7 +25,7 @@ Most of the metadata is self-evident. Items to note:
 - The method can be install or upgrade. The latter allows re-installation after code update.
 - The version number is important! It should make it impossible to reinstall an older version. And it is used to control whether database updates are required.
 - The namespace path src has three parts:
-  - The first part is a vendor defined prefix, so Joomla for Joomla supplied code, Acme for code supplied by the Acme third party extension supplier, and in this case Cefjdemos, a name chosen for Joomla code demonstrations.
+  - The first part is a vendor defined prefix, so Joomla for Joomla supplied code, Acme for code supplied by the Acme third party extension supplier, and in this case Cefjdemos, a name chosen for my Joomla code demonstrations.
   - The second part indicates the type of extension. It could be Component or Module or Plugin or ...
   - The third part is the specific extension name, in this case Countrybase.
 

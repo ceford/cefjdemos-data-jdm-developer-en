@@ -2,6 +2,13 @@
 
 ## Introduction
 
+<div class="alert alert-info">
+
+This series of articles has been revised to remove most code deprecated for
+Joomla 6 and 7. This is mostly concerned with error handling that is described
+in a [separate article](jdocmanual?article=developer/developer-information/errorhandling).
+</div>
+
 Joomla components follow the Model, View, Controller approach, or MVC for short. The Model is supposed to handle loading and storing of data. The View is supposed to handle display of data. And the Controller is supposed to handle program flow, the interaction between the component Model and View code.
 
 If you want to build your own component there are two approaches to learning you might adopt:
@@ -25,14 +32,12 @@ The data are based on ISO 3166 Country Codes but some very well-known countries 
 
 The files for the com_countrybase component are available from GitHub. You can download a [ZIP](https://github.com/ceford/j4xdemos-com-countrybase/archive/refs/heads/master.zip) file and install it to see it working in the Administrator menu. Create a menu item if you wish to see it working in your Site template. Also, unpack the zip file in your project file space, not in your test web-site tree, to examine the component file structure and file content with your favourite IDE or text edit tool.
 
-## Screenshot
+## Screenshots
 
 This Administrator list of Countries has five items to minimise image size. Joomla normally displays 20 items.
 
-![List of countries](../../../en/images/mvc-anatomy/com-countrybase-countries.png)
+![List of countries in admin view](../../../en/images/mvc-anatomy/com-countrybase-countries.png)
 
-## Boilerplate Component
+The site display has been set to 5 items also:
 
-To help you get started with your own component there is a [boilerplate component](https://github.com/ceford/j4xdemos-com-bpsrc/archive/refs/heads/master.zip) available from Github. Download and unpack this in your project file space, not in your test web-site tree. After download, make all the changes indicated in the README and you are ready to go.
-
-There are also a number of free and commercial extension generators you might like to try to generate a skeleton component for your own purposes. [Joomla! Component Builder](https://www.joomlacomponentbuilder.com/) is free and seems comprehensive.
+![List of countries in site view](../../../en/images/mvc-anatomy/com-countrybase-countries-site.png)

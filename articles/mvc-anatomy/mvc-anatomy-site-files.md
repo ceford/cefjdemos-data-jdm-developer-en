@@ -4,7 +4,7 @@
 
 There are fewer files in the Site part of the component than in the Administrator part so this seems like a good place to start. Only those parts of each file that need explanation will be covered. It is best if you open each file being mentioned, have a look at the overall content and then find the parts being explained. The alphabet order of the file structure is as follows:
 
-```bash
+```
     site
     |- forms
         |- filter_countries.xml
@@ -84,11 +84,17 @@ Every php file should start with a copyright notice like the following:
  */
 ```
 
+For the `@package` setting Joomla core components use `Joomla.Site`, 
+`Joomla.Administrator` or `Joomla.API`. The `@subpackage` setting is the 
+extension name, such as `com_content` or `mod_custom`. It is probably
+best to follow the same pattern but with your own extension data as shown
+above.
+
 If you frequently create new files and copy/paste this section remember to update the component name and copyright notice. Also, the code sniffer requires a blank line before a doc block.
 
 ### Namespace and defined check
 
-Following the copyright notice every php file must have a line containing defined('_JEXEC') or die; except that namespaced files must declare the namespace before any other php code, so before the defined check. Namespaced php files are those containing component php classes in the src folder or its sub-folders.
+Following the copyright notice every php file must have a line containing `defined('_JEXEC') or die`; except that namespaced files must declare the namespace before any other php code, so before the defined check. Namespaced php files are those containing component php classes in the src folder or its sub-folders.
 
 ```php
 namespace Cefjemos\Component\Countrybase\Site\Controller;
@@ -102,7 +108,7 @@ The `defined` check prevents a php file from being executed by calling it direct
 
 The `defined` check is wrapped in `phpcs:disable` and `phpcs:enable` to allow a violation of the PSR12 coding standard.
 
-Combined with the namespace declared in the countrybase.xml manifest file, Joomla will look for any class declared in the current file in root/components/com_countrybase/src/Controller - in this case appending the name of this file, DisplayController.php
+Combined with the namespace declared in the `countrybase.xml` manifest file, Joomla will look for any class declared in the current file in `root/components/com_countrybase/src/Controller` - in this case appending the name of this file, DisplayController.php
 
 ### use Statements
 
@@ -112,6 +118,8 @@ The use statements usually follow the defined check and are often listed in alph
     use Joomla\CMS\Router\Route;
     use Joomla\CMS\Session\Session;
 ```
+
+In the IDE they appear in pale grey.
 
 ### Controller Class
 
@@ -178,26 +186,26 @@ This is fairly standard for a site view, apart from the filterForm and activeFil
 ```php
     public function display($tpl = null)
     {
-        $this->state      = $this->get('State');
-        $this->items      = $this->get('Items');
-        $this->pagination = $this->get('Pagination');
-        $this->filterForm    = $this->get('FilterForm');
-        $this->activeFilters = $this->get('ActiveFilters');
+        $model = $this->getModel();
+        $model->setUseExceptions(true);
 
-        // Flag indicates to not add limitstart=0 to URL
-        $this->pagination->hideEmptyLimitstart = true;
+        try {
+            $this->state      = $model->getState();
+            $this->items      = $model->getItems();
+            $this->pagination = $model->getPagination();
+            $this->filterForm    = $model->getFilterForm();
+            $this->activeFilters = $model->getActiveFilters();
 
-        // Check for errors.
-        if (count($errors = $this->get('Errors')))
-        {
-            throw new GenericDataException(implode("\n", $errors), 500);
+        } catch (\Exception $e) {
+            throw new GenericDataException($e->getMessage(), 500, $e);
         }
 
         parent::display($tpl);
     }
 ```
 
-The statements of the form `$this->get('Xxxx')` cause Joomla to look in `CountriesModel.php` for a function named `getXxxx()` and return any data produced by that code for storage and use in the view. Often the function is in the CountriesModel parent. For example the getItems function is not present in CountriesModel.php but is present in the ListModel that it extends.
+The statements of the form `$model->getXxxx()` obtain data 
+from the model for use in the view. Often a function is in the CountriesModel parent. For example the getItems function is not present in CountriesModel.php but is present in the ListModel that it extends.
 
 In summary the view class retrieves data from the model and then calls its parent class to display the data.
 
@@ -322,7 +330,7 @@ This is where the query is created to extract data from the database. It require
     }
 ```
 
-Explanation
+Explanation:
 
 - **getQuery(true)** gets a new empty query object.
 - **\$query-\>select()** adds a SELECT statement. There can be multiple select statements - Joomla concatenates them.
@@ -334,7 +342,7 @@ Explanation
 
 ## tmpl/countries/default.php
 
-This is the part of the code where the html content is created. For the list of countries a table is needed with a heading row and one row for data on each country. As there are 250 countries a pagination mechanism is needed to display a subset of countries a few at a time. That requires a form. And in this case a standard Joomla **searchtools** bar is useful. This is it:
+This is the part of the code where the HTML content is created. For the list of countries a table is needed with a heading row and one row for data on each country. As there are 250 countries a pagination mechanism is needed to display a subset of countries a few at a time. That requires a form. And in this case a standard Joomla **searchtools** bar is useful. This is it:
 
 ```php
 <?php
@@ -422,7 +430,7 @@ Points to note:
 - **\$this-\>pagination-\>getListFooter()** fetches the html code for the pagination widget.
 - **task** this hidden field is filled out by javascript when the form is submitted.
 - **boxchecked** this hidden field is used when one or more row checkboxes are selected for batch operation. Not really needed here!
-- **HTMLHelper::\_('form.token');** gets the code for a form token used as a security device for form submissions involving data submission.
+- **HTMLHelper::\_('form.token');** gets the code for a form token used as a security device for form submissions.
 
 ## tmpl/countries/default.xml
 

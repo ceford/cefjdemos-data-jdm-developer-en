@@ -14,14 +14,16 @@ cefjdemos-com-countrybase
             |-- countrybase.html (this is a Help screen used in the backend module edit form)
         |-- language
             |-- en-GB (language folder, kept with the extension code)
-                |-- mod_downmsg.ini
-                |-- mod_downmsg.sys.ini
+                |-- com_countrybase.ini
+                |-- com_countrybase.sys.ini
         |-- services (folder for dependency injection)
             |-- provider.php (the DI code)
         |-- sql
             |-- updates
                 |-- mysql
                     |-- index.html (an empty file required to avoid an installation error if there are no sql updates)
+            |--install.mysql.sql
+            |--uninstall.mysql.sql
         |-- src (folder for namespaced classes)
             |-- more folders: Controller, Extension, Helper, Model, Table and View
         |-- tmpl (folder for layouts)
@@ -31,6 +33,7 @@ cefjdemos-com-countrybase
     |-- media
         |-- css (placeholder for CSS files - contains an empty index.html file)
         |-- js (placeholder for JavaScript files - contains an empty index.html file)
+        |-- joomla.asset.json - used to install css and js files
     |-- site (the site files, abbreviated here)
         |-- forms
         |-- language
@@ -46,7 +49,7 @@ cefjdemos-com-countrybase
 |-- updates.xml (update server specification)
 ```
 
-This is the structure in the VSCodium IDE:
+This is the structure as seen in the VSCodium IDE:
 
 ![Vscodium file structure view](../../../en/images/mvc-anatomy/com-countrybase-vscodium.png)
 
