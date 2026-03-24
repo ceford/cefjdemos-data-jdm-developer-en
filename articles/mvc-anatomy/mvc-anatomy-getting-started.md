@@ -6,7 +6,9 @@
 
 This series of articles has been revised to remove most code deprecated for
 Joomla 6 and 7. This is mostly concerned with error handling that is described
-in a [separate article](jdocmanual?article=developer/developer-information/errorhandling).
+in a [separate article](jdocmanual?article=developer/developer-information/errorhandling). 
+
+The files for the com_countrybase component are available from GitHub. You can download and install the [ZIP](https://github.com/ceford/cefjdemos-com-countrybase/archive/refs/heads/main.zip) file or save and unzip it to examine it in your IDE.
 </div>
 
 Joomla components follow the Model, View, Controller approach, or MVC for short. The Model is supposed to handle loading and storing of data. The View is supposed to handle display of data. And the Controller is supposed to handle program flow, the interaction between the component Model and View code.
@@ -30,7 +32,7 @@ There is a lot of data about countries available from all sorts of sources in al
 
 The data are based on ISO 3166 Country Codes but some very well-known countries are not included, for example England, Scotland and Wales. You do not need to worry about this. The tables are provided with the com_countrybase component.
 
-The files for the com_countrybase component are available from GitHub. You can download a [ZIP](https://github.com/ceford/j4xdemos-com-countrybase/archive/refs/heads/master.zip) file and install it to see it working in the Administrator menu. Create a menu item if you wish to see it working in your Site template. Also, unpack the zip file in your project file space, not in your test web-site tree, to examine the component file structure and file content with your favourite IDE or text edit tool.
+The files for the com_countrybase component are available from GitHub. You can download a ZIP file and install it to see it working in the Administrator menu. Create a menu item if you wish to see it working in your Site template. Also, unpack the zip file in your project file space, not in your test web-site tree, to examine the component file structure and file content with your favourite IDE or text edit tool.
 
 ## Screenshots
 
