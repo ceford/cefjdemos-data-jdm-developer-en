@@ -38,7 +38,7 @@ cefjdemos-plg-toc
 
 This is the structure as seen in the VSCode or VSCodium IDE:
 
-![Plugin development file structure in vscodium](../../../en/images/plugins/cefjdemostoc-vscodium.png)
+![Plugin development file structure in vscodium](../../../en/images/plugin-development/content-toc/01-file-structure-in-vscodium.png)
 
 ## The Manifest File
 
@@ -238,4 +238,4 @@ The `default.php` code above shows how to include a custom style sheet for the p
 
 ## Result
 
-![The resulting table of contents](../../../en/images/plugins/cefjdemostoc-result.png)
+![The resulting table of contents](../../../en/images/plugin-development/content-toc/02-result-table-of-contents.png)

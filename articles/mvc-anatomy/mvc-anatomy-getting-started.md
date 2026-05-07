@@ -38,8 +38,8 @@ The files for the com_countrybase component are available from GitHub. You can d
 
 This Administrator list of Countries has five items to minimise image size. Joomla normally displays 20 items.
 
-![List of countries in admin view](../../../en/images/mvc-anatomy/com-countrybase-countries.png)
+![List of countries in admin view](../../../en/images/mvc-anatomy/mvc-anatomy-getting-started/01-admin-list-of-countries.png)
 
 The site display has been set to 5 items also:
 
-![List of countries in site view](../../../en/images/mvc-anatomy/com-countrybase-countries-site.png)
+![List of countries in site view](../../../en/images/mvc-anatomy/mvc-anatomy-getting-started/02-site-list-of-countries.png)

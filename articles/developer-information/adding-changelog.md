@@ -4,7 +4,7 @@ Since Joomla 4.0, extension developers can leverage the ability of Joomla to rea
 
 The changes in a release will be presented in this manner:
 
-![changelog modal view](../../../en/images/developer-information/adding-changelog-example-1.png)
+![changelog modal view](../../../en/images/developer-information/adding-changelog/01-changelog-modal-view.png)
 
 The changelog is used in two different places.
 
@@ -12,7 +12,7 @@ The changelog is used in two different places.
 
 The installer will show the changelog of the version that can be installed if available.
 
-![changelog installer view](../../../en/images/developer-information/adding-changelog-update-view.png)
+![changelog installer view](../../../en/images/developer-information/adding-changelog/02-changelog-installer-view.png)
 
 Clicking the Changelog button here will show the changelog of the new available version.
 
@@ -20,7 +20,7 @@ Clicking the Changelog button here will show the changelog of the new available 
 
 The extension manager will show the changelog of the currently installed extension if available.
 
-![changelog installer view](../../../en/images/developer-information/adding-changelog-extension-view.png)
+![changelog extension view](../../../en/images/developer-information/adding-changelog/03-changelog-extension-view.png)
 
 Clicking the version number here will show the changelog of the current installed version.
 

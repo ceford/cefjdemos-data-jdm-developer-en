@@ -42,7 +42,7 @@ Let us assume you have installed everything except Eclipse.
 
 There is a workflow described in [My first pull request to Joomla! on Github](https://docs.joomla.org/My_first_pull_request_to_Joomla!_on_Github)  that I cannot praise too highly. It shows exactly what you need to do:
 
-![Github work flow](../../../en/images/getting-started/core-work-flow-joomla.png)
+![Github work flow](../../../en/images/getting-started/setting-up-eclipse/01-github-work-flow.png)
 
 Steps
 

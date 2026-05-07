@@ -231,5 +231,5 @@ HTMLHelper::_('behavior.keepalive');
 
 You can cycle through form fieldsets and fields within each fieldset. That can simplify output of complex forms with many tabs.
 
-![country edit form](../../../en/images/mvc-anatomy/com-countrybase-edit-country.png)
+![country edit form](../../../en/images/mvc-anatomy/mvc-anatomy-administrator-edit-files/01-country-edit-form.png)
 

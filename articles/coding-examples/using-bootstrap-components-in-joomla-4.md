@@ -295,7 +295,7 @@ Alerts may be used in html code without JavaScript support. This is only needed 
 
 Example result of including a module in an article:
 
-![Bootstrap alert](../../../en/images/coding-examples/coding-examples-alert.png)
+![Bootstrap alert](../../../en/images/coding-examples/bootstrap-components/01-bootstrap-alert.png)
 
 Note that without JavaScript support, the alert will appear exactly as above but a click on the close button \[X\] will not dismiss the alert. Also, the alert will appear on every page load.
 
@@ -323,7 +323,7 @@ With this style in the template user.css:
     }
 ```
 
-![Bootstrap buttons](../../../en/images/coding-examples/coding-examples-buttons.png)
+![Bootstrap buttons](../../../en/images/coding-examples/bootstrap-components/02-bootstrap-buttons.png)
 
 The buttons toggle between blue and green.
 
@@ -369,7 +369,7 @@ The Carousel offers a slide show cycling through a series of images or text pane
 
 Result:
 
-![Bootstrap carousel](../../../en/images/coding-examples/coding-examples-carousel.jpg)
+![Bootstrap carousel](../../../en/images/coding-examples/bootstrap-components/03-bootstrap-carousel.png)
 
 ### Example 4: Collapse
 
@@ -391,7 +391,7 @@ Collapse is widely used in Joomla and you may not need to use a module or plugin
 
 Result:
 
-![Bootstrap collapse](../../../en/images/coding-examples/coding-examples-collapse.png)
+![Bootstrap collapse](../../../en/images/coding-examples/bootstrap-components/04-bootstrap-collapse.png)
 
 ### Example 5: Dropdown
 
@@ -412,7 +412,7 @@ Dropdowns are toggleable, contextual overlays for displaying lists of links and 
 
 Result:
 
-![Bootstrap dropdown](../../../en/images/coding-examples/coding-examples-dropdown.png)
+![Bootstrap dropdown](../../../en/images/coding-examples/bootstrap-components/05-bootstrap-dropdown.png)
 
 ### Example 6: Modal
 
@@ -441,7 +441,7 @@ The Modal component opens a dialog box in the middle of the screen. There are qu
 
 Result:
 
-![Bootstrap modal](../../../en/images/coding-examples/coding-examples-modal.png)
+![Bootstrap modal](../../../en/images/coding-examples/bootstrap-components/06-bootstrap-modal.png)
 
 ### Example 7: Offcanvas
 
@@ -457,7 +457,7 @@ Popovers are like Tooltips but with a Title. They have some accessibility and pe
 
 Result:
 
-![Bootstrap alert](../../../en/images/coding-examples/coding-examples-popover.png)
+![Bootstrap popover](../../../en/images/coding-examples/bootstrap-components/08-bootstrap-popover.png)
 
 ### Example 9: Scrollspy
 
@@ -504,7 +504,7 @@ Example code:
 
 Result:
 
-![Bootstrap scrollspy](../../../en/images/coding-examples/coding-examples-scrollspy.png)
+![Bootstrap scrollspy](../../../en/images/coding-examples/bootstrap-components/09-bootstrap-scrollspy.png)
 
 Also, some styling is needed in user.css:
 
@@ -540,7 +540,7 @@ Tabs are often used as navigation elements combined with dropdowns. Bootstrap ex
 
 Result:
 
-![Bootstrap tab](../../../en/images/coding-examples/coding-examples-tab.png)
+![Bootstrap tab](../../../en/images/coding-examples/bootstrap-components/10-bootstrap-tab.png)
 
 Remember to check both the Tab and Dropdown options for the dropdown part to work.
 
@@ -561,7 +561,7 @@ Toasts are lightweight notifications designed to mimic the push notifications th
 
 Result:
 
-![Bootstrap toast](../../../en/images/coding-examples/coding-examples-toast.png)
+![Bootstrap toast](../../../en/images/coding-examples/bootstrap-components/11-bootstrap-toast.png)
 
 Note that the Bootstrap demo that uses a button to show the Toast message needs some extra JavaScript. It seems this component needs a coder to make good use of it!
 
@@ -581,7 +581,7 @@ A tooltip is a small piece of text that appears on hover over a button or link e
 
 Result:
 
-![Bootstrap tooltip](../../../en/images/coding-examples/coding-examples-tooltip.png)
+![Bootstrap tooltip](../../../en/images/coding-examples/bootstrap-components/12-bootstrap-tooltip.png)
 
 ## Approach 2: Using a Content Plugin
 
@@ -713,7 +713,7 @@ This code searches for class names set in mod_custom and makes the HTMLHelper ca
 - Create a Single Article menu item.
 - Test it:
 
-![Bootstrap modal module in article](../../../en/images/coding-examples/coding-examples-modal-module.png)
+![Bootstrap modal module in article](../../../en/images/coding-examples/bootstrap-components/13-bootstrap-modal-module-in-article.png)
 
 ### A Modal Component Containing a Carousel
 
@@ -783,4 +783,4 @@ This code searches for class names set in mod_custom and makes the HTMLHelper ca
 - Create a new single article menu item: Demo Modal Carousel
 - Test it:
 
-![Bootstrap modal carousel](../../../en/images/coding-examples/coding-examples-modal-carousel.png)
+![Bootstrap modal carousel](../../../en/images/coding-examples/bootstrap-components/14-bootstrap-modal-carousel.png)

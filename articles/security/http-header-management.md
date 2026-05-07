@@ -10,7 +10,7 @@ Joomla 4 introduced an HTTP Header system designed to help site owners configure
 
 Navigate to **System → Plugins → System - HTTP Headers** to access the plugin configuration form.
 
-![System http headers plugin form](../../../en/images/security/security-http-headers-plugin.png)
+![System http headers plugin form](../../../en/images/security/http-header-management/01-system-http-headers-plugin-form.png)
 
 - **X-Frame Options** This is enabled by default but the [documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options) says that is deprecated and a *frame-ancestors* policy should be used instead.
 - **Referrer-Policy** The default is *strict-origin-when-cross-origin*.
@@ -35,7 +35,7 @@ Using the **Force HTTP Headers** subform you can also force the following header
 
 ### Strict-Transport-Security (HSTS) tab
 
-![strict transport security settings](../../../en/images/security/security-http-headers-hsts.png)
+![strict transport security settings](../../../en/images/security/http-header-management/02-strict-transport-security-settings.png)
 
 Use the *Toggle Inline Help* button for information on each parameter. Illustrated reference:
 
@@ -43,7 +43,7 @@ Use the *Toggle Inline Help* button for information on each parameter. Illustrat
 
 ### Content-Security-Policy (CSP) tab
 
-![Content security policy options](../../../en/images/security/security-http-headers-csp.png)
+![Content security policy options](../../../en/images/security/http-header-management/03-content-security-policy-options.png)
 
 Once enabled you can set the client where you want to enforce the configured CSP, allowing you to set set `site`, `administrator` or `both`. A CSP should be applied to both frontend and backend. Illustrated references:
 

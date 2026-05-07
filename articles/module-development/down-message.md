@@ -51,7 +51,7 @@ cefjdemos-plg-toc
 
 This is the structure as seen in the VSCode or VSCodium IDE:
 
-![Plugin development file structure in vscodium](../../../en/images/modules/downmsg-module-vscodium.png)
+![Plugin development file structure in vscodium](../../../en/images/modules/down-message/01-files-in-vscodium.png)
 
 ## The Manifest File
 
@@ -362,21 +362,21 @@ In the right hand common parameters list
 4.  Nn the **Menu Assignment** tab select **On all pages**.
 5.  **Save** and you are ready to check the Site appearance.
 
-![the module edit form](../../../en/images/modules/downmsg-module-edit-form.png)
+![the module edit form](../../../en/images/modules/down-message/02-module-edit-form.png)
 
 ## Testing
 
 This is how the message appears in English:
 
-![site down message in english](../../../en/images/modules/downmsg-module-result-en.png)
+![site down message in english](../../../en/images/modules/down-message/03-module-result-en.png)
 
 In German:
 
-![site down message in english](../../../en/images/modules/downmsg-module-result-de.png)
+![site down message in german](../../../en/images/modules/down-message/04-module-result-de.png)
 
 And French:
 
-![site down message in english](../../../en/images/modules/downmsg-module-result-fr.png)
+![site down message in french](../../../en/images/modules/down-message/05-module-result-fr.png)
 
 ## Update Site and Change Log
 

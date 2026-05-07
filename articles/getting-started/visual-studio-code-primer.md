@@ -105,7 +105,7 @@ In Joomla's Global Configuration, set *Debug System* to *Yes* and *Error Reporti
 
 When you open a page containing the buggy module you will see a stack trace telling you where an error was triggered.
 
-![Stack trace](../../../en/images/getting-started/vscode-primer-stack-trace.png)
+![Stack trace](../../../en/images/getting-started/vscode-primer/01-stack-trace.png)
 
 Sometimes the coding error is on the first line of the stack trace. Otherwise, if the error is triggered in library code, for example by passing invalid data to a database function, the coding error may be further down the list of function calls.
 
@@ -113,7 +113,7 @@ Sometimes the coding error is on the first line of the stack trace. Otherwise, i
 
 In VS Code, use the File / Open Folder menu item to locate and open the folder containing your local copy of the *mod_debugme* extension code. You should see something similar to the following:
 
-![VS Code screen](../../../en/images/getting-started/vscode-primer-screen.png)
+![VS Code screen](../../../en/images/getting-started/vscode-primer/02-vscode-screen.png)
 
 You may be able to diagnose the problem just by reading the code. In the case of the *Class "DebugHelper" not found* error you will see that a *use* statement has been commented out a few lines previously. Forgetting to insert a *use* statement is a common error during initial development!
 
@@ -275,7 +275,7 @@ A few not so obvious problems:
 
 When all is fixed this is what you might see:
 
-![Site view of debugged module working](../../../en/images/getting-started/vscode-primer-debugme-fixed.png)
+![Site view of debugged module working](../../../en/images/getting-started/vscode-primer/03-debugme-fixed.png)
 
 Cake days?
 

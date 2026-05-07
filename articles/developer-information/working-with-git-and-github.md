@@ -48,7 +48,7 @@ On GitHub you can find projects in so called Repositories. Inside a project you 
 
 On your test computer you are going to use the **4.2-dev** branch. However, you cannot modify this branch because you are not its owner. You need to make a copy of it. On GitHub this is called a Fork. You are the owner of that copy so you can modify it. After modifying your fork you can make a Pull Request for the changes you've made. More about that later. You can Fork a branch by pressing the Fork button in the [Joomla! CMS Github Repository](https://github.com/joomla/joomla-cms). This button is located at the right top of the page.
 
-![Fork joomla in github](../../../en/images/getting-started/core-git-fork-joomla.png)
+![Fork joomla in github](../../../en/images/getting-started/working-with-git-and-github/01-fork-joomla-in-github.png)
 
 After forking, you need to install Joomla! on your local computer. Go to the folder were you can place files used by your Web server. Many programs use a folder called `htdocs`. Some use `www` and some use other folders entirely. It all depends on whether you are using Windows, Mac or Linux. Eventually, your web root will contain different folders for different web sites. Once you are inside your web root folder. Either, in an open Terminal window use the cd command to change the current directory to the web root. Or, in you file explorer GUI, find root web root folder, press the right mouse button and click on: "Git Bash Here" or "Open Terminal" or something similar.
 

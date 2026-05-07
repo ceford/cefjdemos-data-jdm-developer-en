@@ -31,7 +31,7 @@ cefjdemos-plg-finder-jdocmanual
 
 In VSCodium it looks like this:
 
-![Plugin development file structure in vscodium](../../../en/images/plugins/jdocmanual-vscodium.png)
+![Plugin development file structure in vscodium](../../../en/images/plugin-development/smart-search/01-files-in-vscodium.png)
 
 ## Customise the Code
 
@@ -132,6 +132,6 @@ From the **Content / Site Modules** select **New** and install a new **Smart Sea
 
 Eventually, your custom smart search plugin should work. This is an example results page for Jdocmanual that searches for a term in this page. The result page omits the search form from the title bar because it is present in the page body.
 
-![Smart search result](../../../en/images/plugins/jdocmanual-search-result.png)
+![Smart search result](../../../en/images/plugin-development/smart-search/02-smart-search-result.png)
 
 An aside: the System - Joomla Accessibility Checker plugin shows there are 3 errors related to the *Search Terms* data entry form. That needs a core fix or override.

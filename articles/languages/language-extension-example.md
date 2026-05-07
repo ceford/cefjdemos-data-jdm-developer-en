@@ -627,7 +627,7 @@ GitHub allows you to create a website for your repositories. There are two main 
 - Select `gh-pages` from the list of branches.
 - Select the `Save` button.
 
-![github project page creation](../../../en/images/languages/github-project-page.png)
+![github project page creation](../../../en/images/languages/language-extension-example/01-github-project-page.png)
 
 This will populate the project page using data from the gh-pages branch in the project repository. After saving the link will be visible in the page.
 
@@ -635,7 +635,7 @@ This will populate the project page using data from the gh-pages branch in the p
 
 Although this extension is not destined for the Joomla Extensions Directory, the JED Checker is an invaluable development tool. This is what it reports:
 
-![JED Checker Screenshot](../../../en/images/languages/jed-check-gaelic.png)
+![JED Checker Screenshot](../../../en/images/languages/language-extension-example/02-jed-check-gaelic.png)
 
 The XML Manifest errors appear to be a JED Checker bug that has been reported. It says:
 
@@ -650,6 +650,6 @@ If you would like to try out Scottish Gaelic you can obtain the link to the curr
 
 The following screenshot shows the Home Dashboard with Scottish Gaelic as the Administrator language:
 
-![Home dashboard in Gaelic](../../../en/images/languages/home-dashboard-gaelic.png)
+![Home dashboard in Gaelic](../../../en/images/languages/language-extension-example/03-home-dashboard-gaelic.png)
 
 You may notice that some words are in English! They are the module headings that were entered in English. The modules could be edited and the module titles changed to the default language.

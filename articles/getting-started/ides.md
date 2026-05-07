@@ -31,4 +31,4 @@ PhpStorm is a commercial product favoured by professional developers. Available 
 
 ### Eclipse PDT
 
-[Eclipse PHP Development Tools](https://eclipse.dev/pdt/) is free and good but its development has lagged a little.
+[Eclipse PHP Development Tools](https://eclipse.dev/pdt/) is free but old and its development has lagged. It is no longer recommended for Joomla development work.
