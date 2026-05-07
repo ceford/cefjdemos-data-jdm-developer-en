@@ -1,0 +1,15 @@
+{
+    "api-guides" : "API Guides",
+    "cli-development" : "CLI Development",
+    "coding-examples" : "Coding Examples",
+    "core-contributions" : "Core Contributions",
+    "developer-information" : "General Concepts",
+    "getting-started" : "Getting Started",
+    "ides" : "IDEs",
+    "languages" : "Languages",
+    "module-development" : "Module Development",
+    "mvc-anatomy" : "MVC Anatomy",
+    "plugin-development" : "Plugin Development",
+    "security" : "Security",
+    "testing" : "Testing"
+}

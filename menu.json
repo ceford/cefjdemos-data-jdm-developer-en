@@ -1,0 +1,67 @@
+{
+    "getting-started" : {
+        "preface.md" : "Preface",
+        "developer-required-software.md" : "Required Software",
+        "databases.md" : "Database Setup",
+        "install-joomla.md" : "Install Joomla!",
+        "developer-file-structure.md" : "Example File Structure",
+        "ides" : {
+            "ides.md" : "IDEs",
+            "visual-studio-code-primer.md" : "Visual Studio Code"
+        }
+    },
+    "developer-information" : {
+        "working-with-git-and-github.md" : "Working with Git and GitHub",
+        "setting-up-your-local-environment.md" : "Setting Up a Local Environment",
+        "adding-changelog.md" : "Adding a Changelog",
+        "joomla-codesniffer.md" : "Coding Standards",
+        "dependency-injection.md" : "Dependency Injection",
+        "manifest-files.md" : "Manifest Files",
+        "namespaces.md" : "Namespaces",
+        "deploying-an-update-server.md" : "Update Servers",
+        "web-assets.md" : "Web Assets",
+        "errorhandling.md" : "Error Handling",
+        "api-guides" : {
+            "api-guides.md" : "API Guides",
+            "joomla-core-apis.md" : "Joomla Core APIs"
+        }
+    },
+    "languages" : {
+        "about-languages.md" : "About Languages",
+        "language-extension-example.md" : "Language Extension Example",
+        "translate-openai.md" : "File Translation Example"
+    },
+    "plugin-development" : {
+        "about-plugins.md" : "About Plugins",
+        "smart-search.md" : "Smart Search",
+        "content-toc.md" : "Table of Contents",
+        "cloud-file-systems-for-media-manager.md" : "Cloud File Systems for Media Manager"
+    },
+    "module-development" : {
+        "down-message.md" : "Site Down Message"
+    },
+    "mvc-anatomy" : {
+        "mvc-anatomy-getting-started.md" : "Getting Started",
+        "mvc-anatomy-file-structure.md" : "File Structure",
+        "mvc-anatomy-manifest-file.md" : "Manifest File",
+        "mvc-anatomy-site-files.md" : "Site Files",
+        "mvc-anatomy-administrator-startup-files.md" : "Startup Files",
+        "mvc-anatomy-administrator-edit-files.md" : "Administrator Edit Files"
+    },
+    "cli-development" : {
+        "cli-example-onoffbydate.md" : "CLI example - Onoffbydate"
+    },
+    "coding-examples" : {
+        "form-validation.md" : "Form Validation",
+        "tips-and-tricks-for-joomla-4-developers.md" : "Tips and Tricks",
+        "using-bootstrap-components-in-joomla-4.md" : "Using Bootstrap Components",
+        "how-to-use-the-date-class.md" : "How to use the Date class"
+    },
+    "testing" : {
+        "automated-system-testing.md" : "Automated System Testing",
+        "testing-css-and-javascript.md" : "Testing CSS and JavaScript"
+    },
+    "security" : {
+        "http-header-management.md" : "HTTP Headers"
+    }
+}
