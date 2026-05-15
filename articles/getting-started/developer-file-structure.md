@@ -1,6 +1,11 @@
-<!-- Filename: J4.x:Developer:_File_Structure / Display title: Example File Structure -->
-
-## Introduction
+<!--
+{
+  "source": "https://docs.joomla.org/J4.x:Developer:_File_Structure",
+  "title": "Example File Structure ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 As an individual starting out with some Joomla extension development work on a personal computer, laptop or desktop, you need to set up a suitable file structure for your extension code. The location of your Joomla site is predefined by your operating system and Apache installation. The location of the code you create is up to you.
 

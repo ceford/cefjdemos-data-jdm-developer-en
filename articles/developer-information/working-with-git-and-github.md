@@ -1,4 +1,11 @@
-<!-- Filename: Working_with_git_and_github / Display title: Working with git and github -->
+<!--
+{
+  "source": "https://docs.joomla.org/Working_with_git_and_github",
+  "title": "Working with git and github ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Introduction
 
@@ -22,7 +29,7 @@ If you're not an advanced user, just run the installer and press the "next" butt
 
 With Git installed, open a Terminal application. Start by setting your Git name and email address. Git will use this information when you contribute to a project:
 
-```sh
+```
     git config --global user.name "Your name"
     git config --global user.email youremail@mail.com
 ```
@@ -48,7 +55,7 @@ On GitHub you can find projects in so called Repositories. Inside a project you 
 
 On your test computer you are going to use the **4.2-dev** branch. However, you cannot modify this branch because you are not its owner. You need to make a copy of it. On GitHub this is called a Fork. You are the owner of that copy so you can modify it. After modifying your fork you can make a Pull Request for the changes you've made. More about that later. You can Fork a branch by pressing the Fork button in the [Joomla! CMS Github Repository](https://github.com/joomla/joomla-cms). This button is located at the right top of the page.
 
-![Fork joomla in github](../../../en/images/getting-started/working-with-git-and-github/01-fork-joomla-in-github.png)
+![Fork joomla in github](../../../en/images/developer-information/working-with-git-and-github/01-fork-joomla-in-github.png)
 
 After forking, you need to install Joomla! on your local computer. Go to the folder were you can place files used by your Web server. Many programs use a folder called `htdocs`. Some use `www` and some use other folders entirely. It all depends on whether you are using Windows, Mac or Linux. Eventually, your web root will contain different folders for different web sites. Once you are inside your web root folder. Either, in an open Terminal window use the cd command to change the current directory to the web root. Or, in you file explorer GUI, find root web root folder, press the right mouse button and click on: "Git Bash Here" or "Open Terminal" or something similar.
 
@@ -57,13 +64,13 @@ type the following command to download the files from your Fork of the
 Joomla! CMS to your computer. Please replace *username* with the
 username you are using on GitHub.
 
-```sh
+```
     git clone https://github.com/username/joomla-cms.git
 ```
 
 The clone process may take quite a while. When complete your web root will contain a folder named joomla-cms. You need to make that folder the current folder to run git commands for that folder:
 
-```sh
+```
     cd joomla-cms
 ```
 
@@ -90,25 +97,25 @@ You can set up VSCode to accomplish all of the following commands with a few cli
 
 So the first command you are going to run will create a new branch. Replace name-new-branch with the name of the new branch. This name must be short, and can only contain lower case letters and numbers. Do **NOT** use spaces. Instead of spaces, use - (minus).
 
-```sh
+```
     git checkout -b name-new-branch
 ```
 
 The next command tells git that all changes are ready to commit.
 
-```sh
+```
     git add --all
 ```
 
 The following command adds your change to the branch. Please replace the message with a short description of your changes. This description will be the title of the pull request you are going to make.
 
-```sh
+```
     git commit -m "description"
 ```
 
 The final command will push (upload) the changes to your fork. Please replace name-new-branch with the name of the branch you made a few steps above.
 
-```sh
+```
     git push origin name-new-branch
 ```
 
@@ -118,7 +125,7 @@ After pushing your change to GitHub, go to your fork of the Joomla! CMS on the G
 
 When finished, in your local clone, switch back to the original branch:
 
-```sh
+```
 git checkout 4.2-dev
 ```
 
@@ -128,18 +135,18 @@ You can now make new changes without affecting the the changes in your previous 
 
 Because the current version of Joomla! can change every day, it is important to keep your fork up-to-date. You can do that by adding the original Joomla repository to your forked project:
 
-```sh
+```
     git remote add upstream https://github.com/joomla/joomla-cms.git
 ```
 
 Then update your local clone with the following command:
 
-```sh
+```
     git pull upstream 4.2-dev
 ```
 
 And update your remote fork:
 
-```sh
+```
     git push
 ```

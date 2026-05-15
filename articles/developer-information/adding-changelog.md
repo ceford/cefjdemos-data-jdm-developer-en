@@ -1,4 +1,11 @@
-<!-- Filename: Adding_changelog_to_your_manifest_file / Display title: Adding a Changelog -->
+<!--
+{
+  "source": "https://docs.joomla.org/Adding_changelog_to_your_manifest_file",
+  "title": "Adding a Changelog ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 Since Joomla 4.0, extension developers can leverage the ability of Joomla to read a changelog file and give a visual representation of the changelog. If a given version is not found in the changelog, the changelog button will not be shown.
 

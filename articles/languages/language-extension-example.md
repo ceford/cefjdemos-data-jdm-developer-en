@@ -1,4 +1,11 @@
-<!-- Filename: J4.x:Developer:_Required_Software / Display title: Language Extension Example -->
+<!--
+{
+  "source": "https://docs.joomla.org/J4.x:Developer:_Required_Software",
+  "title": "Language Extension Example ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Introduction
 

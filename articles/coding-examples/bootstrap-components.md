@@ -1,4 +1,11 @@
-<!-- Filename: J4.x:Using_Bootstrap_Components_in_Joomla_4 / Display title: Using Bootstrap Components in Joomla 4 -->
+<!--
+{
+  "source": "https://docs.joomla.org/J4.x:Using_Bootstrap_Components_in_Joomla_4",
+  "title": "Using Bootstrap Components in Joomla",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Introduction
 
@@ -369,7 +376,7 @@ The Carousel offers a slide show cycling through a series of images or text pane
 
 Result:
 
-![Bootstrap carousel](../../../en/images/coding-examples/bootstrap-components/03-bootstrap-carousel.png)
+![Bootstrap carousel](../../../en/images/coding-examples/bootstrap-components/03-bootstrap-carousel.jpg)
 
 ### Example 4: Collapse
 

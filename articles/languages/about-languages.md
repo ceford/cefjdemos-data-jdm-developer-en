@@ -1,4 +1,11 @@
-<!-- Filename: J4.x:Developer:_Required_Software / Display title: About Languages -->
+<!--
+{
+  "source": "https://docs.joomla.org/J4.x:Developer:_Required_Software",
+  "title": "About Languages ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Language Packs
 

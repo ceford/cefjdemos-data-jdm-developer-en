@@ -1,4 +1,11 @@
-<!-- Filename: Creating_a_Smart_Search_plug-in / Display title: Example: Smart Search -->
+<!--
+{
+  "source": "https://docs.joomla.org/Creating_a_Smart_Search_plug-in",
+  "title": "Example: Smart Search ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Introduction
 

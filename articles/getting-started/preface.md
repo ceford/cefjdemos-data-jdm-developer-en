@@ -1,4 +1,11 @@
-<!-- Filename: Preface / Display title: Preface -->
+<!--
+{
+  "source": "https://docs.joomla.org/Preface",
+  "title": "Preface ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## About This Manual
 

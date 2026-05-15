@@ -1,4 +1,11 @@
-<!-- Filename: J4.x:MVC_Anatomy:_File_Structure / Display title: MVC Anatomy: File Structure -->
+<!--
+{
+  "source": "https://docs.joomla.org/J4.x:MVC_Anatomy:_File_Structure",
+  "title": "MVC Anatomy: File Structure ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Developer Setup
 

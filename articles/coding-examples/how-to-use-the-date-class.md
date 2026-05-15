@@ -1,4 +1,11 @@
-<!-- Filename: How_to_use_JDate / Display title: How to use the Date class -->
+<!--
+{
+  "source": "https://docs.joomla.org/How_to_use_JDate",
+  "title": "How to use the Date class ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Introduction
 Joomla's Date class is a helper class, extended from PHP's DateTime class, which allows developers to handle date formatting more efficiently. The class allows developers to format dates for readable strings, MySQL interaction, UNIX timestamp calculation, and also provides helper methods for working in different time zones.

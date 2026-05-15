@@ -1,4 +1,11 @@
-<!-- Filename: errorhandling / Display title: Error Handling -->
+<!--
+{
+  "source": "https://docs.joomla.org/errorhandling",
+  "title": "Error Handling ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Error handling in Joomla 6.0 and onwards
 

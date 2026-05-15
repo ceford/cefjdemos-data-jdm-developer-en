@@ -14,17 +14,13 @@
         "working-with-git-and-github.md" : "Working with Git and GitHub",
         "setting-up-your-local-environment.md" : "Setting Up a Local Environment",
         "adding-changelog.md" : "Adding a Changelog",
-        "joomla-codesniffer.md" : "Coding Standards",
+        "coding-standards.md" : "Coding Standards",
         "dependency-injection.md" : "Dependency Injection",
         "manifest-files.md" : "Manifest Files",
         "namespaces.md" : "Namespaces",
         "deploying-an-update-server.md" : "Update Servers",
         "web-assets.md" : "Web Assets",
-        "errorhandling.md" : "Error Handling",
-        "api-guides" : {
-            "api-guides.md" : "API Guides",
-            "joomla-core-apis.md" : "Joomla Core APIs"
-        }
+        "errorhandling.md" : "Error Handling"
     },
     "languages" : {
         "about-languages.md" : "About Languages",
@@ -54,7 +50,7 @@
     "coding-examples" : {
         "form-validation.md" : "Form Validation",
         "tips-and-tricks-for-joomla-4-developers.md" : "Tips and Tricks",
-        "using-bootstrap-components-in-joomla-4.md" : "Using Bootstrap Components",
+        "bootstrap-components.md" : "Bootstrap Components",
         "how-to-use-the-date-class.md" : "How to use the Date class"
     },
     "testing" : {
@@ -63,5 +59,9 @@
     },
     "security" : {
         "http-header-management.md" : "HTTP Headers"
+    },
+    "reference" : {
+        "api-guides.md" : "API Guides",
+        "joomla-core-apis.md" : "Joomla Core APIs"
     }
 }

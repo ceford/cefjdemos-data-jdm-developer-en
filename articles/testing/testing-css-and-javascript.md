@@ -1,4 +1,11 @@
-<!-- Filename: J4.x:SCSS_and_Sass / Display title: Testing CSS and JavaScript -->
+<!--
+{
+  "source": "https://docs.joomla.org/J4.x:SCSS_and_Sass",
+  "title": "Testing CSS and JavaScript ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Introduction
 

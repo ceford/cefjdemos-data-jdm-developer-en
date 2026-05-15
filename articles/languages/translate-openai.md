@@ -1,4 +1,11 @@
-<!-- Filename: J4.x:Developer:_Required_Software / Display title: .ini File Translation Example -->
+<!--
+{
+  "source": "https://docs.joomla.org/J4.x:Developer:_Required_Software",
+  "title": ".ini File Translation Example ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Introduction
 

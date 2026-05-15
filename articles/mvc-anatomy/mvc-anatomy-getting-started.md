@@ -1,4 +1,11 @@
-<!-- Filename: J4.x:MVC_Anatomy:_Getting_Started / Display title: MVC Anatomy: Getting Started -->
+<!--
+{
+  "source": "https://docs.joomla.org/J4.x:MVC_Anatomy:_Getting_Started",
+  "title": "MVC Anatomy: Getting Started ",
+  "description": "", 
+  "author": ""
+}
+-->
 
 ## Introduction
 
