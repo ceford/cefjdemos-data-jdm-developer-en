@@ -1,15 +1,15 @@
 <!--
 {
-  "source": "https://docs.joomla.org/errorhandling",
+  "source": "https://manual.joomla.org/migrations/54-60/errorhandling/",
   "title": "Error Handling ",
   "description": "", 
-  "author": ""
+  "author": "Hannes Papenberg"
 }
 -->
 
 ## Error handling in Joomla 6.0 and onwards
 
-> This is a copy of an article from the Migrations section of the
+> This is a copy of an article by Hannes Papenberg from the Migrations section of the
 [Joomla! Programmers Documentation](https://manual.joomla.org/migrations/54-60/errorhandling/). It will be here until a more complete version appears in the main section of that source.
 
 ## Introduction

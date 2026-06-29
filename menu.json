@@ -20,7 +20,8 @@
         "namespaces.md" : "Namespaces",
         "deploying-an-update-server.md" : "Update Servers",
         "web-assets.md" : "Web Assets",
-        "errorhandling.md" : "Error Handling"
+        "errorhandling.md" : "Error Handling",
+        "code-check-with-phpstan.md" : "Code Check with PHPStan"
     },
     "languages" : {
         "about-languages.md" : "About Languages",

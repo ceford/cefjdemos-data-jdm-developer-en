@@ -48,6 +48,38 @@ npm run build:js¶
 
 The commands crawl the media and templates directories and build the final file versions required by a Joomla installation.
 
+From Joomla Version 6.2 the commands above are replaced by the following:
+
+```
+# build all
+npm run build -- -a
+
+# build only com_content assets
+npm run build -- -n com_content
+
+# build only admin template
+npm run build -- -n templates/administrator/atum
+
+# build only styles of the admin template
+npm run build -- -n templates/administrator/atum -t css
+
+# watch on asset
+npm run watch -- -n com_content
+
+npm run watch -- -n templates/administrator/atum
+
+# watch on few assets
+npm run watch -- -n com_content,com_categories
+
+# List all available builders
+npm run builders-list
+```
+
+See the following for more details:
+
+- [Pull 46879](https://github.com/joomla/joomla-cms/pull/46879)
+- [media_source/README.md](https://github.com/Fedik/joomla-cms/blob/0ab21e20a64f3b174ad3cd305677a16e8ee57a17/media_source/README.md)
+
 ## Sass, SCSS and CSS
 
 > Sass is a stylesheet language that’s compiled to CSS. It allows you to use variables, nested rules, mixins, functions, and more, all with a fully CSS-compatible syntax. Sass helps keep large stylesheets well-organized and makes it easy to share design within and across projects. Sass files have the suffix `scss`.
