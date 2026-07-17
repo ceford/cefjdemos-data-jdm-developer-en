@@ -63,25 +63,19 @@ The installation of Joomla from a repository clone used two commands:
 
 Node.js comes with a package manager called NPM that has a `run` command. Some scripts are available to make the build process quicker if only CSS or JavaScript files have been changed.
 
-### npm run build:css
+### npm run build:css (up to Joomla 6.1)
 
 This command compiles SASS files to CSS and also creates the minified files.
 
-### npm run build:js
+### nnpm run build:js (up to Joomla 6.1)
 
 This command compiles and transpiles the JavaScript files to the correct format and creates minified files.
 
-### npm run watch
+### From Joomla 6.2 use the following commands:
 
-This command is the same as the `build:js` command but will watch for changes and automatically build updated files in the media directory. SASS files are not included yet.
-
-### npm run lint:js
-
-This command performs a syntax check on all ES6 JavaScript files against the JavaScript code standard. For more information see the [Joomla coding standards manual](https://developer.joomla.org/coding-standards/introduction.html).
-
-### npm run test
-
-This comman will run a JavaScript testing suite.
+- npm run build -- -n to rebuild a specific extension
+- run npm run builders-list to find the extension name
+- npm run build -- --all to rebuild everything
 
 ## Possible Issues
 
